@@ -1,883 +1,1079 @@
 <!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>🔬 Medical Investigation: Digestive System</title>
-
+<html lang="pt-br" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profª Dra. Sônia Trannin de Mello - Anatomia Humana</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&amp;family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
   <style>
-    body { box-sizing: border-box; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html, body{
-      width: 100%;
-      height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0d1729 100%);
-      color: #e0e7ff;
-      overflow: hidden;
-    }
-
-    body{ display: flex; flex-direction: column; }
-
-    .bg-anim{
-      position: fixed; inset: 0;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .bg-blob{
-      position: absolute;
-      opacity: 0.1;
-      border-radius: 50%;
-      animation: float 15s ease-in-out infinite;
-    }
-
-    .blob-1{
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, #06b6d4, #0ea5e9);
-      top: -10%; left: -5%;
-      animation-delay: 0s;
-    }
-
-    .blob-2{
-      width: 350px; height: 350px;
-      background: radial-gradient(circle, #8b5cf6, #6366f1);
-      bottom: -10%; right: -5%;
-      animation-delay: 5s;
-      animation-duration: 20s;
-    }
-
-    .blob-3{
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, #ec4899, #f43f5e);
-      top: 50%; right: 10%;
-      animation-delay: 10s;
-      animation-duration: 25s;
-    }
-
-    @keyframes float{
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      25% { transform: translate(30px, -50px) scale(1.1); }
-      50% { transform: translate(-20px, 20px) scale(0.9); }
-      75% { transform: translate(50px, 50px) scale(1.05); }
-    }
-
-    .app-wrapper{
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    header{
-      background: rgba(10, 14, 39, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid rgba(34, 211, 238, 0.3);
-      padding: 1rem 1.5rem;
-      position: relative;
-      z-index: 100;
-    }
-
-    .header-content{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    h1{
-      font-size: 1.8rem;
-      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 900;
-      margin: 0;
-      min-width: 300px;
-    }
-
-    .subtitle{
-      color: rgba(224, 231, 255, 0.7);
-      font-size: 0.95rem;
-      flex: 1;
-    }
-
-    .stats{
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .stat-box{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .stat-label{
-      font-size: 0.75rem;
-      color: rgba(224, 231, 255, 0.6);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .stat-value{
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: #22d3ee;
-      text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
-    }
-
-    .main-content{
-      flex: 1;
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 1.5rem;
-      padding: 1.5rem;
-      overflow-y: auto;
-    }
-
-    @media (max-width: 1024px){
-      .main-content{ grid-template-columns: 1fr; }
-      .sidebar{ grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 768px){
-      header{ padding: 1rem; }
-      .header-content{ flex-direction: column; gap: 1rem; }
-      h1{ font-size: 1.3rem; min-width: unset; }
-      .stats{ width: 100%; justify-content: space-around; gap: 1rem; }
-      .main-content{ grid-template-columns: 1fr; padding: 1rem; }
-      .sidebar{ grid-template-columns: 1fr; }
-    }
-
-    .card{
-      background: rgba(30, 41, 59, 0.6);
-      border: 2px solid rgba(34, 211, 238, 0.2);
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
-      overflow: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      height: fit-content;
-    }
-
-    .card:hover{
-      border-color: rgba(34, 211, 238, 0.5);
-      box-shadow: 0 15px 50px rgba(34, 211, 238, 0.2);
-      transform: translateY(-5px);
-    }
-
-    .card-header{
-      background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(34, 211, 238, 0.05));
-      border-bottom: 2px solid rgba(34, 211, 238, 0.2);
-      padding: 1.2rem;
-    }
-
-    .card-title{
-      font-size: 1.3rem;
-      font-weight: 900;
-      color: #22d3ee;
-      margin-bottom: 0.2rem;
-    }
-
-    .card-subtitle{
-      color: rgba(224, 231, 255, 0.6);
-      font-size: 0.85rem;
-    }
-
-    .card-body{
-      padding: 1.5rem;
-      flex: 1;
-      overflow-y: auto;
-    }
-
-    .image-container{
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 2px solid rgba(34, 211, 238, 0.3);
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(34, 211, 238, 0.1));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.2rem;
-      position: relative;
-      animation: shimmer 2s ease-in-out infinite;
-    }
-
-    @keyframes shimmer{
-      0%, 100% { border-color: rgba(34, 211, 238, 0.3); }
-      50% { border-color: rgba(34, 211, 238, 0.6); }
-    }
-
-    .image-container img{
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 1rem;
-    }
-
-    .question-text{
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #e0e7ff;
-      margin-bottom: 1.2rem;
-      line-height: 1.5;
-    }
-
-    .options-grid{
-      display: grid;
-      gap: 0.8rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .option-btn{
-      padding: 1rem 1.2rem;
-      border: 2px solid rgba(34, 211, 238, 0.3);
-      background: rgba(30, 41, 59, 0.5);
-      color: #e0e7ff;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: left;
-      backdrop-filter: blur(5px);
-    }
-
-    .option-btn:hover:not(:disabled){
-      background: rgba(34, 211, 238, 0.2);
-      border-color: rgba(34, 211, 238, 0.6);
-      transform: translateX(6px);
-    }
-
-    .option-btn:disabled{ opacity: 0.6; cursor: not-allowed; }
-
-    .option-btn.correct{
-      background: rgba(34, 197, 94, 0.3);
-      border-color: rgba(34, 197, 94, 0.8);
-      color: #86efac;
-    }
-
-    .option-btn.incorrect{
-      background: rgba(239, 68, 68, 0.3);
-      border-color: rgba(239, 68, 68, 0.8);
-      color: #fca5a5;
-    }
-
-    .feedback-box{
-      display: none;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      font-size: 0.95rem;
-      animation: slideDown 0.3s ease;
-    }
-
-    @keyframes slideDown{
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .feedback-box.show{ display: block; }
-
-    .feedback-box.success{
-      background: rgba(34, 197, 94, 0.2);
-      border: 2px solid rgba(34, 197, 94, 0.6);
-      color: #86efac;
-    }
-
-    .feedback-box.error{
-      background: rgba(239, 68, 68, 0.2);
-      border: 2px solid rgba(239, 68, 68, 0.6);
-      color: #fca5a5;
-    }
-
-    .button-group{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.8rem;
-    }
-
-    .btn{
-      padding: 0.8rem 1rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-    }
-
-    .btn-primary{
-      background: linear-gradient(135deg, #22d3ee, #06b6d4);
-      color: #0a0e27;
-      box-shadow: 0 8px 20px rgba(34, 211, 238, 0.3);
-    }
-
-    .btn-primary:hover:not(:disabled){
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(34, 211, 238, 0.5);
-    }
-
-    .btn-secondary{
-      background: rgba(107, 114, 128, 0.4);
-      color: #e0e7ff;
-      border: 2px solid rgba(107, 114, 128, 0.6);
-    }
-
-    .btn-secondary:hover:not(:disabled){
-      background: rgba(107, 114, 128, 0.6);
-      transform: translateY(-2px);
-    }
-
-    .btn-danger{
-      background: rgba(239, 68, 68, 0.3);
-      color: #fca5a5;
-      border: 2px solid rgba(239, 68, 68, 0.6);
-    }
-
-    .btn-danger:hover:not(:disabled){
-      background: rgba(239, 68, 68, 0.5);
-      transform: translateY(-2px);
-    }
-
-    .btn:disabled{ opacity: 0.5; cursor: not-allowed; }
-
-    .sidebar{
-      display: grid;
-      gap: 1.2rem;
-      align-content: start;
-    }
-
-    .section-card{
-      background: rgba(30, 41, 59, 0.6);
-      border: 2px solid rgba(34, 211, 238, 0.2);
-      border-radius: 12px;
-      padding: 1.2rem;
-      backdrop-filter: blur(10px);
-    }
-
-    .section-title{
-      color: rgba(224, 231, 255, 0.7);
-      font-size: 0.8rem;
-      margin-bottom: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-
-    .progress-bar{
-      width: 100%;
-      height: 10px;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 999px;
-      overflow: hidden;
-      border: 1px solid rgba(34, 211, 238, 0.2);
-      margin-bottom: 0.8rem;
-    }
-
-    .progress-fill{
-      height: 100%;
-      background: linear-gradient(90deg, #22d3ee, #06b6d4);
-      width: 0%;
-      transition: width 0.5s ease;
-      box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
-    }
-
-    .progress-text{
-      text-align: center;
-      color: rgba(224, 231, 255, 0.7);
-      font-size: 0.8rem;
-    }
-
-    .code-box{
-      background: rgba(0, 0, 0, 0.4);
-      border: 2px solid rgba(34, 211, 238, 0.4);
-      border-radius: 8px;
-      padding: 1rem;
-      font-family: 'Courier New', monospace;
-      font-size: 1.1rem;
-      font-weight: 900;
-      color: #a78bfa;
-      text-align: center;
-      letter-spacing: 2px;
-      margin-bottom: 0.8rem;
-      text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
-    }
-
-    .questions-list{
-      display: grid;
-      gap: 0.8rem;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-
-    .question-item{
-      background: rgba(0, 0, 0, 0.3);
-      border: 2px solid rgba(34, 211, 238, 0.2);
-      border-radius: 8px;
-      padding: 0.8rem;
-      font-size: 0.8rem;
-      transition: all 0.3s ease;
-    }
-
-    .question-item-number{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      background: rgba(34, 211, 238, 0.3);
-      border-radius: 50%;
-      font-weight: 900;
-      color: #22d3ee;
-      margin-right: 0.5rem;
-    }
-
-    .question-item-title{
-      color: #e0e7ff;
-      font-weight: 700;
-    }
-
-    .completion-badge{
-      display: none;
-      background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(34, 197, 94, 0.1));
-      border: 2px solid rgba(34, 197, 94, 0.8);
-      border-radius: 12px;
-      padding: 1.2rem;
-      text-align: center;
-    }
-
-    .completion-badge.show{ display: block; }
-
-    .completion-badge h3{
-      font-size: 1.2rem;
-      color: #86efac;
-      margin-bottom: 0.5rem;
-    }
-
-    .completion-badge p{
-      color: rgba(224, 231, 255, 0.8);
-      font-size: 0.85rem;
-    }
-  </style>
-
-  <!-- (opcional) só mantenha se você realmente usa -->
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #1e293b;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00d2ff, #9d50bb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: #00d2ff;
+            -webkit-text-fill-color: #00d2ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #00d2ff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #00d2ff, #9d50bb);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #00d2ff, #9d50bb);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #2d3a52 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.1), transparent);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(45deg, #00d2ff, #9d50bb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .institution {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 40px;
+        }
+
+        /* ===== CONTENT SECTIONS ===== */
+        .course-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            color: #00d2ff;
+            font-size: 2.2rem;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .course-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid #00d2ff;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 210, 255, 0.2);
+            border-left-color: #9d50bb;
+        }
+
+        .course-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+
+        .course-card p {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 210, 255, 0.2);
+            color: #0369a1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            color: #475569;
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00d2ff;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d2ff, #9d50bb);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
+        }
+
+        /* ===== RESEARCH CARDS EXPANDIBLE ===== */
+        .research-card {
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(0, 210, 255, 0.02));
+            border-left: 4px solid #00d2ff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .research-card:hover {
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .research-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .research-card-header h4 {
+            color: #0f172a;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+        }
+
+        .research-card-header i {
+            transition: transform 0.3s ease;
+        }
+
+        .research-card.active .research-card-header i {
+            transform: rotate(180deg);
+        }
+
+        .research-content {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 210, 255, 0.2);
+            animation: slideDown 0.4s ease;
+        }
+
+        .research-content.show {
+            display: block;
+        }
+
+        .research-content h5 {
+            color: #0369a1;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .research-content p, .research-content ul {
+            color: #475569;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .research-content ul {
+            margin-left: 20px;
+        }
+
+        .research-content ul li {
+            margin-bottom: 10px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 50px 20px 30px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #00d2ff;
+        }
+
+        .footer-section p, .footer-section a {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #00d2ff;
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(0, 210, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00d2ff;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #00d2ff;
+            color: #0f172a;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            opacity: 0.8;
+        }
+
+        /* ===== FLOATING CHATBOT ===== */
+        #chatbot-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00d2ff, #9d50bb);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 210, 255, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(0, 210, 255, 0.6);
+        }
+
+        #chatbot-window {
+            position: absolute;
+            bottom: 100px;
+            right: 0;
+            width: 400px;
+            height: 600px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #chatbot-window.open {
+            display: flex;
+        }
+
+        #chatbot-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #chatbot-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            background: linear-gradient(45deg, #00d2ff, #9d50bb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        #chatbot-header p {
+            margin: 5px 0 0;
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        #close-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+        }
+
+        #close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        #chatbot-box {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #fafafa;
+        }
+
+        #chatbot-box::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #chatbot-box::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        #chatbot-box::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        #chatbot-input {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            gap: 10px;
+        }
+
+        #chatbot-user-input {
+            flex-grow: 1;
+            border: 1px solid #cbd5e1;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        #chatbot-user-input:focus {
+            border-color: #00d2ff;
+            box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.1);
+        }
+
+        #chatbot-input button {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        #chatbot-input button:hover {
+            transform: translateY(-2px);
+        }
+
+        .msg {
+            padding: 12px 15px;
+            border-radius: 10px;
+            word-wrap: break-word;
+            animation: msgSlide 0.3s ease;
+        }
+
+        @keyframes msgSlide {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg.user {
+            background: #0f172a;
+            color: white;
+            align-self: flex-end;
+            max-width: 80%;
+            border-bottom-right-radius: 2px;
+        }
+
+        .msg.bot {
+            background: #e2e8f0;
+            color: #1e293b;
+            align-self: flex-start;
+            max-width: 90%;
+            border-bottom-left-radius: 2px;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .menu-btn {
+            background: linear-gradient(135deg, #00d2ff, #9d50bb);
+            color: white;
+            border: none;
+            padding: 10px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .menu-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #chatbot-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            #chatbot-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+
+            #chatbot-window {
+                width: 90vw;
+                height: 70vh;
+                max-width: 350px;
+                max-height: 500px;
+            }
+        }
+    </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
-</head>
-
-<body>
-  <div class="bg-anim">
-    <div class="bg-blob blob-1"></div>
-    <div class="bg-blob blob-2"></div>
-    <div class="bg-blob blob-3"></div>
-  </div>
-
-  <div class="app-wrapper">
-    <header>
-      <div class="header-content">
-        <h1>🧬 ESCAPE GAME — SISTEMA DIGESTÓRIO</h1>
-        <p class="subtitle">10 fases de desafio. Acerte as perguntas e decodifique o segredo final.</p>
-        <div class="stats">
-          <div class="stat-box">
-            <div class="stat-label">Fase Atual</div>
-            <div class="stat-value" id="phaseDisplay">1/10</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-label">Acertos</div>
-            <div class="stat-value" id="hitsDisplay">0</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-label">Status</div>
-            <div class="stat-value" id="statusDisplay">▶ Pronto</div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <div class="main-content">
-      <section class="card">
-        <div class="card-header">
-          <div class="card-title" id="phaseTitle">Fase 1</div>
-          <div class="card-subtitle" id="phaseDesc">Retroperitônio secundário</div>
-        </div>
-
-        <div class="card-body">
-          <div class="image-container">
-            <img id="qImg" alt="Imagem da questão" loading="lazy"
-              onerror="console.error('Imagem não carregada:', this.src); this.style.background='#e5e7eb'; this.alt='Imagem indisponível';">
-          </div>
-
-          <div class="question-text" id="questionText">
-            Qual dos órgãos abaixo é considerado secundariamente retroperitoneal?
-          </div>
-
-          <div class="options-grid" id="optionsContainer"></div>
-
-          <div class="feedback-box" id="feedbackBox"></div>
-
-          <div class="button-group">
-            <button class="btn btn-secondary" id="retryBtn">↻ Tentar</button>
-            <button class="btn btn-primary" id="nextBtn">Próxima →</button>
-            <button class="btn btn-danger" id="resetBtn">Reiniciar</button>
-          </div>
-        </div>
-      </section>
-
-      <div class="sidebar">
-        <div class="section-card">
-          <div class="section-title">📊 Progresso</div>
-          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-          <p class="progress-text"><span id="progressPercent">0</span>%</p>
-        </div>
-
-        <div class="section-card">
-          <div class="section-title">🔑 Código Final</div>
-          <div class="code-box" id="codeBox">— — — — — — — — — —</div>
-          <p style="color: rgba(224, 231, 255, 0.6); font-size: 0.8rem;">✨ Cada acerto libera um fragmento.</p>
-        </div>
-
-        <div class="completion-badge" id="completionBadge">
-          <h3>🎉 Missão Concluída!</h3>
-          <p>Parabéns! Você decodificou o segredo do sistema digestório!</p>
-        </div>
-
-        <div class="section-card">
-          <div class="section-title">📋 Perguntas</div>
-          <div class="questions-list" id="questionsList"></div>
-        </div>
-      </div>
+ </head>
+ <body><!-- ===== HEADER ===== -->
+  <header>
+   <div class="header-content">
+    <nav>
+     <ul class="nav-links">
+      <li><a href="#home">Início</a></li>
+      <li><a href="#ead">Educação a Distância</a></li>
+      <li><a href="#presencial">Educação Presencial</a></li>
+      <li><a href="#material-pos">Material Pós-Graduação</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><button class="contact-btn" onclick="scrollToContact()">Entre em Contato</button></li>
+     </ul>
+    </nav>
+   </div>
+  </header><!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+   <div class="hero-content">
+    <h1>Profª Dra. <span>Sônia Trannin de Mello</span></h1>
+    <p>Doutora em Ciências Morfológicas | Pesquisadora em Neuroplasticidade &amp; Saúde Reprodutiva</p>
+    <div class="institution"><i class="fas fa-map-marker-alt"></i> Universidade Estadual de Maringá (UEM) - Departamento de Ciências Morfológicas 
     </div>
+   </div>
+  </section><!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <div class="main-container"><!-- ===== EDUCAÇÃO A DISTÂNCIA ===== -->
+   <div class="course-section" id="ead">
+    <h2 class="section-title">Educação a Distância (EAD)</h2>
+    <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">Jogos e atividades educacionais</p><button class="btn-primary" onclick="toggleEscapeGame()" style="margin-bottom: 30px; display: flex; align-items: center; gap: 8px;"> <span id="toggle-text">Explorar Jogos Educacionais</span> </button>
+    <div id="escape-game-container" style="display: none; animation: slideDown 0.5s ease;">
+     <div class="course-grid"><!-- CARD 1: Escape Game -->
+      <div class="course-card"><span class="badge">Interativo</span>
+       <h3>Escape Game: Cardiorrespiratório</h3>
+       <p>10 questões pra você treinar seus conhecimentos!</p>
+       <ul class="feature-list">
+        <li>Escape room educacional</li>
+        <li>Desafios de anatomia</li>
+        <li>Ranking de tempos</li>
+        <li>Mapa interativo ao completar</li>
+       </ul><button class="btn-primary" onclick="window.location.href='https://pinheiro767.github.io/pagina/';"> Jogar Agora </button>
+      </div>
+     </div>
+    </div>
+   </div><!-- ===== EDUCAÇÃO PRESENCIAL ===== -->
+   <div class="course-section" id="presencial">
+    <h2 class="section-title">Educação Presencial</h2>
+    <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">Conteúdo referente às aulas e atividades presenciais será adicionado em breve.</p>
+   </div><!-- ===== MATERIAL PÓS-GRADUAÇÃO ===== -->
+   <div class="course-section" id="material-pos">
+    <h2 class="section-title">Material Pós-Graduação</h2>
+    <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">Materiais, disciplinas e recursos para estudantes de pós-graduação serão disponibilizados em breve.</p>
+   </div>
+  </div><!-- ===== FOOTER ===== -->
+  <footer id="contato">
+   <div class="footer-content">
+    <div class="footer-info">
+     <div class="footer-section">
+      <h3>Localização</h3>
+      <p>Bloco 6 - Departamento de Ciências Morfológicas<br>
+        Universidade Estadual de Maringá<br>
+        Campus Central - Maringá, PR</p>
+     </div>
+     <div class="footer-section">
+      <h3>Contato</h3>
+      <p>Email: stmello@uem.br<br>
+        Fone: (44) 3011-4708</p>
+     </div>
+     <div class="footer-section">
+      <h3>Áreas de Atuação</h3>
+      <p>Morfologia com ênfase em<br>
+        Anatomia Humana e Neuroanatomia</p>
+     </div>
+     <div class="footer-section">
+      <h3>Links Úteis</h3><a href="http://lattes.cnpq.br/" target="_blank" rel="noopener noreferrer">Currículo Lattes</a><br><a href="#">ResearchGate</a><br><a href="#">YouTube Lab</a>
+     </div>
+    </div>
+    <div class="social-links"><a href="#" title="Email"><i class="fas fa-envelope"></i></a> <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a> <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a> <a href="#" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+    </div>
+    <div class="footer-bottom">
+     <p>© 2026 Profª Dra. Sônia Trannin de Mello. Todos os direitos reservados.</p>
+    </div>
+   </div>
+  </footer><!-- ===== FLOATING CHATBOT ===== -->
+  <div id="chatbot-widget"><button id="chatbot-toggle" onclick="toggleChatbot()"> 💬 </button>
+   <div id="chatbot-window">
+    <div id="chatbot-header">
+     <div>
+      <h3>CurisoChat</h3>
+      <p>Assistente de Anatomia</p>
+     </div><button id="close-btn" onclick="toggleChatbot()"> ✕ </button>
+    </div>
+    <div id="chatbot-box">
+     <div class="msg bot">
+      Bem-vindo ao <b>CurisoChat</b>! 👋 Sou seu assistente de Anatomia Humana da Profª Dra. Sônia Trannin de Mello.<br><br>
+       Escolha um tema para explorarmos: 
+      <div class="menu-buttons"><button class="menu-btn" onclick="selectTopicChat('1')">1️⃣ Por que Estudar?</button> <button class="menu-btn" onclick="selectTopicChat('2')">2️⃣ Histórias &amp; Evolução</button> <button class="menu-btn" onclick="selectTopicChat('3')">3️⃣ Curiosidades</button> <button class="menu-btn" onclick="selectTopicChat('4')">4️⃣ Pesquisa</button> <button class="menu-btn" onclick="selectTopicChat('5')">5️⃣ Gamificação</button>
+      </div>
+     </div>
+    </div>
+    <div id="chatbot-input"><input type="text" id="chatbot-user-input" placeholder="Digite o número (1-5)..." autocomplete="off"> <button onclick="sendChatbotMessage()">→</button>
+    </div>
+   </div>
   </div>
-
   <script>
-    // ✅ CORRIGIDO: caminhos relativos (de acordo com seu print em assets/image/)
-    const QUESTIONS = [
-      {
-        id: "Fase 1 — Peritônio",
-        desc: "Retroperitônio secundário",
-        img: "./assets/image/q1_question_20260210_080350_0000.png",
-        q: "Qual dos órgãos abaixo é considerado secundariamente retroperitoneal?",
-        options: ["A) Estômago", "B) Baço", "C) Jejuno", "D) Duodeno (2ª–4ª porções)", "E) Cólon transverso"],
-        correctIndex: 3,
-        fragment: "D1",
-        explain: "O duodeno (2ª–4ª porções) é secundariamente retroperitoneal."
-      },
-      {
-        id: "Fase 2 — Segmentação hepática",
-        desc: "Segmentos anatômico-funcionais",
-        img: "./assets/image/q2_question_20260210_080635_0000.png",
-        q: "Os segmentos anatômico-funcionais do fígado são definidos principalmente com base:",
-        options: ["A) Na drenagem linfática", "B) Nos ligamentos peritoneais", "C) Na distribuição dos ramos da veia cava inferior", "D) Na divisão por veias hepáticas apenas", "E) Na ramificação portal (veia porta, artéria hepática e ductos biliares)"],
-        correctIndex: 4,
-        fragment: "E2",
-        explain: "A segmentação funcional segue a distribuição portal."
-      },
-      {
-        id: "Fase 3 — Intestino delgado",
-        desc: "Jejuno vs íleo",
-        img: "./assets/image/q3_question_20260210_080921_0000.png",
-        q: "Qual característica anatômica diferencia o jejuno do íleo?",
-        options: ["A) Maior quantidade de placas de Peyer no jejuno", "B) Paredes mais espessas e pregas circulares mais desenvolvidas no jejuno", "C) Mesentério mais rico em gordura no jejuno", "D) Menor vascularização no jejuno", "E) Ausência de arcadas arteriais no jejuno"],
-        correctIndex: 1,
-        fragment: "B3",
-        explain: "O jejuno tem parede mais espessa e pregas circulares mais desenvolvidas."
-      },
-      {
-        id: "Fase 4 — Retroperitônio primário",
-        desc: "Órgão primariamente retroperitoneal",
-        img: "./assets/image/q4_question_20260210_081233_0000.png",
-        q: "Órgão primariamente retroperitoneal:",
-        options: ["A) Estômago", "B) Baço", "C) Fígado", "D) Rins", "E) Jejuno"],
-        correctIndex: 3,
-        fragment: "D4",
-        explain: "Os rins são primariamente retroperitoneais."
-      },
-      {
-        id: "Fase 5 — Pregas circulares",
-        desc: "Pregas circulares",
-        img: "./assets/image/q5_question_20260210_081443_0000.png",
-        q: "As pregas circulares são mais desenvolvidas no:",
-        options: ["A) Íleo distal", "B) Duodeno proximal", "C) Jejuno", "D) Ceco", "E) Cólon transverso"],
-        correctIndex: 2,
-        fragment: "C5",
-        explain: "Pregas circulares mais desenvolvidas: jejuno."
-      },
-      {
-        id: "Fase 6 — Tênias cólicas",
-        desc: "Tênias cólicas",
-        img: "./assets/image/q6_question_20260210_081817_0000.png",
-        q: "As tênias cólicas estão presentes no:",
-        options: ["A) Jejuno", "B) Íleo", "C) Reto", "D) Cólon", "E) Duodeno"],
-        correctIndex: 3,
-        fragment: "D6",
-        explain: "Tênias cólicas: presentes no cólon."
-      },
-      {
-        id: "Fase 7 — Apêndice vermiforme",
-        desc: "Apêndice vermiforme",
-        img: "./assets/image/q7_question_20260210_082024_0000.png",
-        q: "O apêndice vermiforme origina-se do:",
-        options: ["A) Íleo", "B) Cólon ascendente", "C) Ceco", "D) Sigmoide", "E) Reto"],
-        correctIndex: 2,
-        fragment: "C7",
-        explain: "O apêndice se origina do ceco."
-      },
-      {
-        id: "Fase 8 — Drenagem no duodeno",
-        desc: "Drenagem no duodeno",
-        img: "./assets/image/q8_question_20260210_082235_0000.png",
-        q: "O que o duodeno recebe?",
-        options: ["A) Apenas suco pancreático", "B) Apenas bile", "C) Ducto cístico", "D) Colédoco + ducto pancreático principal", "E) Veia porta"],
-        correctIndex: 3,
-        fragment: "D8",
-        explain: "O duodeno recebe colédoco + ducto pancreático principal."
-      },
-      {
-        id: "Fase 9 — Fixação pelo mesentério",
-        desc: "Fixação pelo mesentério",
-        img: "./assets/image/q9_question_20260210_082954_0000.png",
-        q: "O mesentério fixa principalmente o:",
-        options: ["A) Duodeno", "B) Cólon descendente", "C) Jejuno e íleo", "D) Estômago", "E) Reto"],
-        correctIndex: 2,
-        fragment: "C9",
-        explain: "O mesentério fixa principalmente jejuno e íleo."
-      },
-      {
-        id: "Fase 10 — Flexura cólica esquerda",
-        desc: "Flexura cólica esquerda",
-        img: "./assets/image/q10_question_20260210_083917_0000.png",
-        q: "A flexura cólica esquerda relaciona-se superiormente com o:",
-        options: ["A) Fígado", "B) Baço", "C) Rim direito", "D) Pâncreas", "E) Estômago"],
-        correctIndex: 1,
-        fragment: "B0",
-        explain: "A flexura cólica esquerda (esplênica) relaciona-se com o baço."
-      }
-    ];
+    // ===== RESEARCH CARDS TOGGLE =====
+    function toggleResearch(card) {
+        const wasActive = card.classList.contains('active');
+        
+        document.querySelectorAll('.research-card').forEach(c => {
+            c.classList.remove('active');
+            c.querySelector('.research-content').classList.remove('show');
+        });
+        
+        if (!wasActive) {
+            card.classList.add('active');
+            card.querySelector('.research-content').classList.add('show');
+        }
+    }
 
-    let state = {
-      idx: 0,
-      hits: 0,
-      fragments: Array(QUESTIONS.length).fill(null),
-      locked: false,
-      answered: new Set()
+    // ===== CHATBOT FUNCTIONALITY =====
+    const chatResponses = {
+        main: {
+            "1": {
+                text: "<b>Por que estudar Anatomia?</b><br><br>A Anatomia é a <b>base de todas as profissões da saúde</b>. Sem conhecer a estrutura, é impossível entender a função ou tratar patologias.<br><br>Escolha:",
+                submenu: {
+                    "1.1": "1️⃣ Na Graduação",
+                    "1.2": "2️⃣ Na Pós-Graduação",
+                    "1.3": "3️⃣ No EAD"
+                }
+            },
+            "1.1": {
+                text: "<b>Anatomia na Graduação</b><br><br>Disciplina fundamental em Medicina, Enfermagem, Fisioterapia e Educação Física.",
+                submenu: {
+                    "1.1.1": "🔙 Voltar",
+                }
+            },
+            "1.2": {
+                text: "<b>Anatomia na Pós-Graduação</b><br><br>Estudo avançado com <b>Profª Sônia pesquisando neuroplasticidade e diabetes!</b>",
+                submenu: {
+                    "1.2.1": "🔙 Voltar",
+                }
+            },
+            "1.3": {
+                text: "<b>Anatomia no EAD</b><br><br>Apps, vídeos 360°, IA, Atlas3D. Estude no seu ritmo!",
+                submenu: {
+                    "1.3.1": "🔙 Voltar",
+                }
+            },
+            "2": {
+                text: "<b>Histórias & Evolução</b><br><br>Descubra como anatomia evoluiu ao longo dos séculos.",
+                submenu: {
+                    "2.1": "1️⃣ Antiguidade",
+                    "2.2": "2️⃣ Renascimento",
+                    "2.3": "3️⃣ Modernidade"
+                }
+            },
+            "2.1": {
+                text: "<b>Antiguidade</b><br><br><b>Hipócrates:</b> Pai da Medicina!<br><b>Galeno:</b> Anatomista romano.",
+                submenu: {
+                    "2.1.1": "🔙 Voltar",
+                }
+            },
+            "2.2": {
+                text: "<b>Renascimento</b><br><br><b>Leonardo da Vinci:</b> 600+ desenhos anatômicos!<br><b>Vesálio:</b> Revolucionou com dissecação.",
+                submenu: {
+                    "2.2.1": "🔙 Voltar",
+                }
+            },
+            "2.3": {
+                text: "<b>Modernidade</b><br><br><b>Harvey:</b> Provou circulação sanguínea.<br><b>Hoje:</b> RM, TC, IA transformam diagnóstico.",
+                submenu: {
+                    "2.3.1": "🔙 Voltar",
+                }
+            },
+            "3": {
+                text: "<b>Curiosidades Fascinantes</b><br><br>Escolha uma categoria:",
+                submenu: {
+                    "3.1": "1️⃣ Ossos",
+                    "3.2": "2️⃣ Cérebro",
+                    "3.3": "3️⃣ Músculos",
+                    "3.4": "4️⃣ Órgãos"
+                }
+            },
+            "3.1": {
+                text: "<b>Ossos & Esqueleto</b><br><br>✨ Nascemos com 270 ossos, adultos têm 206!<br>✨ Osso mais curto: estribo do ouvido (~3mm).",
+                submenu: {
+                    "3.1.1": "🔙 Voltar",
+                }
+            },
+            "3.2": {
+                text: "<b>Sistema Nervoso</b><br><br>✨ 86 BILHÕES de neurônios!<br>✨ Neuroplasticidade: cérebro se reorganiza!",
+                submenu: {
+                    "3.2.1": "🔙 Voltar",
+                }
+            },
+            "3.3": {
+                text: "<b>Músculos & Movimento</b><br><br>✨ ~643 músculos esqueléticos no corpo!<br>✨ Músculo mais forte: LÍNGUA!",
+                submenu: {
+                    "3.3.1": "🔙 Voltar",
+                }
+            },
+            "3.4": {
+                text: "<b>Órgãos Especiais</b><br><br>🫀 Coração bate 100.000 vezes/dia!<br>🫁 Pulmões: superfície de 70m²!",
+                submenu: {
+                    "3.4.1": "🔙 Voltar",
+                }
+            },
+            "4": {
+                text: "<b>Pesquisa & Estudos</b><br><br>Explore:",
+                submenu: {
+                    "4.1": "1️⃣ Metodologias",
+                    "4.2": "2️⃣ Marcos",
+                    "4.3": "3️⃣ Profª Sônia",
+                    "4.4": "4️⃣ Desafios"
+                }
+            },
+            "4.1": {
+                text: "<b>Metodologias</b><br><br>1️⃣ Dissecação<br>2️⃣ Imagenologia<br>3️⃣ Microscopia<br>4️⃣ IA & 3D",
+                submenu: {
+                    "4.1.1": "🔙 Voltar",
+                }
+            },
+            "4.2": {
+                text: "<b>Marcos Científicos</b><br><br>1628: Harvey & circulação<br>1952: RM inventada<br>2020s: IA em diagnósticos!",
+                submenu: {
+                    "4.2.1": "🔙 Voltar",
+                }
+            },
+            "4.3": {
+                text: "<b>Pesquisas da Profª Sônia</b><br><br>🧠 Neuroplasticidade<br>💊 Diabetes & neuropatia<br>🌙 Cronobiologia<br>👩 Saúde pública<br>🐛 Entomologia forense",
+                submenu: {
+                    "4.3.1": "🔙 Voltar",
+                }
+            },
+            "4.4": {
+                text: "<b>Desafios Modernos</b><br><br>VR vs. cadáveres reais<br>Ética em pesquisa<br>Inclusão no ensino",
+                submenu: {
+                    "4.4.1": "🔙 Voltar",
+                }
+            },
+            "5": {
+                text: "<b>Gamificação & Aprendizado</b><br><br>Por que aprender jogando funciona?",
+                submenu: {
+                    "5.1": "1️⃣ Neurociência",
+                    "5.2": "2️⃣ Pesquisas",
+                    "5.3": "3️⃣ Nossos Jogos"
+                }
+            },
+            "5.1": {
+                text: "<b>Neurociência da Gamificação</b><br><br>✨ Dopamina: química do prazer<br>✨ Emoção = memorização",
+                submenu: {
+                    "5.1.1": "🔙 Voltar",
+                }
+            },
+            "5.2": {
+                text: "<b>Pesquisas que Comprovam</b><br><br>📈 40% mais memorização<br>📈 85% retenção a longo prazo",
+                submenu: {
+                    "5.2.1": "��� Voltar",
+                }
+            },
+            "5.3": {
+                text: "<b>Nossos Jogos</b><br><br>📚 EAD: Pocket Anatomy, Atlas3D<br>🎮 Presencial: OsteoChallenge, NeuroMaze",
+                submenu: {
+                    "5.3.1": "🔙 Voltar",
+                }
+            }
+        }
     };
 
-    const elements = {
-      phaseTitle: document.getElementById('phaseTitle'),
-      phaseDesc: document.getElementById('phaseDesc'),
-      questionText: document.getElementById('questionText'),
-      optionsContainer: document.getElementById('optionsContainer'),
-      feedbackBox: document.getElementById('feedbackBox'),
-      qImg: document.getElementById('qImg'),
-      retryBtn: document.getElementById('retryBtn'),
-      nextBtn: document.getElementById('nextBtn'),
-      resetBtn: document.getElementById('resetBtn'),
-      progressFill: document.getElementById('progressFill'),
-      progressPercent: document.getElementById('progressPercent'),
-      codeBox: document.getElementById('codeBox'),
-      phaseDisplay: document.getElementById('phaseDisplay'),
-      hitsDisplay: document.getElementById('hitsDisplay'),
-      statusDisplay: document.getElementById('statusDisplay'),
-      completionBadge: document.getElementById('completionBadge'),
-      questionsList: document.getElementById('questionsList')
-    };
-
-    function updateUI(){
-      const q = QUESTIONS[state.idx];
-
-      elements.phaseTitle.textContent = q.id;
-      elements.phaseDesc.textContent = q.desc;
-      elements.questionText.textContent = q.q;
-      elements.qImg.src = q.img;
-
-      elements.phaseDisplay.textContent = `${state.idx + 1}/10`;
-      elements.hitsDisplay.textContent = state.hits;
-
-      const progress = Math.round(((state.idx + 1) / QUESTIONS.length) * 100);
-      elements.progressFill.style.width = progress + '%';
-      elements.progressPercent.textContent = progress;
-
-      elements.codeBox.textContent = state.fragments.map(f => f ?? '—').join(' ');
-
-      elements.optionsContainer.innerHTML = '';
-      q.options.forEach((opt, i) => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.textContent = opt;
-        btn.disabled = state.locked;
-        btn.onclick = () => answerQuestion(i);
-        elements.optionsContainer.appendChild(btn);
-      });
-
-      elements.feedbackBox.className = 'feedback-box';
-      elements.feedbackBox.textContent = '';
-
-      // ✅ Corrigido: "Tentar" só fica habilitado quando erra
-      elements.retryBtn.disabled = true;
-      elements.nextBtn.disabled = !state.answered.has(state.idx);
-
-      elements.nextBtn.textContent = (state.idx === QUESTIONS.length - 1) ? '✓ Concluído' : 'Próxima →';
-
-      elements.completionBadge.classList.remove('show');
-      if (state.idx === QUESTIONS.length - 1 && state.answered.has(state.idx) && state.hits === QUESTIONS.length){
-        elements.completionBadge.classList.add('show');
-        elements.statusDisplay.textContent = '🎉 Completo!';
-      }
-
-      renderQuestionsList();
-    }
-
-    function answerQuestion(chosenIdx){
-      if (state.locked) return;
-
-      state.locked = true;
-      const q = QUESTIONS[state.idx];
-      const isCorrect = chosenIdx === q.correctIndex;
-
-      const buttons = document.querySelectorAll('.option-btn');
-
-      if (!isCorrect){
-        buttons[chosenIdx].classList.add('incorrect');
-        elements.feedbackBox.classList.add('show', 'error');
-        elements.feedbackBox.textContent = '❌ Incorreto. Tente novamente!';
-        elements.statusDisplay.textContent = '✗ Errado';
-
-        // ✅ Tentar habilita quando erra
-        elements.retryBtn.disabled = false;
-        elements.nextBtn.disabled = true;
-      } else {
-        if (!state.fragments[state.idx]){
-          state.hits++;
-          state.fragments[state.idx] = q.fragment;
+    function toggleChatbot() {
+        const window = document.getElementById('chatbot-window');
+        window.classList.toggle('open');
+        if (window.classList.contains('open')) {
+            document.getElementById('chatbot-user-input').focus();
         }
-        state.answered.add(state.idx);
-
-        elements.feedbackBox.classList.add('show', 'success');
-        elements.feedbackBox.textContent = `✅ Correto! Fragmento: ${q.fragment} — ${q.explain}`;
-        elements.statusDisplay.textContent = '✓ Acerto';
-        elements.hitsDisplay.textContent = state.hits;
-        elements.codeBox.textContent = state.fragments.map(f => f ?? '—').join(' ');
-
-        elements.nextBtn.disabled = false;
-        elements.retryBtn.disabled = true;
-        updateProgress();
-      }
-
-      buttons[q.correctIndex].classList.add('correct');
-      buttons.forEach(btn => btn.disabled = true);
     }
 
-    function updateProgress(){
-      const progress = Math.round(((state.idx + 1) / QUESTIONS.length) * 100);
-      elements.progressFill.style.width = progress + '%';
-      elements.progressPercent.textContent = progress;
+    function selectTopicChat(topic) {
+        document.getElementById('chatbot-user-input').value = topic;
+        sendChatbotMessage();
     }
 
-    function retryQuestion(){
-      state.locked = false;
-      elements.feedbackBox.classList.remove('show');
-      elements.feedbackBox.className = 'feedback-box';
-      elements.optionsContainer.innerHTML = '';
+    function sendChatbotMessage() {
+        const text = document.getElementById('chatbot-user-input').value.trim();
+        if (!text) return;
 
-      const q = QUESTIONS[state.idx];
-      q.options.forEach((opt, i) => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.textContent = opt;
-        btn.onclick = () => answerQuestion(i);
-        elements.optionsContainer.appendChild(btn);
-      });
+        addChatMessage(text, 'user');
+        document.getElementById('chatbot-user-input').value = '';
 
-      elements.retryBtn.disabled = true;
-      elements.statusDisplay.textContent = '↻ Tente novamente';
+        setTimeout(() => {
+            let response = '';
+            let submenu = null;
+
+            if (chatResponses.main[text]) {
+                response = chatResponses.main[text].text;
+                submenu = chatResponses.main[text].submenu;
+            } else if (text === '0') {
+                response = "<b>Menu Principal</b><br><br>Escolha um tema:";
+                submenu = {
+                    "1": "1️⃣ Por que Estudar?",
+                    "2": "2️⃣ Histórias",
+                    "3": "3️⃣ Curiosidades",
+                    "4": "4️⃣ Pesquisa",
+                    "5": "5️⃣ Gamificação"
+                };
+            } else if (text.includes('🔙')) {
+                response = "<b>Menu Principal</b><br><br>Escolha um tema:";
+                submenu = {
+                    "1": "1️⃣ Por que Estudar?",
+                    "2": "2️⃣ Histórias",
+                    "3": "3️⃣ Curiosidades",
+                    "4": "4️⃣ Pesquisa",
+                    "5": "5️⃣ Gamificação"
+                };
+            } else {
+                response = "Desculpe, não entendi. Digite o número (1-5)!";
+            }
+
+            addChatMessage(response, 'bot');
+
+            if (submenu) {
+                setTimeout(() => {
+                    let menuHtml = '<div class="menu-buttons">';
+                    for (let key in submenu) {
+                        menuHtml += `<button class="menu-btn" onclick="selectTopicChat('${key}')">${submenu[key]}</button>`;
+                    }
+                    menuHtml += '</div>';
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = 'msg bot';
+                    msgDiv.innerHTML = menuHtml;
+                    document.getElementById('chatbot-box').appendChild(msgDiv);
+                    document.getElementById('chatbot-box').scrollTop = document.getElementById('chatbot-box').scrollHeight;
+                }, 300);
+            }
+        }, 400);
     }
 
-    function nextQuestion(){
-      if (state.idx < QUESTIONS.length - 1){
-        state.idx++;
-        state.locked = false;
-        updateUI();
-        elements.statusDisplay.textContent = '▶ Pronto';
-      }
-    }
-
-    function resetGame(){
-      state = {
-        idx: 0,
-        hits: 0,
-        fragments: Array(QUESTIONS.length).fill(null),
-        locked: false,
-        answered: new Set()
-      };
-      updateUI();
-      elements.statusDisplay.textContent = '↻ Recomeçado';
-    }
-
-    function renderQuestionsList(){
-      elements.questionsList.innerHTML = '';
-      QUESTIONS.forEach((q, idx) => {
-        if (!state.fragments[idx] && idx !== state.idx) return;
-
-        const item = document.createElement('div');
-        item.className = 'question-item';
-
-        if (idx === state.idx){
-          item.style.borderColor = 'rgba(34, 211, 238, 0.8)';
-          item.style.background = 'rgba(34, 211, 238, 0.15)';
+    function addChatMessage(text, side) {
+        const div = document.createElement('div');
+        div.className = `msg ${side}`;
+        if (side === 'bot') {
+            div.innerHTML = text;
+        } else {
+            div.textContent = text;
         }
-
-        const title = document.createElement('div');
-        title.style.display = 'flex';
-        title.style.alignItems = 'center';
-        title.style.gap = '0.5rem';
-
-        const num = document.createElement('span');
-        num.className = 'question-item-number';
-        num.textContent = idx + 1;
-
-        const titleText = document.createElement('span');
-        titleText.className = 'question-item-title';
-        titleText.textContent = q.id;
-
-        const status = document.createElement('span');
-        status.style.marginLeft = 'auto';
-        status.style.fontSize = '0.9rem';
-        status.style.color = state.fragments[idx] ? '#86efac' : 'rgba(224, 231, 255, 0.5)';
-        status.textContent = state.fragments[idx] ? '✅' : (idx === state.idx ? '▶' : '○');
-
-        title.appendChild(num);
-        title.appendChild(titleText);
-        title.appendChild(status);
-
-        item.appendChild(title);
-        elements.questionsList.appendChild(item);
-      });
+        document.getElementById('chatbot-box').appendChild(div);
+        document.getElementById('chatbot-box').scrollTop = document.getElementById('chatbot-box').scrollHeight;
     }
 
-    elements.retryBtn.addEventListener('click', retryQuestion);
-    elements.nextBtn.addEventListener('click', nextQuestion);
-    elements.resetBtn.addEventListener('click', resetGame);
+    document.getElementById('chatbot-user-input').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendChatbotMessage();
+    });
 
-    updateUI();
-  </script>
-</body>
-</html>
+    function scrollToContact() {
+        document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleEscapeGame() {
+        const container = document.getElementById('escape-game-container');
+        const btn = document.getElementById('toggle-text');
+        
+        if (container.style.display === 'none') {
+            container.style.display = 'block';
+            btn.textContent = 'Ocultar Jogos Educacionais';
+        } else {
+            container.style.display = 'none';
+            btn.textContent = 'Explorar Jogos Educacionais';
+        }
+    }
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cb86e0115cb23ac',t:'MTc3MDY5MzE5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+             </html>

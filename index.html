@@ -308,79 +308,6 @@
             box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
         }
 
-        /* ===== RESEARCH CARDS EXPANDIBLE ===== */
-        .research-card {
-            padding: 25px;
-            background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(0, 210, 255, 0.02));
-            border-left: 4px solid #00d2ff;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .research-card:hover {
-            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .research-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-        }
-
-        .research-card-header h4 {
-            color: #0f172a;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.3rem;
-        }
-
-        .research-card-header i {
-            transition: transform 0.3s ease;
-        }
-
-        .research-card.active .research-card-header i {
-            transform: rotate(180deg);
-        }
-
-        .research-content {
-            display: none;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(0, 210, 255, 0.2);
-            animation: slideDown 0.4s ease;
-        }
-
-        .research-content.show {
-            display: block;
-        }
-
-        .research-content h5 {
-            color: #0369a1;
-            margin-bottom: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .research-content p, .research-content ul {
-            color: #475569;
-            line-height: 1.8;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .research-content ul {
-            margin-left: 20px;
-        }
-
-        .research-content ul li {
-            margin-bottom: 10px;
-        }
-
         /* ===== FOOTER ===== */
         footer {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -729,22 +656,32 @@
     <div class="institution"><i class="fas fa-map-marker-alt"></i> Universidade Estadual de Maringá (UEM) - Departamento de Ciências Morfológicas 
     </div>
    </div>
-  </section><!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  </section><!-- ===== CONTEUDO PRINCIPAL ===== -->
   <div class="main-container"><!-- ===== EDUCAÇÃO A DISTÂNCIA ===== -->
    <div class="course-section" id="ead">
     <h2 class="section-title">Educação a Distância (EAD)</h2>
     <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">Jogos e atividades educacionais</p><button class="btn-primary" onclick="toggleEscapeGame()" style="margin-bottom: 30px; display: flex; align-items: center; gap: 8px;"> <span id="toggle-text">Explorar Jogos Educacionais</span> </button>
     <div id="escape-game-container" style="display: none; animation: slideDown 0.5s ease;">
-     <div class="course-grid"><!-- CARD 1: Escape Game -->
+     <div class="course-grid"><!-- CARD 1: Escape Game Cardiorrespiratório -->
       <div class="course-card"><span class="badge">Interativo</span>
        <h3>Escape Game: Cardiorrespiratório</h3>
-       <p>10 questões pra você treinar seus conhecimentos!</p>
+       <p>Desafio emocionante onde você explora o sistema cardiorrespiratório resolvendo enigmas, decifrando mistérios e descobrindo segredos do coração e pulmões!</p>
        <ul class="feature-list">
         <li>Escape room educacional</li>
         <li>Desafios de anatomia</li>
         <li>Ranking de tempos</li>
-        <li>Mapa interativo ao completar</li>
+        <li>Certificado ao completar</li>
        </ul><button class="btn-primary" onclick="window.location.href='https://pinheiro767.github.io/pagina/';"> Jogar Agora </button>
+      </div><!-- CARD 2: Escape Game Sistema Digestório -->
+      <div class="course-card"><span class="badge">10 Fases Rápidas</span>
+       <h3>Escape Game: Sistema Digestório</h3>
+       <p>Missão especial com 10 fases rápidas e emocionantes! Analise imagens, responda perguntas sobre o sistema digestório e decodifique fragmentos do código secreto. Complete todas as fases para desvendar o segredo e concluir a missão!</p>
+       <ul class="feature-list">
+        <li>10 fases progressivas</li>
+        <li>Análise de imagens</li>
+        <li>Fragmentos de código secreto</li>
+        <li>Decodificação final</li>
+       </ul><a href="https://pinheiro767.github.io/Digestive/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-block; text-decoration: none; text-align: center;"> Jogar Agora </a>
       </div>
      </div>
     </div>
@@ -800,7 +737,7 @@
      <div class="msg bot">
       Bem-vindo ao <b>CurisoChat</b>! 👋 Sou seu assistente de Anatomia Humana da Profª Dra. Sônia Trannin de Mello.<br><br>
        Escolha um tema para explorarmos: 
-      <div class="menu-buttons"><button class="menu-btn" onclick="selectTopicChat('1')">1️⃣ Por que Estudar?</button> <button class="menu-btn" onclick="selectTopicChat('2')">2️⃣ Histórias &amp; Evolução</button> <button class="menu-btn" onclick="selectTopicChat('3')">3️⃣ Curiosidades</button> <button class="menu-btn" onclick="selectTopicChat('4')">4️⃣ Pesquisa</button> <button class="menu-btn" onclick="selectTopicChat('5')">5️⃣ Gamificação</button>
+      <div class="menu-buttons"><button class="menu-btn" onclick="selectTopicChat('1')">1️⃣ Por que Estudar?</button> <button class="menu-btn" onclick="selectTopicChat('2')">2️⃣ Histórias e Evolução</button> <button class="menu-btn" onclick="selectTopicChat('3')">3️⃣ Curiosidades</button> <button class="menu-btn" onclick="selectTopicChat('4')">4️⃣ Pesquisa</button> <button class="menu-btn" onclick="selectTopicChat('5')">5️⃣ Gamificação</button>
       </div>
      </div>
     </div>
@@ -809,26 +746,10 @@
    </div>
   </div>
   <script>
-    // ===== RESEARCH CARDS TOGGLE =====
-    function toggleResearch(card) {
-        const wasActive = card.classList.contains('active');
-        
-        document.querySelectorAll('.research-card').forEach(c => {
-            c.classList.remove('active');
-            c.querySelector('.research-content').classList.remove('show');
-        });
-        
-        if (!wasActive) {
-            card.classList.add('active');
-            card.querySelector('.research-content').classList.add('show');
-        }
-    }
-
-    // ===== CHATBOT FUNCTIONALITY =====
     const chatResponses = {
         main: {
             "1": {
-                text: "<b>Por que estudar Anatomia?</b><br><br>A Anatomia é a <b>base de todas as profissões da saúde</b>. Sem conhecer a estrutura, é impossível entender a função ou tratar patologias.<br><br>Escolha:",
+                text: "<b>Por que estudar Anatomia?</b><br><br>A Anatomia é a <b>base de todas as profissões da saúde</b>. Sem conhecer a estrutura, é impossível entender a função ou tratar patologias.",
                 submenu: {
                     "1.1": "1️⃣ Na Graduação",
                     "1.2": "2️⃣ Na Pós-Graduação",
@@ -848,13 +769,13 @@
                 }
             },
             "1.3": {
-                text: "<b>Anatomia no EAD</b><br><br>Apps, vídeos 360°, IA, Atlas3D. Estude no seu ritmo!",
+                text: "<b>Anatomia no EAD</b><br><br>Apps, vídeos 360 graus, IA, Atlas3D. Estude no seu ritmo!",
                 submenu: {
                     "1.3.1": "🔙 Voltar",
                 }
             },
             "2": {
-                text: "<b>Histórias & Evolução</b><br><br>Descubra como anatomia evoluiu ao longo dos séculos.",
+                text: "<b>Histórias e Evolução</b><br><br>Descubra como anatomia evoluiu ao longo dos séculos.",
                 submenu: {
                     "2.1": "1️⃣ Antiguidade",
                     "2.2": "2️⃣ Renascimento",
@@ -889,31 +810,31 @@
                 }
             },
             "3.1": {
-                text: "<b>Ossos & Esqueleto</b><br><br>✨ Nascemos com 270 ossos, adultos têm 206!<br>✨ Osso mais curto: estribo do ouvido (~3mm).",
+                text: "<b>Ossos e Esqueleto</b><br><br>Nascemos com 270 ossos, adultos têm 206!<br>Osso mais curto: estribo do ouvido (3mm).",
                 submenu: {
                     "3.1.1": "🔙 Voltar",
                 }
             },
             "3.2": {
-                text: "<b>Sistema Nervoso</b><br><br>✨ 86 BILHÕES de neurônios!<br>✨ Neuroplasticidade: cérebro se reorganiza!",
+                text: "<b>Sistema Nervoso</b><br><br>86 BILHÕES de neurônios!<br>Neuroplasticidade: cérebro se reorganiza!",
                 submenu: {
                     "3.2.1": "🔙 Voltar",
                 }
             },
             "3.3": {
-                text: "<b>Músculos & Movimento</b><br><br>✨ ~643 músculos esqueléticos no corpo!<br>✨ Músculo mais forte: LÍNGUA!",
+                text: "<b>Músculos e Movimento</b><br><br>643 músculos esqueléticos no corpo!<br>Músculo mais forte: LÍNGUA!",
                 submenu: {
                     "3.3.1": "🔙 Voltar",
                 }
             },
             "3.4": {
-                text: "<b>Órgãos Especiais</b><br><br>🫀 Coração bate 100.000 vezes/dia!<br>🫁 Pulmões: superfície de 70m²!",
+                text: "<b>Órgãos Especiais</b><br><br>Coração bate 100.000 vezes por dia!<br>Pulmões: superfície de 70 metros quadrados!",
                 submenu: {
                     "3.4.1": "🔙 Voltar",
                 }
             },
             "4": {
-                text: "<b>Pesquisa & Estudos</b><br><br>Explore:",
+                text: "<b>Pesquisa e Estudos</b><br><br>Explore:",
                 submenu: {
                     "4.1": "1️⃣ Metodologias",
                     "4.2": "2️⃣ Marcos",
@@ -922,31 +843,31 @@
                 }
             },
             "4.1": {
-                text: "<b>Metodologias</b><br><br>1️⃣ Dissecação<br>2️⃣ Imagenologia<br>3️⃣ Microscopia<br>4️⃣ IA & 3D",
+                text: "<b>Metodologias</b><br><br>1️⃣ Dissecação<br>2️⃣ Imagenologia<br>3️⃣ Microscopia<br>4️⃣ IA e 3D",
                 submenu: {
                     "4.1.1": "🔙 Voltar",
                 }
             },
             "4.2": {
-                text: "<b>Marcos Científicos</b><br><br>1628: Harvey & circulação<br>1952: RM inventada<br>2020s: IA em diagnósticos!",
+                text: "<b>Marcos Científicos</b><br><br>1628: Harvey e circulação<br>1952: RM inventada<br>2020s: IA em diagnósticos!",
                 submenu: {
                     "4.2.1": "🔙 Voltar",
                 }
             },
             "4.3": {
-                text: "<b>Pesquisas da Profª Sônia</b><br><br>🧠 Neuroplasticidade<br>💊 Diabetes & neuropatia<br>🌙 Cronobiologia<br>👩 Saúde pública<br>🐛 Entomologia forense",
+                text: "<b>Pesquisas da Profª Sônia</b><br><br>Neuroplasticidade<br>Diabetes e neuropatia<br>Cronobiologia<br>Saúde pública<br>Entomologia forense",
                 submenu: {
                     "4.3.1": "🔙 Voltar",
                 }
             },
             "4.4": {
-                text: "<b>Desafios Modernos</b><br><br>VR vs. cadáveres reais<br>Ética em pesquisa<br>Inclusão no ensino",
+                text: "<b>Desafios Modernos</b><br><br>VR vs cadáveres reais<br>Ética em pesquisa<br>Inclusão no ensino",
                 submenu: {
                     "4.4.1": "🔙 Voltar",
                 }
             },
             "5": {
-                text: "<b>Gamificação & Aprendizado</b><br><br>Por que aprender jogando funciona?",
+                text: "<b>Gamificação e Aprendizado</b><br><br>Por que aprender jogando funciona?",
                 submenu: {
                     "5.1": "1️⃣ Neurociência",
                     "5.2": "2️⃣ Pesquisas",
@@ -954,19 +875,19 @@
                 }
             },
             "5.1": {
-                text: "<b>Neurociência da Gamificação</b><br><br>✨ Dopamina: química do prazer<br>✨ Emoção = memorização",
+                text: "<b>Neurociência da Gamificação</b><br><br>Dopamina: química do prazer<br>Emoção = memorização",
                 submenu: {
                     "5.1.1": "🔙 Voltar",
                 }
             },
             "5.2": {
-                text: "<b>Pesquisas que Comprovam</b><br><br>📈 40% mais memorização<br>📈 85% retenção a longo prazo",
+                text: "<b>Pesquisas que Comprovam</b><br><br>40% mais memorização<br>85% retenção a longo prazo",
                 submenu: {
-                    "5.2.1": "��� Voltar",
+                    "5.2.1": "🔙 Voltar",
                 }
             },
             "5.3": {
-                text: "<b>Nossos Jogos</b><br><br>📚 EAD: Pocket Anatomy, Atlas3D<br>🎮 Presencial: OsteoChallenge, NeuroMaze",
+                text: "<b>Nossos Jogos</b><br><br>EAD: Pocket Anatomy, Atlas3D<br>Presencial: OsteoChallenge, NeuroMaze",
                 submenu: {
                     "5.3.1": "🔙 Voltar",
                 }
@@ -1075,5 +996,5 @@
         }
     }
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cb86e0115cb23ac',t:'MTc3MDY5MzE5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-             </html>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cbc1ece82fe034b',t:'MTc3MDczMTg5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ </html>

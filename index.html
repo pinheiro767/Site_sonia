@@ -1,1332 +1,1176 @@
 <!doctype html>
 <html lang="pt-br" class="h-full">
- <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profª Dra. Sônia Trannin de Mello - Anatomia Humana</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&amp;family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+
   <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; font-family: 'Poppins', sans-serif; }
+    body { background: #0f172a; color: #1e293b; }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: #00d2ff; }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(45deg, #00d2ff, #9d50bb);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .contact-btn {
+      background: linear-gradient(135deg, #00d2ff, #9d50bb);
+      color: white;
+      padding: 10px 25px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #2d3a52 100%);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.1), transparent);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(30px); }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      animation: slideDown 0.8s ease;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+    .hero h1 span {
+      background: linear-gradient(45deg, #00d2ff, #9d50bb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+    .institution {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-top: 10px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ===== MAIN CONTAINER ===== */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px 40px;
+    }
+
+    /* ===== CONTENT SECTIONS ===== */
+    .course-section {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .section-title i { color: #00d2ff; font-size: 2.2rem; }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .course-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border-radius: 12px;
+      padding: 30px;
+      border-left: 4px solid #00d2ff;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 210, 255, 0.2);
+      border-left-color: #9d50bb;
+    }
+    .course-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+    .course-card p {
+      color: #64748b;
+      line-height: 1.8;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(0, 210, 255, 0.2);
+      color: #0369a1;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .feature-list { list-style: none; margin: 18px 0; }
+    .feature-list li {
+      color: #475569;
+      padding: 10px 0;
+      padding-left: 30px;
+      position: relative;
+      font-size: 0.95rem;
+    }
+    .feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #00d2ff;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #00d2ff, #9d50bb);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 50px 20px 30px;
+      text-align: center;
+      margin-top: 80px;
+    }
+    .footer-content { max-width: 1200px; margin: 0 auto; }
+    .footer-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    .footer-section h3 { margin-bottom: 15px; color: #00d2ff; }
+    .footer-section p, .footer-section a {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      line-height: 1.6;
+    }
+    .footer-section a:hover { color: #00d2ff; opacity: 1; }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .social-links a {
+      width: 45px;
+      height: 45px;
+      background: rgba(0, 210, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00d2ff;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      background: #00d2ff;
+      color: #0f172a;
+      transform: translateY(-5px);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 30px;
+      opacity: 0.9;
+    }
+
+    /* ===== FLOATING CHATBOT ===== */
+    #chatbot-widget {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      font-family: 'Poppins', sans-serif;
+    }
+    #chatbot-toggle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00d2ff, #9d50bb);
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 210, 255, 0.4);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #chatbot-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(0, 210, 255, 0.6);
+    }
+    #chatbot-window {
+      position: absolute;
+      bottom: 100px;
+      right: 0;
+      width: 400px;
+      height: 600px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: slideUp 0.4s ease;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #chatbot-window.open { display: flex; }
+
+    #chatbot-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #chatbot-header h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      background: linear-gradient(45deg, #00d2ff, #9d50bb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    #chatbot-header p { margin: 5px 0 0; font-size: 0.75rem; opacity: 0.85; }
+
+    #close-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: none;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.2s ease;
+    }
+    #close-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
+    #chatbot-box {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #fafafa;
+    }
+    #chatbot-box::-webkit-scrollbar { width: 6px; }
+    #chatbot-box::-webkit-scrollbar-track { background: #f1f5f9; }
+    #chatbot-box::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+    #chatbot-input {
+      padding: 15px;
+      background: white;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      gap: 10px;
+    }
+    #chatbot-user-input {
+      flex-grow: 1;
+      border: 1px solid #cbd5e1;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      outline: none;
+    }
+    #chatbot-user-input:focus {
+      border-color: #00d2ff;
+      box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.1);
+    }
+    #chatbot-input button {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+    #chatbot-input button:hover { transform: translateY(-2px); }
+
+    .msg {
+      padding: 12px 15px;
+      border-radius: 10px;
+      word-wrap: break-word;
+      animation: msgSlide 0.3s ease;
+    }
+    @keyframes msgSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .msg.user {
+      background: #0f172a;
+      color: white;
+      align-self: flex-end;
+      max-width: 80%;
+      border-bottom-right-radius: 2px;
+    }
+    .msg.bot {
+      background: #e2e8f0;
+      color: #1e293b;
+      align-self: flex-start;
+      max-width: 90%;
+      border-bottom-left-radius: 2px;
+    }
+    .menu-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .menu-btn {
+      background: linear-gradient(135deg, #00d2ff, #9d50bb);
+      color: white;
+      border: none;
+      padding: 10px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      font-family: 'Poppins', sans-serif;
+      text-align: left;
+    }
+    .menu-btn:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .nav-links { gap: 15px; font-size: 0.9rem; }
+    }
+    @media (max-width: 480px) {
+      #chatbot-widget { bottom: 20px; right: 20px; }
+      #chatbot-toggle { width: 50px; height: 50px; font-size: 1.3rem; }
+      #chatbot-window { width: 90vw; height: 70vh; max-width: 350px; max-height: 520px; }
+    }
+  </style>
 
-        html, body {
-            height: 100%;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: #0f172a;
-            color: #1e293b;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, #00d2ff, #9d50bb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            letter-spacing: 1px;
-        }
-
-        .logo i {
-            font-size: 2rem;
-            color: #00d2ff;
-            -webkit-text-fill-color: #00d2ff;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: #00d2ff;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #00d2ff, #9d50bb);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .contact-btn {
-            background: linear-gradient(135deg, #00d2ff, #9d50bb);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #2d3a52 100%);
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-            min-height: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 210, 255, 0.1), transparent);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(30px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            animation: slideDown 0.8s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(45deg, #00d2ff, #9d50bb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        .institution {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-top: 20px;
-            font-style: italic;
-        }
-
-        /* ===== MAIN CONTAINER ===== */
-        .main-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px 40px;
-        }
-
-        /* ===== CONTENT SECTIONS ===== */
-        .course-section {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #0f172a;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-title i {
-            color: #00d2ff;
-            font-size: 2.2rem;
-        }
-
-        .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .course-card {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            border-radius: 12px;
-            padding: 30px;
-            border-left: 4px solid #00d2ff;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .course-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 210, 255, 0.2);
-            border-left-color: #9d50bb;
-        }
-
-        .course-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #0f172a;
-        }
-
-        .course-card p {
-            color: #64748b;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(0, 210, 255, 0.2);
-            color: #0369a1;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .feature-list li {
-            color: #475569;
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .feature-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #00d2ff;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #00d2ff, #9d50bb);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 15px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 50px 20px 30px;
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 15px;
-            color: #00d2ff;
-        }
-
-        .footer-section p, .footer-section a {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #00d2ff;
-            opacity: 1;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            background: rgba(0, 210, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #00d2ff;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: #00d2ff;
-            color: #0f172a;
-            transform: translateY(-5px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            opacity: 0.8;
-        }
-
-        /* ===== FLOATING CHATBOT ===== */
-        #chatbot-widget {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        #chatbot-toggle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #00d2ff, #9d50bb);
-            color: white;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0, 210, 255, 0.4);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #chatbot-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(0, 210, 255, 0.6);
-        }
-
-        #chatbot-window {
-            position: absolute;
-            bottom: 100px;
-            right: 0;
-            width: 400px;
-            height: 600px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            animation: slideUp 0.4s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        #chatbot-window.open {
-            display: flex;
-        }
-
-        #chatbot-header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #chatbot-header h3 {
-            margin: 0;
-            font-size: 1.1rem;
-            background: linear-gradient(45deg, #00d2ff, #9d50bb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        #chatbot-header p {
-            margin: 5px 0 0;
-            font-size: 0.75rem;
-            opacity: 0.8;
-        }
-
-        #close-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.2s ease;
-        }
-
-        #close-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        #chatbot-box {
-            flex-grow: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: #fafafa;
-        }
-
-        #chatbot-box::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        #chatbot-box::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-
-        #chatbot-box::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 3px;
-        }
-
-        #chatbot-input {
-            padding: 15px;
-            background: white;
-            border-top: 1px solid #f1f5f9;
-            display: flex;
-            gap: 10px;
-        }
-
-        #chatbot-user-input {
-            flex-grow: 1;
-            border: 1px solid #cbd5e1;
-            padding: 10px 12px;
-            border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.85rem;
-            outline: none;
-        }
-
-        #chatbot-user-input:focus {
-            border-color: #00d2ff;
-            box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.1);
-        }
-
-        #chatbot-input button {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-        }
-
-        #chatbot-input button:hover {
-            transform: translateY(-2px);
-        }
-
-        .msg {
-            padding: 12px 15px;
-            border-radius: 10px;
-            word-wrap: break-word;
-            animation: msgSlide 0.3s ease;
-        }
-
-        @keyframes msgSlide {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .msg.user {
-            background: #0f172a;
-            color: white;
-            align-self: flex-end;
-            max-width: 80%;
-            border-bottom-right-radius: 2px;
-        }
-
-        .msg.bot {
-            background: #e2e8f0;
-            color: #1e293b;
-            align-self: flex-start;
-            max-width: 90%;
-            border-bottom-left-radius: 2px;
-        }
-
-        .menu-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .menu-btn {
-            background: linear-gradient(135deg, #00d2ff, #9d50bb);
-            color: white;
-            border: none;
-            padding: 10px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .menu-btn:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .nav-links {
-                gap: 15px;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #chatbot-widget {
-                bottom: 20px;
-                right: 20px;
-            }
-
-            #chatbot-toggle {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
-
-            #chatbot-window {
-                width: 90vw;
-                height: 70vh;
-                max-width: 350px;
-                max-height: 500px;
-            }
-        }
-    </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
- </head>
- <body><!-- ===== HEADER ===== -->
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
   <header>
-   <div class="header-content">
-    <nav>
-     <ul class="nav-links">
-      <li><a href="#home">Início</a></li>
-      <li><a href="#ead">Educação a Distância</a></li>
-      <li><a href="#presencial">Educação Presencial</a></li>
-      <li><a href="#material-pos">Material Pós-Graduação</a></li>
-      <li><a href="#contato">Contato</a></li>
-      <li><button class="contact-btn" onclick="scrollToContact()">Entre em Contato</button></li>
-     </ul>
-    </nav>
-   </div>
-  </header><!-- ===== HERO ===== -->
+    <div class="header-content">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#disciplinas">Disciplinas</a></li>
+          <li><a href="#recursos">Recursos Interativos</a></li>
+          <li><a href="#avancado">Estudos Avançados</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><button class="contact-btn" onclick="scrollToContact()">Entre em Contato</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
   <section id="home" class="hero">
-   <div class="hero-content">
-    <h1>Profª Dra. <span>Sônia Trannin de Mello</span></h1>
-    <p>Doutora em Ciências Morfológicas | Pesquisadora em Neuroplasticidade &amp; Saúde Reprodutiva</p>
-    <div class="institution"><i class="fas fa-map-marker-alt"></i> Universidade Estadual de Maringá (UEM) - Departamento de Ciências Morfológicas 
-    </div>
-   </div>
-  </section><!-- ===== CONTEUDO PRINCIPAL ===== -->
-  <div class="main-container"><!-- ===== EDUCAÇÃO A DISTÂNCIA ===== -->
-   <div class="course-section" id="ead">
-    <h2 class="section-title">Educação a Distância (EAD)</h2>
-    <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">Jogos e atividades educacionais</p><button class="btn-primary" onclick="toggleEscapeGame()" style="margin-bottom: 30px; display: flex; align-items: center; gap: 8px;"> <span id="toggle-text">Explorar Jogos Educacionais</span> </button>
-    <div id="escape-game-container" style="display: none; animation: slideDown 0.5s ease;">
-     <div class="course-grid"><!-- CARD 1: Escape Game Cardiorrespiratório -->
-      <div class="course-card"><span class="badge">Interativo</span>
-       <h3>Escape Game: Cardiorrespiratório</h3>
-       <p>Desafio emocionante onde você explora o sistema cardiorrespiratório resolvendo enigmas, decifrando mistérios e descobrindo segredos do coração e pulmões!</p>
-       <ul class="feature-list">
-        <li>Escape room educacional</li>
-        <li>Desafios de anatomia</li>
-        <li>Ranking de tempos</li>
-        <li>Certificado ao completar</li>
-       </ul><button class="btn-primary" onclick="window.location.href='https://pinheiro767.github.io/pagina/';"> Jogar Agora </button>
-      </div><!-- CARD 2: Escape Game Sistema Digestório -->
-      <div class="course-card"><span class="badge">10 Fases Rápidas</span>
-       <h3>Escape Game: Sistema Digestório</h3>
-       <p>Missão especial com 10 fases rápidas e emocionantes! Analise imagens, responda perguntas sobre o sistema digestório e decodifique fragmentos do código secreto. Complete todas as fases para desvendar o segredo e concluir a missão!</p>
-       <ul class="feature-list">
-        <li>10 fases progressivas</li>
-        <li>Análise de imagens</li>
-        <li>Fragmentos de código secreto</li>
-        <li>Decodificação final</li>
-       </ul><a href="https://pinheiro767.github.io/Digestive/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-block; text-decoration: none; text-align: center;"> Jogar Agora </a>
-      </div><!-- CARD 3: Escape Game Sistema Nervoso -->
-      <div class="course-card"><span class="badge">11 Perguntas</span>
-       <h3>Escape Game: Sistema Nervoso</h3>
-       <p>Desafio cerebral de 11 perguntas para testar seu conhecimento sobre o sistema nervoso! Responda corretamente às questões sobre anatomia neural, funções cerebrais e estruturas do sistema nervoso. Quanto melhor seu desempenho, mais você domina o tema!</p>
-       <ul class="feature-list">
-        <li>11 perguntas desafiadoras</li>
-        <li>Teste seu conhecimento neural</li>
-        <li>Feedback imediato</li>
-        <li>Análise de desempenho</li>
-       </ul><button class="btn-primary" onclick="window.open('https://pinheiro767.github.io/scape_sn/', '_blank');"> Jogar Agora </button>
+    <div class="hero-content">
+      <h1>Profª Dra. <span>Sônia Trannin de Mello</span></h1>
+      <p>Doutora em Ciências Morfológicas | Pesquisadora em Neuroplasticidade &amp; Saúde Reprodutiva</p>
+      <div class="institution">
+        <i class="fas fa-map-marker-alt"></i>
+        Docente vinculada à Universidade Estadual de Maringá (UEM) — Departamento de Ciências Morfológicas
       </div>
-     </div>
-    </div>
-   </div><!-- ===== EDUCAÇÃO PRESENCIAL ===== -->
-   <div class="course-section" id="presencial">
-    <h2 class="section-title">Educação Presencial</h2>
-    <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">Conteúdo referente às aulas e atividades presenciais será adicionado em breve.</p>
-   </div><!-- ===== MATERIAL PÓS-GRADUAÇÃO ===== -->
-   <div class="course-section" id="material-pos">
-    <h2 class="section-title">Material Pós-Graduação</h2>
-    <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">Materiais, disciplinas e recursos para estudantes de pós-graduação serão disponibilizados em breve.</p>
-   </div>
-  </div><!-- ===== FOOTER ===== -->
-  <footer id="contato">
-   <div class="footer-content">
-    <div class="footer-info">
-     <div class="footer-section">
-      <h3>Localização</h3>
-      <p>Bloco 6 - Departamento de Ciências Morfológicas<br>
-        Universidade Estadual de Maringá<br>
-        Campus Central - Maringá, PR</p>
-     </div>
-     <div class="footer-section">
-      <h3>Contato</h3>
-      <p>Email: stmello@uem.br<br>
-        Fone: (44) 3011-4708</p>
-     </div>
-     <div class="footer-section">
-      <h3>Áreas de Atuação</h3>
-      <p>Morfologia com ênfase em<br>
-        Anatomia Humana e Neuroanatomia</p>
-     </div>
-     <div class="footer-section">
-      <h3>Links Úteis</h3><a href="http://lattes.cnpq.br/" target="_blank" rel="noopener noreferrer">Currículo Lattes</a><br><a href="#">ResearchGate</a><br><a href="#">YouTube Lab</a>
-     </div>
-    </div>
-    <div class="social-links"><a href="#" title="Email"><i class="fas fa-envelope"></i></a> <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a> <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a> <a href="#" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
-    </div>
-    <div class="footer-bottom">
-     <p>© 2026 Profª Dra. Sônia Trannin de Mello. Todos os direitos reservados.</p>
-    </div>
-   </div>
-  </footer><!-- ===== FLOATING CHATBOT ===== -->
-  <div id="chatbot-widget"><button id="chatbot-toggle" onclick="toggleChatbot()"> 💬 </button>
-   <div id="chatbot-window">
-    <div id="chatbot-header">
-     <div>
-      <h3>CurisoChat</h3>
-      <p>Assistente de Anatomia</p>
-     </div><button id="close-btn" onclick="toggleChatbot()"> ✕ </button>
-    </div>
-    <div id="chatbot-box">
-     <div class="msg bot">
-      Bem-vindo ao <b>CurisoChat</b>! 👋 Sou seu assistente de Anatomia Humana da Profª Dra. Sônia Trannin de Mello.<br><br>
-       Escolha um tema para explorarmos: 
-      <div class="menu-buttons"><button class="menu-btn" onclick="selectTopicChat('1')">1️⃣ Por que Estudar?</button> <button class="menu-btn" onclick="selectTopicChat('2')">2️⃣ Histórias e Evolução</button> <button class="menu-btn" onclick="selectTopicChat('3')">3️⃣ Curiosidades</button> <button class="menu-btn" onclick="selectTopicChat('4')">4️⃣ Pesquisa</button> <button class="menu-btn" onclick="selectTopicChat('5')">5️⃣ Gamificação</button>
+      <div class="institution" style="margin-top: 10px; opacity: 0.85;">
+        Plataforma educacional autoral de apoio ao estudo (EAD e presencial). O AVA institucional permanece como ambiente oficial quando aplicável.
       </div>
-     </div>
     </div>
-    <div id="chatbot-input"><input type="text" id="chatbot-user-input" placeholder="Digite o número (1-5)..." autocomplete="off"> <button onclick="sendChatbotMessage()">→</button>
+  </section>
+
+  <!-- ===== CONTEUDO PRINCIPAL ===== -->
+  <div class="main-container">
+
+    <!-- ===== DISCIPLINAS ===== -->
+    <div class="course-section" id="disciplinas">
+      <h2 class="section-title"><i class="fas fa-book"></i> Disciplinas</h2>
+      <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 10px;">
+        Selecione a disciplina para ver conteúdos e orientações. Você também pode usar os recursos interativos em qualquer turma.
+      </p>
+      <p style="color: #64748b; font-size: 0.98rem; line-height: 1.8; margin-bottom: 20px;">
+        <b>Dica:</b> No CurisoChat, escolha primeiro a disciplina (opção 1) para receber menus e sugestões personalizadas.
+      </p>
+
+      <div class="course-grid">
+
+        <div class="course-card">
+          <span class="badge">EAD / Presencial</span>
+          <h3>Anatomia Humana</h3>
+          <p>Materiais complementares, roteiros de estudo e recursos interativos para apoiar o aprendizado.</p>
+          <ul class="feature-list">
+            <li>Organização por temas</li>
+            <li>Revisões dirigidas</li>
+            <li>Integração com jogos</li>
+          </ul>
+          <button class="btn-primary" onclick="document.getElementById('recursos').scrollIntoView({behavior:'smooth'})">Ver recursos</button>
+        </div>
+
+        <div class="course-card">
+          <span class="badge">EAD / Presencial</span>
+          <h3>Neuroanatomia</h3>
+          <p>Conteúdos para estruturas do sistema nervoso, integração anatomo-funcional e revisões.</p>
+          <ul class="feature-list">
+            <li>Guias de estudo</li>
+            <li>Quiz e revisão</li>
+            <li>Desafios rápidos</li>
+          </ul>
+          <button class="btn-primary" onclick="document.getElementById('recursos').scrollIntoView({behavior:'smooth'})">Ver recursos</button>
+        </div>
+
+        <div class="course-card">
+          <span class="badge">Outros cursos</span>
+          <h3>Conteúdos Transversais</h3>
+          <p>História da Anatomia, curiosidades, gamificação e orientações de estudo válidas para várias disciplinas.</p>
+          <ul class="feature-list">
+            <li>Aprendizagem ativa</li>
+            <li>Curiosidades e história</li>
+            <li>Rotina de estudos</li>
+          </ul>
+          <button class="btn-primary" onclick="document.getElementById('avancado').scrollIntoView({behavior:'smooth'})">Explorar</button>
+        </div>
+
+      </div>
     </div>
-   </div>
+
+    <!-- ===== RECURSOS INTERATIVOS (MANTÉM OS LINKS DOS JOGOS) ===== -->
+    <div class="course-section" id="recursos">
+      <h2 class="section-title"><i class="fas fa-gamepad"></i> Recursos Interativos</h2>
+      <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">
+        Jogos e atividades educacionais que podem ser usados tanto no EAD quanto em aulas presenciais.
+      </p>
+
+      <button class="btn-primary" onclick="toggleEscapeGame()" style="margin-bottom: 30px; display: flex; align-items: center; gap: 8px;">
+        <span id="toggle-text">Explorar Jogos Educacionais</span>
+      </button>
+
+      <div id="escape-game-container" style="display: none; animation: slideDown 0.5s ease;">
+        <div class="course-grid">
+
+          <!-- CARD 1: Escape Game Cardiorrespiratório -->
+          <div class="course-card">
+            <span class="badge">Interativo</span>
+            <h3>Escape Game: Cardiorrespiratório</h3>
+            <p>Desafio com enigmas e pistas para revisar estruturas e funções do sistema cardiorrespiratório.</p>
+            <ul class="feature-list">
+              <li>Escape room educacional</li>
+              <li>Desafios de anatomia</li>
+              <li>Aprendizagem ativa</li>
+            </ul>
+            <button class="btn-primary" onclick="window.location.href='https://pinheiro767.github.io/pagina/';">Jogar Agora</button>
+          </div>
+
+          <!-- CARD 2: Escape Game Sistema Digestório -->
+          <div class="course-card">
+            <span class="badge">10 Fases Rápidas</span>
+            <h3>Escape Game: Sistema Digestório</h3>
+            <p>Missão com 10 fases: análise de imagens, perguntas e decodificação final.</p>
+            <ul class="feature-list">
+              <li>10 fases progressivas</li>
+              <li>Análise de imagens</li>
+              <li>Fragmentos de código secreto</li>
+              <li>Decodificação final</li>
+            </ul>
+            <a href="https://pinheiro767.github.io/Digestive/" target="_blank" rel="noopener noreferrer"
+               class="btn-primary" style="display: inline-block; text-decoration: none; text-align: center;">
+              Jogar Agora
+            </a>
+          </div>
+
+          <!-- CARD 3: Escape Game Sistema Nervoso -->
+          <div class="course-card">
+            <span class="badge">11 Perguntas</span>
+            <h3>Escape Game: Sistema Nervoso</h3>
+            <p>Desafio de 11 perguntas para revisar estruturas, funções e conceitos do sistema nervoso.</p>
+            <ul class="feature-list">
+              <li>11 perguntas desafiadoras</li>
+              <li>Feedback imediato</li>
+              <li>Aprendizagem ativa</li>
+              <li>Revisão rápida</li>
+            </ul>
+            <button class="btn-primary" onclick="window.open('https://pinheiro767.github.io/scape_sn/', '_blank');">Jogar Agora</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ESTUDOS AVANÇADOS ===== -->
+    <div class="course-section" id="avancado">
+      <h2 class="section-title"><i class="fas fa-layer-group"></i> Estudos Avançados</h2>
+      <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 0;">
+        Aprofundamento e temas avançados para estudantes e profissionais. Conteúdo será ampliado progressivamente (uso em diferentes contextos acadêmicos).
+      </p>
+    </div>
+
+    <!-- ===== SOBRE ===== -->
+    <div class="course-section" id="sobre">
+      <h2 class="section-title"><i class="fas fa-user-graduate"></i> Sobre a Docente</h2>
+      <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 0;">
+        Este site é uma plataforma educacional <b>autoral</b> com recursos reutilizáveis em diferentes disciplinas, turmas e modalidades (EAD e presencial).
+      </p>
+    </div>
+
   </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="contato">
+    <div class="footer-content">
+      <div class="footer-info">
+        <div class="footer-section">
+          <h3>Localização</h3>
+          <p>Bloco 6 - Departamento de Ciências Morfológicas<br>
+            Universidade Estadual de Maringá<br>
+            Campus Central - Maringá, PR</p>
+        </div>
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <p>Email: stmello@uem.br<br>
+            Fone: (44) 3011-4708</p>
+        </div>
+        <div class="footer-section">
+          <h3>Áreas de Atuação</h3>
+          <p>Morfologia com ênfase em<br>
+            Anatomia Humana e Neuroanatomia</p>
+        </div>
+        <div class="footer-section">
+          <h3>Links Úteis</h3>
+          <a href="http://lattes.cnpq.br/" target="_blank" rel="noopener noreferrer">Currículo Lattes</a><br>
+          <a href="#" target="_blank" rel="noopener noreferrer">ResearchGate</a><br>
+          <a href="#" target="_blank" rel="noopener noreferrer">YouTube Lab</a>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p style="max-width: 920px; margin: 0 auto 12px; line-height: 1.6;">
+          Plataforma educacional <b>autoral</b> e de <b>uso complementar</b>. Quando aplicável, o ambiente oficial de conteúdos, comunicados e atividades avaliativas permanece no <b>AVA institucional</b>.
+        </p>
+        <p>© 2026 Profª Dra. Sônia Trannin de Mello. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING CHATBOT ===== -->
+  <div id="chatbot-widget">
+    <button id="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+
+    <div id="chatbot-window">
+      <div id="chatbot-header">
+        <div>
+          <h3>CurisoChat</h3>
+          <p>Assistente acadêmico (multi-disciplinas)</p>
+        </div>
+        <button id="close-btn" onclick="toggleChatbot()">✕</button>
+      </div>
+
+      <div id="chatbot-box">
+        <div class="msg bot">
+          Bem-vindo ao <b>CurisoChat</b>! 👋<br><br>
+          Para eu te ajudar melhor, escolha primeiro sua <b>disciplina/turma</b>:
+          <div class="menu-buttons">
+            <button class="menu-btn" onclick="selectTopicChat('D1')">📚 D1 — Anatomia Humana</button>
+            <button class="menu-btn" onclick="selectTopicChat('D2')">🧠 D2 — Neuroanatomia</button>
+            <button class="menu-btn" onclick="selectTopicChat('D3')">🌿 D3 — Biologia/Outros cursos</button>
+            <button class="menu-btn" onclick="selectTopicChat('D0')">🔎 D0 — Quero só recursos gerais</button>
+          </div>
+          <div style="margin-top:10px; font-size:0.85rem; opacity:0.85;">
+            Você também pode digitar: <b>D1</b>, <b>D2</b>, <b>D3</b> ou <b>D0</b>. Para voltar ao início, digite <b>MENU</b>.
+          </div>
+        </div>
+      </div>
+
+      <div id="chatbot-input">
+        <input type="text" id="chatbot-user-input" placeholder="Digite D1, D2, D3, D0 ou MENU..." autocomplete="off">
+        <button onclick="sendChatbotMessage()">→</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    const chatResponses = {
-        main: {
-            "1": {
-                text: "<b>Por que estudar Anatomia?</b><br><br>A Anatomia é a <b>base de todas as profissões da saúde</b>. Sem conhecer a estrutura, é impossível entender a função ou tratar patologias.",
-                submenu: {
-                    "1.1": "1️⃣ Na Graduação",
-                    "1.2": "2️⃣ Na Pós-Graduação",
-                    "1.3": "3️⃣ No EAD"
-                }
-            },
-            "1.1": {
-                text: "<b>Anatomia na Graduação</b><br><br>Disciplina fundamental em Medicina, Enfermagem, Fisioterapia e Educação Física.",
-                submenu: {
-                    "1.1.1": "🔙 Voltar",
-                }
-            },
-            "1.2": {
-                text: "<b>Anatomia na Pós-Graduação</b><br><br>Estudo avançado com <b>Profª Sônia pesquisando neuroplasticidade e diabetes!</b>",
-                submenu: {
-                    "1.2.1": "🔙 Voltar",
-                }
-            },
-            "1.3": {
-                text: "<b>Anatomia no EAD</b><br><br>Apps, vídeos 360 graus, IA, Atlas3D. Estude no seu ritmo!",
-                submenu: {
-                    "1.3.1": "🔙 Voltar",
-                }
-            },
-            "2": {
-                text: "<b>Histórias e Evolução</b><br><br>Escolha um tema:",
-                submenu: {
-                    "2.1": "1️⃣ Antiguidade",
-                    "2.2": "2️⃣ Renascimento",
-                    "2.3": "3️⃣ Modernidade",
-                    "2.4": "4️⃣ Quiz: 40 Perguntas!"
-                }
-            },
-            "2.1": {
-                text: "<b>Antiguidade</b><br><br><b>Hipócrates:</b> Pai da Medicina!<br><b>Galeno:</b> Anatomista romano.",
-                submenu: {
-                    "2.1.1": "🔙 Voltar",
-                }
-            },
-            "2.2": {
-                text: "<b>Renascimento</b><br><br><b>Leonardo da Vinci:</b> 600+ desenhos anatômicos!<br><b>Vesálio:</b> Revolucionou com dissecação.",
-                submenu: {
-                    "2.2.1": "🔙 Voltar",
-                }
-            },
-            "2.3": {
-                text: "<b>Modernidade</b><br><br><b>Harvey:</b> Provou circulação sanguínea.<br><b>Hoje:</b> RM, TC, IA transformam diagnóstico.",
-                submenu: {
-                    "2.3.1": "🔙 Voltar",
-                }
-            },
-            "2.4": {
-                text: "<b>Bem-vindo ao Quiz!</b> 🎯<br><br>Vamos testar seu conhecimento sobre a história da anatomia humana com 40 perguntas incríveis!<br><br>Escolha um bloco:",
-                submenu: {
-                    "quiz1": "🕯️ Bloco 1: Séculos Passados",
-                    "quiz2": "⚰️ Bloco 2: Cadáveres & Roubos",
-                    "quiz3": "🧠 Bloco 3: Descobertas",
-                    "quiz4": "🧚 Bloco 4: Contos de Fadas",
-                    "quiz5": "🧬 Bloco 5: Ciência & Medo",
-                    "quiz6": "🧠 Bloco 6: Curiosidades Finais"
-                }
-            },
-            "quiz1": {
-                text: "<b>🕯️ BLOCO 1 — Anatomia nos Séculos Passados</b><br><br>Escolha uma pergunta (1-8):",
-                submenu: {
-                    "q1": "1️⃣ Dissecação proibida na Idade Média",
-                    "q2": "2️⃣ Corpos usados no século XVII",
-                    "q3": "3️⃣ Punição por dissecação ilegal",
-                    "q4": "4️⃣ Por que de madrugada?",
-                    "q5": "5️⃣ Desafio sem refrigeração",
-                    "q6": "6️⃣ O que eram teatros anatômicos?",
-                    "q7": "7️⃣ Por que mulheres não aparecem",
-                    "q8": "8️⃣ Centro das emoções"
-                }
-            },
-            "quiz2": {
-                text: "<b>⚰️ BLOCO 2 — Cadáveres, Roubos & Século XVIII</b><br><br>Escolha uma pergunta (9-16):",
-                submenu: {
-                    "q9": "9️⃣ Falta de cadáveres no séc. XVIII",
-                    "q10": "🔟 Quem eram os 'resurrectionists'?",
-                    "q11": "1️⃣1️⃣ Por que não era crime grave?",
-                    "q12": "1️⃣2️⃣ Como protegiam os túmulos?",
-                    "q13": "1️⃣3️⃣ O que eram 'mort safes'?",
-                    "q14": "1️⃣4️⃣ Por que crianças eram visadas?",
-                    "q15": "1️⃣5️⃣ Maior medo popular",
-                    "q16": "1️⃣6️⃣ Corpos de hospitais & asilos"
-                }
-            },
-            "quiz3": {
-                text: "<b>🧠 BLOCO 3 — Curiosidades Reais Descobertas Tardiamente</b><br><br>Escolha uma pergunta (17-22):",
-                submenu: {
-                    "q17": "1️⃣7️⃣ Por que cérebro demorou séculos?",
-                    "q18": "1️⃣8️⃣ O que acreditavam sobre útero?",
-                    "q19": "1️⃣9️⃣ Nervos vs Tendões",
-                    "q20": "2️⃣0️⃣ Erro anatômico de 1.000 anos",
-                    "q21": "2️⃣1️⃣ Quando descobriu circulação?",
-                    "q22": "2️⃣2️⃣ Por que fígado era importante?"
-                }
-            },
-            "quiz4": {
-                text: "<b>🧚 BLOCO 4 — Contos de Fadas & Anatomia</b><br><br>Escolha uma pergunta (23-30):",
-                submenu: {
-                    "q23": "2️⃣3️⃣ Contos violentos originais",
-                    "q24": "2️⃣4️⃣ Branca de Neve & anatomia",
-                    "q25": "2️⃣5️⃣ 'Sono profundo' nos contos",
-                    "q26": "2️⃣6️⃣ Inspiração da Bela Adormecida",
-                    "q27": "2️⃣7️⃣ Madrastas & bruxas",
-                    "q28": "2️⃣8️⃣ Olhos & mãos cortadas",
-                    "q29": "2️⃣9️⃣ Espelhos como símbolos",
-                    "q30": "3️⃣0️⃣ O que lobo mau simboliza?"
-                }
-            },
-            "quiz5": {
-                text: "<b>🧬 BLOCO 5 — Ciência, Medo & Imaginação Popular</b><br><br>Escolha uma pergunta (31-35):",
-                submenu: {
-                    "q31": "3️⃣1️⃣ Anatomistas como figuras sombrias",
-                    "q32": "3️⃣2️⃣ Cheiro da dissecação",
-                    "q33": "3️⃣3️⃣ Frankenstein & anatomia",
-                    "q34": "3️⃣4️⃣ Costuras em monstros",
-                    "q35": "3️⃣5️⃣ Corpos 'remontados'"
-                }
-            },
-            "quiz6": {
-                text: "<b>🧠 BLOCO 6 — Curiosidades Finais Impactantes</b><br><br>Escolha uma pergunta (36-40):",
-                submenu: {
-                    "q36": "3️⃣6️⃣ Medo de médicos no passado",
-                    "q37": "3️⃣7️⃣ O que era sangria?",
-                    "q38": "3️⃣8️⃣ Dentes & ossos em amuletos",
-                    "q39": "3️⃣9️⃣ O que mudou estudo de anatomia?",
-                    "q40": "4️⃣0️⃣ Morte em contos infantis"
-                }
-            },
-            "q1": {
-                text: "<b>❓ Pergunta 1</b><br>Por que a dissecação de cadáveres era proibida durante a Idade Média em muitos lugares?<br><br><b>✅ Resposta:</b> Porque acreditava-se que o corpo precisava estar íntegro para a ressurreição da alma.",
-                submenu: {
-                    "quiz1": "🔙 Voltar ao Bloco 1"
-                }
-            },
-            "q2": {
-                text: "<b>❓ Pergunta 2</b><br>Quem eram, em geral, os corpos usados para estudo anatômico no século XVII?<br><br><b>✅ Resposta:</b> Criminosos executados, pobres sem família ou pessoas não reclamadas.",
-                submenu: {
-                    "quiz1": "🔙 Voltar ao Bloco 1"
-                }
-            },
-            "q3": {
-                text: "<b>❓ Pergunta 3</b><br>O que acontecia se um médico fosse pego dissecando um corpo ilegalmente?<br><br><b>✅ Resposta:</b> Poderia ser preso, exilado ou até condenado à morte.",
-                submenu: {
-                    "quiz1": "🔙 Voltar ao Bloco 1"
-                }
-            },
-            "q4": {
-                text: "<b>❓ Pergunta 4</b><br>Por que as dissecações eram feitas de madrugada?<br><br><b>✅ Resposta:</b> Para evitar denúncias da Igreja e da população.",
-                submenu: {
-                    "quiz1": "🔙 Voltar ao Bloco 1"
-                }
-            },
-            "q5": {
-                text: "<b>❓ Pergunta 5</b><br>Qual era o maior desafio para estudar anatomia antes da refrigeração?<br><br><b>✅ Resposta:</b> A rápida decomposição dos corpos.",
-                submenu: {
-                    "quiz1": "🔙 Voltar ao Bloco 1"
-                }
-            },
-            "q6": {
-                text: "<b>❓ Pergunta 6</b><br>O que eram os 'teatros anatômicos'?<br><br><b>✅ Resposta:</b> Locais públicos onde dissecações eram realizadas como espetáculos educativos.",
-                submenu: {
-                    "quiz1": "🔙 Voltar ao Bloco 1"
-                }
-            },
-            "q7": {
-                text: "<b>❓ Pergunta 7</b><br>Por que mulheres quase não apareciam nos estudos anatômicos antigos?<br><br><b>✅ Resposta:</b> Por preconceito moral e religioso contra o corpo feminino.",
-                submenu: {
-                    "quiz1": "🔙 Voltar ao Bloco 1"
-                }
-            },
-            "q8": {
-                text: "<b>❓ Pergunta 8</b><br>Qual órgão era considerado o centro das emoções na Antiguidade?<br><br><b>✅ Resposta:</b> O coração, não o cérebro.",
-                submenu: {
-                    "quiz1": "🔙 Voltar ao Bloco 1"
-                }
-            },
-            "q9": {
-                text: "<b>❓ Pergunta 9</b><br>Por que havia falta de cadáveres para estudo no século XVIII?<br><br><b>✅ Resposta:</b> O ensino médico cresceu mais rápido que a oferta legal de corpos.",
-                submenu: {
-                    "quiz2": "🔙 Voltar ao Bloco 2"
-                }
-            },
-            "q10": {
-                text: "<b>❓ Pergunta 10</b><br>Quem eram os 'resurrectionists'?<br><br><b>✅ Resposta:</b> Ladrões de cadáveres que roubavam corpos recém-enterrados.",
-                submenu: {
-                    "quiz2": "🔙 Voltar ao Bloco 2"
-                }
-            },
-            "q11": {
-                text: "<b>❓ Pergunta 11</b><br>Por que roubar cadáver não era visto como crime grave?<br><br><b>✅ Resposta:</b> Porque o corpo não era considerado propriedade legal.",
-                submenu: {
-                    "quiz2": "🔙 Voltar ao Bloco 2"
-                }
-            },
-            "q12": {
-                text: "<b>❓ Pergunta 12</b><br>O que as famílias faziam para proteger túmulos?<br><br><b>✅ Resposta:</b> Usavam grades de ferro, caixões pesados ou vigias noturnos.",
-                submenu: {
-                    "quiz2": "🔙 Voltar ao Bloco 2"
-                }
-            },
-            "q13": {
-                text: "<b>❓ Pergunta 13</b><br>O que eram os 'mort safes'?<br><br><b>✅ Resposta:</b> Estruturas metálicas para impedir o roubo de cadáveres.",
-                submenu: {
-                    "quiz2": "🔙 Voltar ao Bloco 2"
-                }
-            },
-            "q14": {
-                text: "<b>❓ Pergunta 14</b><br>Por que cadáveres de crianças eram muito visados?<br><br><b>✅ Resposta:</b> Eram menores, mais fáceis de retirar e raramente investigados.",
-                submenu: {
-                    "quiz2": "🔙 Voltar ao Bloco 2"
-                }
-            },
-            "q15": {
-                text: "<b>❓ Pergunta 15</b><br>Qual era o maior medo popular ligado à anatomia?<br><br><b>✅ Resposta:</b> Ser enterrado vivo ou ter o corpo roubado após a morte.",
-                submenu: {
-                    "quiz2": "🔙 Voltar ao Bloco 2"
-                }
-            },
-            "q16": {
-                text: "<b>❓ Pergunta 16</b><br>Por que muitos corpos vinham de hospitais e asilos?<br><br><b>✅ Resposta:</b> Porque os mortos pobres não tinham familiares para reclamar o corpo.",
-                submenu: {
-                    "quiz2": "🔙 Voltar ao Bloco 2"
-                }
-            },
-            "q17": {
-                text: "<b>❓ Pergunta 17</b><br>Por que o cérebro demorou séculos para ser considerado o centro da mente?<br><br><b>✅ Resposta:</b> Porque não se via movimento ou 'vida' nele durante a dissecação.",
-                submenu: {
-                    "quiz3": "🔙 Voltar ao Bloco 3"
-                }
-            },
-            "q18": {
-                text: "<b>❓ Pergunta 18</b><br>O que se acreditava sobre o útero na Antiguidade?<br><br><b>✅ Resposta:</b> Que ele 'andava' pelo corpo causando doenças (útero errante).",
-                submenu: {
-                    "quiz3": "🔙 Voltar ao Bloco 3"
-                }
-            },
-            "q19": {
-                text: "<b>❓ Pergunta 19</b><br>Por que os nervos eram confundidos com tendões?<br><br><b>✅ Resposta:</b> Porque ambos são estruturas fibrosas e difíceis de diferenciar sem microscópio.",
-                submenu: {
-                    "quiz3": "🔙 Voltar ao Bloco 3"
-                }
-            },
-            "q20": {
-                text: "<b>❓ Pergunta 20</b><br>Qual erro anatômico persistiu por mais de 1.000 anos?<br><br><b>✅ Resposta:</b> Os desenhos de Galeno, baseados em animais e não em humanos.",
-                submenu: {
-                    "quiz3": "🔙 Voltar ao Bloco 3"
-                }
-            },
-            "q21": {
-                text: "<b>❓ Pergunta 21</b><br>Quando se descobriu que o sangue circula em circuito fechado?<br><br><b>✅ Resposta:</b> Apenas no século XVII, com William Harvey.",
-                submenu: {
-                    "quiz3": "🔙 Voltar ao Bloco 3"
-                }
-            },
-            "q22": {
-                text: "<b>❓ Pergunta 22</b><br>Por que o fígado era considerado o órgão mais importante?<br><br><b>✅ Resposta:</b> Acreditava-se que ele produzia o sangue e a 'força vital'.",
-                submenu: {
-                    "quiz3": "🔙 Voltar ao Bloco 3"
-                }
-            },
-            "q23": {
-                text: "<b>❓ Pergunta 23</b><br>Por que muitos contos de fadas são violentos nas versões originais?<br><br><b>✅ Resposta:</b> Porque refletiam doenças, mortes e mutilações reais da época.",
-                submenu: {
-                    "quiz4": "🔙 Voltar ao Bloco 4"
-                }
-            },
-            "q24": {
-                text: "<b>❓ Pergunta 24</b><br>O que a história da Branca de Neve tem relação com anatomia?<br><br><b>✅ Resposta:</b> Com intoxicações, estados de coma e catalepsia.",
-                submenu: {
-                    "quiz4": "🔙 Voltar ao Bloco 4"
-                }
-            },
-            "q25": {
-                text: "<b>❓ Pergunta 25</b><br>Por que o 'sono profundo' aparece tanto nos contos?<br><br><b>✅ Resposta:</b> Porque pessoas eram confundidas com mortas por falta de diagnóstico neurológico.",
-                submenu: {
-                    "quiz4": "🔙 Voltar ao Bloco 4"
-                }
-            },
-            "q26": {
-                text: "<b>❓ Pergunta 26</b><br>Qual condição médica pode ter inspirado a Bela Adormecida?<br><br><b>✅ Resposta:</b> Catalepsia ou distúrbios neurológicos do sono.",
-                submenu: {
-                    "quiz4": "🔙 Voltar ao Bloco 4"
-                }
-            },
-            "q27": {
-                text: "<b>❓ Pergunta 27</b><br>Por que madrastas e bruxas aparecem associadas a órgãos e poções?<br><br><b>✅ Resposta:</b> Porque mulheres curandeiras dominavam conhecimentos do corpo e ervas.",
-                submenu: {
-                    "quiz4": "🔙 Voltar ao Bloco 4"
-                }
-            },
-            "q28": {
-                text: "<b>❓ Pergunta 28</b><br>O que simbolizam olhos arrancados ou mãos cortadas nos contos antigos?<br><br><b>✅ Resposta:</b> Medos reais de punições físicas e amputações médicas.",
-                submenu: {
-                    "quiz4": "🔙 Voltar ao Bloco 4"
-                }
-            },
-            "q29": {
-                text: "<b>❓ Pergunta 29</b><br>Por que espelhos aparecem como símbolos recorrentes?<br><br><b>✅ Resposta:</b> Porque refletiam a obsessão com o corpo, aparência e saúde.",
-                submenu: {
-                    "quiz4": "🔙 Voltar ao Bloco 4"
-                }
-            },
-            "q30": {
-                text: "<b>❓ Pergunta 30</b><br>O que o 'lobo mau' pode simbolizar biologicamente?<br><br><b>✅ Resposta:</b> Doenças, predadores reais ou a morte.",
-                submenu: {
-                    "quiz4": "🔙 Voltar ao Bloco 4"
-                }
-            },
-            "q31": {
-                text: "<b>❓ Pergunta 31</b><br>Por que anatomistas eram vistos como figuras sombrias?<br><br><b>✅ Resposta:</b> Porque lidavam com cadáveres e desafiavam crenças religiosas.",
-                submenu: {
-                    "quiz5": "🔙 Voltar ao Bloco 5"
-                }
-            },
-            "q32": {
-                text: "<b>❓ Pergunta 32</b><br>Por que o cheiro da dissecação era descrito em textos antigos?<br><br><b>✅ Resposta:</b> Porque fazia parte da experiência sensorial do aprendizado médico.",
-                submenu: {
-                    "quiz5": "🔙 Voltar ao Bloco 5"
-                }
-            },
-            "q33": {
-                text: "<b>❓ Pergunta 33</b><br>Por que Frankenstein reflete o medo da anatomia?<br><br><b>✅ Resposta:</b> Medo de manipular corpos e 'brincar de Deus'.",
-                submenu: {
-                    "quiz5": "🔙 Voltar ao Bloco 5"
-                }
-            },
-            "q34": {
-                text: "<b>❓ Pergunta 34</b><br>Por que costuras aparecem em histórias de monstros?<br><br><b>✅ Resposta:</b> Inspiradas em suturas reais feitas em cadáveres dissecados.",
-                submenu: {
-                    "quiz5": "🔙 Voltar ao Bloco 5"
-                }
-            },
-            "q35": {
-                text: "<b>❓ Pergunta 35</b><br>O que inspirou a ideia de corpos 'remontados'?<br><br><b>✅ Resposta:</b> Estudos anatômicos fragmentados e transplantes experimentais.",
-                submenu: {
-                    "quiz5": "🔙 Voltar ao Bloco 5"
-                }
-            },
-            "q36": {
-                text: "<b>❓ Pergunta 36</b><br>Por que pessoas tinham medo de médicos no passado?<br><br><b>✅ Resposta:</b> Porque muitos tratamentos eram dolorosos e experimentais.",
-                submenu: {
-                    "quiz6": "🔙 Voltar ao Bloco 6"
-                }
-            },
-            "q37": {
-                text: "<b>❓ Pergunta 37</b><br>O que era a sangria e por que era tão comum?<br><br><b>✅ Resposta:</b> Retirada de sangue para 'equilibrar os humores'.",
-                submenu: {
-                    "quiz6": "🔙 Voltar ao Bloco 6"
-                }
-            },
-            "q38": {
-                text: "<b>❓ Pergunta 38</b><br>Por que dentes e ossos eram usados em amuletos?<br><br><b>✅ Resposta:</b> Acreditava-se que continham força vital.",
-                submenu: {
-                    "quiz6": "🔙 Voltar ao Bloco 6"
-                }
-            },
-            "q39": {
-                text: "<b>❓ Pergunta 39</b><br>O que mudou radicalmente o estudo da anatomia humana?<br><br><b>✅ Resposta:</b> A legalização das dissecações e o método científico.",
-                submenu: {
-                    "quiz6": "🔙 Voltar ao Bloco 6"
-                }
-            },
-            "q40": {
-                text: "<b>❓ Pergunta 40</b><br>Por que a morte era tema cotidiano nos contos infantis antigos?<br><br><b>✅ Resposta:</b> Porque a mortalidade infantil era altíssima.",
-                submenu: {
-                    "quiz6": "🔙 Voltar ao Bloco 6"
-                }
-            },
-            "3": {
-                text: "<b>Curiosidades Fascinantes</b><br><br>Escolha uma categoria:",
-                submenu: {
-                    "3.1": "1️⃣ Ossos",
-                    "3.2": "2️⃣ Cérebro",
-                    "3.3": "3️⃣ Músculos",
-                    "3.4": "4️⃣ Órgãos"
-                }
-            },
-            "3.1": {
-                text: "<b>Ossos e Esqueleto</b><br><br>Nascemos com 270 ossos, adultos têm 206!<br>Osso mais curto: estribo do ouvido (3mm).",
-                submenu: {
-                    "3.1.1": "🔙 Voltar",
-                }
-            },
-            "3.2": {
-                text: "<b>Sistema Nervoso</b><br><br>86 BILHÕES de neurônios!<br>Neuroplasticidade: cérebro se reorganiza!",
-                submenu: {
-                    "3.2.1": "🔙 Voltar",
-                }
-            },
-            "3.3": {
-                text: "<b>Músculos e Movimento</b><br><br>643 músculos esqueléticos no corpo!<br>Músculo mais forte: LÍNGUA!",
-                submenu: {
-                    "3.3.1": "🔙 Voltar",
-                }
-            },
-            "3.4": {
-                text: "<b>Órgãos Especiais</b><br><br>Coração bate 100.000 vezes por dia!<br>Pulmões: superfície de 70 metros quadrados!",
-                submenu: {
-                    "3.4.1": "🔙 Voltar",
-                }
-            },
-            "4": {
-                text: "<b>Pesquisa e Estudos</b><br><br>Explore:",
-                submenu: {
-                    "4.1": "1️⃣ Metodologias",
-                    "4.2": "2️⃣ Marcos",
-                    "4.3": "3️⃣ Profª Sônia",
-                    "4.4": "4️⃣ Desafios"
-                }
-            },
-            "4.1": {
-                text: "<b>Metodologias</b><br><br>1️⃣ Dissecação<br>2️⃣ Imagenologia<br>3️⃣ Microscopia<br>4️⃣ IA e 3D",
-                submenu: {
-                    "4.1.1": "🔙 Voltar",
-                }
-            },
-            "4.2": {
-                text: "<b>Marcos Científicos</b><br><br>1628: Harvey e circulação<br>1952: RM inventada<br>2020s: IA em diagnósticos!",
-                submenu: {
-                    "4.2.1": "🔙 Voltar",
-                }
-            },
-            "4.3": {
-                text: "<b>Pesquisas da Profª Sônia</b><br><br>Neuroplasticidade<br>Diabetes e neuropatia<br>Cronobiologia<br>Saúde pública<br>Entomologia forense",
-                submenu: {
-                    "4.3.1": "🔙 Voltar",
-                }
-            },
-            "4.4": {
-                text: "<b>Desafios Modernos</b><br><br>VR vs cadáveres reais<br>Ética em pesquisa<br>Inclusão no ensino",
-                submenu: {
-                    "4.4.1": "🔙 Voltar",
-                }
-            },
-            "5": {
-                text: "<b>Gamificação e Aprendizado</b><br><br>Por que aprender jogando funciona?",
-                submenu: {
-                    "5.1": "1️⃣ Neurociência",
-                    "5.2": "2️⃣ Pesquisas",
-                    "5.3": "3️⃣ Nossos Jogos"
-                }
-            },
-            "5.1": {
-                text: "<b>Neurociência da Gamificação</b><br><br>Dopamina: química do prazer<br>Emoção = memorização",
-                submenu: {
-                    "5.1.1": "🔙 Voltar",
-                }
-            },
-            "5.2": {
-                text: "<b>Pesquisas que Comprovam</b><br><br>40% mais memorização<br>85% retenção a longo prazo",
-                submenu: {
-                    "5.2.1": "🔙 Voltar",
-                }
-            },
-            "5.3": {
-                text: "<b>Nossos Jogos</b><br><br>EAD: Pocket Anatomy, Atlas3D<br>Presencial: OsteoChallenge, NeuroMaze",
-                submenu: {
-                    "5.3.1": "🔙 Voltar",
-                }
-            }
-        }
+    // ====== CURISOCHAT MULTI-DISCIPLINAS ======
+    // Fluxo:
+    // 1) usuário escolhe disciplina: D1/D2/D3/D0
+    // 2) chatbot mostra menus específicos
+    // 3) em qualquer momento: MENU (volta), DISC (troca disciplina), JOGOS (atalho), SITE (atalhos)
+
+    let selectedDiscipline = null; // 'D1' | 'D2' | 'D3' | 'D0'
+
+    const DISCIPLINE_LABEL = {
+      D1: "Anatomia Humana",
+      D2: "Neuroanatomia",
+      D3: "Biologia/Outros cursos",
+      D0: "Recursos gerais"
+    };
+
+    const quickLinks = {
+      jogos: {
+        cardio: "https://pinheiro767.github.io/pagina/",
+        digestive: "https://pinheiro767.github.io/Digestive/",
+        neuro: "https://pinheiro767.github.io/scape_sn/"
+      }
     };
 
     function toggleChatbot() {
-        const window = document.getElementById('chatbot-window');
-        window.classList.toggle('open');
-        if (window.classList.contains('open')) {
-            document.getElementById('chatbot-user-input').focus();
-        }
+      const windowEl = document.getElementById('chatbot-window');
+      windowEl.classList.toggle('open');
+      if (windowEl.classList.contains('open')) {
+        document.getElementById('chatbot-user-input').focus();
+      }
     }
 
-    function selectTopicChat(topic) {
-        document.getElementById('chatbot-user-input').value = topic;
-        sendChatbotMessage();
-    }
-
-    function sendChatbotMessage() {
-        const text = document.getElementById('chatbot-user-input').value.trim();
-        if (!text) return;
-
-        addChatMessage(text, 'user');
-        document.getElementById('chatbot-user-input').value = '';
-
-        setTimeout(() => {
-            let response = '';
-            let submenu = null;
-
-            if (chatResponses.main[text]) {
-                response = chatResponses.main[text].text;
-                submenu = chatResponses.main[text].submenu;
-            } else if (text === '0') {
-                response = "<b>Menu Principal</b><br><br>Escolha um tema:";
-                submenu = {
-                    "1": "1️⃣ Por que Estudar?",
-                    "2": "2️⃣ Histórias",
-                    "3": "3️⃣ Curiosidades",
-                    "4": "4️⃣ Pesquisa",
-                    "5": "5️⃣ Gamificação"
-                };
-            } else if (text.includes('🔙')) {
-                response = "<b>Menu Principal</b><br><br>Escolha um tema:";
-                submenu = {
-                    "1": "1️⃣ Por que Estudar?",
-                    "2": "2️⃣ Histórias",
-                    "3": "3️⃣ Curiosidades",
-                    "4": "4️⃣ Pesquisa",
-                    "5": "5️⃣ Gamificação"
-                };
-            } else {
-                response = "Desculpe, não entendi. Digite o número (1-5)!";
-            }
-
-            addChatMessage(response, 'bot');
-
-            if (submenu) {
-                setTimeout(() => {
-                    let menuHtml = '<div class="menu-buttons">';
-                    for (let key in submenu) {
-                        menuHtml += `<button class="menu-btn" onclick="selectTopicChat('${key}')">${submenu[key]}</button>`;
-                    }
-                    menuHtml += '</div>';
-                    const msgDiv = document.createElement('div');
-                    msgDiv.className = 'msg bot';
-                    msgDiv.innerHTML = menuHtml;
-                    document.getElementById('chatbot-box').appendChild(msgDiv);
-                    document.getElementById('chatbot-box').scrollTop = document.getElementById('chatbot-box').scrollHeight;
-                }, 300);
-            }
-        }, 400);
+    function selectTopicChat(value) {
+      document.getElementById('chatbot-user-input').value = value;
+      sendChatbotMessage();
     }
 
     function addChatMessage(text, side) {
-        const div = document.createElement('div');
-        div.className = `msg ${side}`;
-        if (side === 'bot') {
-            div.innerHTML = text;
-        } else {
-            div.textContent = text;
+      const div = document.createElement('div');
+      div.className = `msg ${side}`;
+      if (side === 'bot') div.innerHTML = text;
+      else div.textContent = text;
+      document.getElementById('chatbot-box').appendChild(div);
+      document.getElementById('chatbot-box').scrollTop = document.getElementById('chatbot-box').scrollHeight;
+    }
+
+    function addMenuButtons(menuObj) {
+      let menuHtml = '<div class="menu-buttons">';
+      for (let key in menuObj) {
+        menuHtml += `<button class="menu-btn" onclick="selectTopicChat('${key}')">${menuObj[key]}</button>`;
+      }
+      menuHtml += '</div>';
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'msg bot';
+      msgDiv.innerHTML = menuHtml;
+      document.getElementById('chatbot-box').appendChild(msgDiv);
+      document.getElementById('chatbot-box').scrollTop = document.getElementById('chatbot-box').scrollHeight;
+    }
+
+    function showMainDisciplineMenu() {
+      const text = `
+        <b>Escolha sua disciplina/turma</b> 👇
+        <div style="margin-top:8px; font-size:0.9rem; opacity:0.9;">
+          Para voltar a qualquer momento: <b>MENU</b> • Para trocar disciplina: <b>DISC</b> • Atalho jogos: <b>JOGOS</b>
+        </div>
+      `;
+      addChatMessage(text, 'bot');
+      addMenuButtons({
+        "D1": "📚 D1 — Anatomia Humana",
+        "D2": "🧠 D2 — Neuroanatomia",
+        "D3": "🌿 D3 — Biologia/Outros cursos",
+        "D0": "🔎 D0 — Recursos gerais"
+      });
+    }
+
+    function showDisciplineTopicsMenu() {
+      const label = DISCIPLINE_LABEL[selectedDiscipline] || "sua disciplina";
+      addChatMessage(`<b>${label}</b> selecionada ✅<br><br>Agora escolha o que deseja:`, 'bot');
+
+      // Menus por disciplina
+      const menu = {
+        "T1": "1️⃣ Como estudar (roteiro rápido)",
+        "T2": "2️⃣ Conteúdos & revisões (orientações)",
+        "T3": "3️⃣ Curiosidades / História da Anatomia",
+        "T4": "4️⃣ Pesquisa & metodologia",
+        "T5": "5️⃣ Gamificação & Jogos (links)",
+        "SITE": "🔗 Abrir seção do site (Disciplinas/Recursos)"
+      };
+
+      // Ajustes para D3 (biologia/outros)
+      if (selectedDiscipline === "D3") {
+        menu["T2"] = "2️⃣ Conteúdos & revisões (biologia/outros)";
+        menu["T4"] = "4️⃣ Método científico & estudo";
+      }
+
+      addMenuButtons(menu);
+    }
+
+    // Respostas base (curtas e reutilizáveis)
+    const responses = {
+      T1: {
+        D1: "<b>Roteiro rápido — Anatomia Humana</b><br><br>✅ 1) Leia o objetivo do tema<br>✅ 2) Use atlas/imagens para localizar estruturas<br>✅ 3) Faça revisão ativa (pergunte a si mesma/o)<br>✅ 4) Use os jogos para fixação<br><br>Se quiser, digite <b>JOGOS</b> para links.",
+        D2: "<b>Roteiro rápido — Neuroanatomia</b><br><br>✅ 1) Localize a estrutura<br>✅ 2) Relacione com função<br>✅ 3) Associe via/lesão (se aplicável)<br>✅ 4) Revise com perguntas curtas e jogos<br><br>Digite <b>JOGOS</b> para links.",
+        D3: "<b>Roteiro rápido — Biologia/Outros</b><br><br>✅ 1) Conceito central + exemplo<br>✅ 2) Faça mapa mental simples<br>✅ 3) Resolva questões rápidas<br>✅ 4) Use recursos interativos do site para revisar.",
+        D0: "<b>Roteiro geral de estudos</b><br><br>✅ Estudo ativo (perguntas)<br>✅ Revisão espaçada<br>✅ Exemplos e aplicações<br>✅ Jogos/quiz para fixação"
+      },
+      T2: {
+        D1: "<b>Conteúdos & revisões — Anatomia Humana</b><br><br>• Organização por sistemas (digestório, cardiorrespiratório, nervoso etc.)<br>• Revise por imagens + perguntas rápidas<br>• Use o site como apoio e o AVA como ambiente oficial (quando aplicável).",
+        D2: "<b>Conteúdos & revisões — Neuroanatomia</b><br><br>• Estrutura → função → clínica (quando aplicável)<br>• Foque em vias principais e relações anatômicas<br>• Use quiz/jogos para fixação.",
+        D3: "<b>Conteúdos & revisões — Biologia/Outros</b><br><br>• Conceitos + exemplos do cotidiano<br>• Diagramas simples e comparações<br>• Exercícios curtos para consolidar.",
+        D0: "<b>Conteúdos & revisões — Geral</b><br><br>• Use revisão ativa (flashcards/perguntas)<br>• Faça uma síntese de 5 linhas por tema<br>• Use recursos interativos para testar."
+      },
+      T3: {
+        D1: "<b>Curiosidades & História</b><br><br>Quer explorar curiosidades ou fazer o <b>Quiz de 40 perguntas</b> sobre história da anatomia?<br><br>Digite: <b>QUIZ</b> para abrir os blocos.",
+        D2: "<b>Curiosidades & História</b><br><br>Neurociência evoluiu muito com técnicas de imagem (TC/RM) e neuroplasticidade.<br><br>Digite: <b>QUIZ</b> para o quiz de história/curiosidades.",
+        D3: "<b>Curiosidades & História</b><br><br>Curiosidades científicas ajudam a memorizar conceitos em biologia.<br><br>Digite: <b>QUIZ</b> para perguntas de história/curiosidades (geral).",
+        D0: "<b>Curiosidades & História</b><br><br>Digite <b>QUIZ</b> para acessar o quiz de 40 perguntas (história da anatomia, ciência e contos)."
+      },
+      T4: {
+        D1: "<b>Pesquisa & Metodologia</b><br><br>• Método científico e ética<br>• Anatomia: dissecação, imagem, modelos 3D, IA<br>• Aprendizagem ativa e avaliação formativa.",
+        D2: "<b>Pesquisa & Metodologia</b><br><br>• Neuroplasticidade e evidências<br>• Relação estrutura-função<br>• Ferramentas: imagem, modelos 3D, simulações.",
+        D3: "<b>Método científico & Estudo</b><br><br>• Hipótese → experimento → análise<br>• Fontes confiáveis e leitura crítica<br>• Aplicações em saúde e educação.",
+        D0: "<b>Pesquisa & Metodologia</b><br><br>• Planeje objetivos<br>• Use fontes confiáveis<br>• Registre e revise (portfólio)."
+      }
+    };
+
+    // Quiz original (mantido, mas agora entra por comando QUIZ)
+    const quizTree = {
+      "QUIZ": {
+        text: "<b>Quiz: História da Anatomia</b> 🎯<br><br>Escolha um bloco:",
+        submenu: {
+          "quiz1": "🕯️ Bloco 1: Séculos Passados",
+          "quiz2": "⚰️ Bloco 2: Cadáveres & Roubos",
+          "quiz3": "🧠 Bloco 3: Descobertas",
+          "quiz4": "🧚 Bloco 4: Contos de Fadas",
+          "quiz5": "🧬 Bloco 5: Ciência & Medo",
+          "quiz6": "🧠 Bloco 6: Curiosidades Finais"
         }
-        document.getElementById('chatbot-box').appendChild(div);
-        document.getElementById('chatbot-box').scrollTop = document.getElementById('chatbot-box').scrollHeight;
+      },
+      "quiz1": {
+        text: "<b>🕯️ BLOCO 1 — Anatomia nos Séculos Passados</b><br><br>Escolha uma pergunta (1-8):",
+        submenu: {
+          "q1": "1️⃣ Dissecação proibida na Idade Média",
+          "q2": "2️⃣ Corpos usados no século XVII",
+          "q3": "3️⃣ Punição por dissecação ilegal",
+          "q4": "4️⃣ Por que de madrugada?",
+          "q5": "5️⃣ Desafio sem refrigeração",
+          "q6": "6️⃣ O que eram teatros anatômicos?",
+          "q7": "7️⃣ Por que mulheres não aparecem",
+          "q8": "8️⃣ Centro das emoções"
+        }
+      },
+      "quiz2": {
+        text: "<b>⚰️ BLOCO 2 — Cadáveres, Roubos & Século XVIII</b><br><br>Escolha uma pergunta (9-16):",
+        submenu: {
+          "q9": "9️⃣ Falta de cadáveres no séc. XVIII",
+          "q10": "🔟 Quem eram os 'resurrectionists'?",
+          "q11": "1️⃣1️⃣ Por que não era crime grave?",
+          "q12": "1️⃣2️⃣ Como protegiam os túmulos?",
+          "q13": "1️⃣3️⃣ O que eram 'mort safes'?",
+          "q14": "1️⃣4️⃣ Por que crianças eram visadas?",
+          "q15": "1️⃣5️⃣ Maior medo popular",
+          "q16": "1️⃣6️⃣ Corpos de hospitais & asilos"
+        }
+      },
+      "quiz3": {
+        text: "<b>🧠 BLOCO 3 — Curiosidades Reais Descobertas Tardiamente</b><br><br>Escolha uma pergunta (17-22):",
+        submenu: {
+          "q17": "1️⃣7️⃣ Por que cérebro demorou séculos?",
+          "q18": "1️⃣8️⃣ O que acreditavam sobre útero?",
+          "q19": "1️⃣9️⃣ Nervos vs Tendões",
+          "q20": "2️⃣0️⃣ Erro anatômico de 1.000 anos",
+          "q21": "2️⃣1️⃣ Quando descobriu circulação?",
+          "q22": "2️⃣2️⃣ Por que fígado era importante?"
+        }
+      },
+      "quiz4": {
+        text: "<b>🧚 BLOCO 4 — Contos de Fadas & Anatomia</b><br><br>Escolha uma pergunta (23-30):",
+        submenu: {
+          "q23": "2️⃣3️⃣ Contos violentos originais",
+          "q24": "2️⃣4️⃣ Branca de Neve & anatomia",
+          "q25": "2️⃣5️⃣ 'Sono profundo' nos contos",
+          "q26": "2️⃣6️⃣ Inspiração da Bela Adormecida",
+          "q27": "2️⃣7️⃣ Madrastas & bruxas",
+          "q28": "2️⃣8️⃣ Olhos & mãos cortadas",
+          "q29": "2️⃣9️⃣ Espelhos como símbolos",
+          "q30": "3️⃣0️⃣ O que lobo mau simboliza?"
+        }
+      },
+      "quiz5": {
+        text: "<b>🧬 BLOCO 5 — Ciência, Medo & Imaginação Popular</b><br><br>Escolha uma pergunta (31-35):",
+        submenu: {
+          "q31": "3️⃣1️⃣ Anatomistas como figuras sombrias",
+          "q32": "3️⃣2️⃣ Cheiro da dissecação",
+          "q33": "3️⃣3️⃣ Frankenstein & anatomia",
+          "q34": "3️⃣4️⃣ Costuras em monstros",
+          "q35": "3️⃣5️⃣ Corpos 'remontados'"
+        }
+      },
+      "quiz6": {
+        text: "<b>🧠 BLOCO 6 — Curiosidades Finais Impactantes</b><br><br>Escolha uma pergunta (36-40):",
+        submenu: {
+          "q36": "3️⃣6️⃣ Medo de médicos no passado",
+          "q37": "3️⃣7️⃣ O que era sangria?",
+          "q38": "3️⃣8️⃣ Dentes & ossos em amuletos",
+          "q39": "3️⃣9️⃣ O que mudou estudo de anatomia?",
+          "q40": "4️⃣0️⃣ Morte em contos infantis"
+        }
+      },
+
+      // Respostas do quiz (as mesmas que você tinha)
+      "q1": { text: "<b>❓ Pergunta 1</b><br>Por que a dissecação de cadáveres era proibida durante a Idade Média em muitos lugares?<br><br><b>✅ Resposta:</b> Porque acreditava-se que o corpo precisava estar íntegro para a ressurreição da alma.", submenu: { "QUIZ": "🔙 Voltar ao menu do Quiz" } },
+      "q2": { text: "<b>❓ Pergunta 2</b><br>Quem eram, em geral, os corpos usados para estudo anatômico no século XVII?<br><br><b>✅ Resposta:</b> Criminosos executados, pobres sem família ou pessoas não reclamadas.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
+      "q3": { text: "<b>❓ Pergunta 3</b><br>O que acontecia se um médico fosse pego dissecando um corpo ilegalmente?<br><br><b>✅ Resposta:</b> Poderia ser preso, exilado ou até condenado à morte.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
+      "q4": { text: "<b>❓ Pergunta 4</b><br>Por que as dissecações eram feitas de madrugada?<br><br><b>✅ Resposta:</b> Para evitar denúncias da Igreja e da população.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
+      "q5": { text: "<b>❓ Pergunta 5</b><br>Qual era o maior desafio para estudar anatomia antes da refrigeração?<br><br><b>✅ Resposta:</b> A rápida decomposição dos corpos.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
+      "q6": { text: "<b>❓ Pergunta 6</b><br>O que eram os 'teatros anatômicos'?<br><br><b>✅ Resposta:</b> Locais públicos onde dissecações eram realizadas como espetáculos educativos.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
+      "q7": { text: "<b>❓ Pergunta 7</b><br>Por que mulheres quase não apareciam nos estudos anatômicos antigos?<br><br><b>✅ Resposta:</b> Por preconceito moral e religioso contra o corpo feminino.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
+      "q8": { text: "<b>❓ Pergunta 8</b><br>Qual órgão era considerado o centro das emoções na Antiguidade?<br><br><b>✅ Resposta:</b> O coração, não o cérebro.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
+
+      "q9": { text: "<b>❓ Pergunta 9</b><br>Por que havia falta de cadáveres para estudo no século XVIII?<br><br><b>✅ Resposta:</b> O ensino médico cresceu mais rápido que a oferta legal de corpos.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
+      "q10": { text: "<b>❓ Pergunta 10</b><br>Quem eram os 'resurrectionists'?<br><br><b>✅ Resposta:</b> Ladrões de cadáveres que roubavam corpos recém-enterrados.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
+      "q11": { text: "<b>❓ Pergunta 11</b><br>Por que roubar cadáver não era visto como crime grave?<br><br><b>✅ Resposta:</b> Porque o corpo não era considerado propriedade legal.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
+      "q12": { text: "<b>❓ Pergunta 12</b><br>O que as famílias faziam para proteger túmulos?<br><br><b>✅ Resposta:</b> Usavam grades de ferro, caixões pesados ou vigias noturnos.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
+      "q13": { text: "<b>❓ Pergunta 13</b><br>O que eram os 'mort safes'?<br><br><b>✅ Resposta:</b> Estruturas metálicas para impedir o roubo de cadáveres.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
+      "q14": { text: "<b>❓ Pergunta 14</b><br>Por que cadáveres de crianças eram muito visados?<br><br><b>✅ Resposta:</b> Eram menores, mais fáceis de retirar e raramente investigados.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
+      "q15": { text: "<b>❓ Pergunta 15</b><br>Qual era o maior medo popular ligado à anatomia?<br><br><b>✅ Resposta:</b> Ser enterrado vivo ou ter o corpo roubado após a morte.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
+      "q16": { text: "<b>❓ Pergunta 16</b><br>Por que muitos corpos vinham de hospitais e asilos?<br><br><b>✅ Resposta:</b> Porque os mortos pobres não tinham familiares para reclamar o corpo.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
+
+      "q17": { text: "<b>❓ Pergunta 17</b><br>Por que o cérebro demorou séculos para ser considerado o centro da mente?<br><br><b>✅ Resposta:</b> Porque não se via movimento ou 'vida' nele durante a dissecação.", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
+      "q18": { text: "<b>❓ Pergunta 18</b><br>O que se acreditava sobre o útero na Antiguidade?<br><br><b>✅ Resposta:</b> Que ele 'andava' pelo corpo causando doenças (útero errante).", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
+      "q19": { text: "<b>❓ Pergunta 19</b><br>Por que os nervos eram confundidos com tendões?<br><br><b>✅ Resposta:</b> Porque ambos são estruturas fibrosas e difíceis de diferenciar sem microscópio.", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
+      "q20": { text: "<b>❓ Pergunta 20</b><br>Qual erro anatômico persistiu por mais de 1.000 anos?<br><br><b>✅ Resposta:</b> Os desenhos de Galeno, baseados em animais e não em humanos.", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
+      "q21": { text: "<b>❓ Pergunta 21</b><br>Quando se descobriu que o sangue circula em circuito fechado?<br><br><b>✅ Resposta:</b> Apenas no século XVII, com William Harvey.", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
+      "q22": { text: "<b>❓ Pergunta 22</b><br>Por que o fígado era considerado o órgão mais importante?<br><br><b>✅ Resposta:</b> Acreditava-se que ele produzia o sangue e a 'força vital'.", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
+
+      "q23": { text: "<b>❓ Pergunta 23</b><br>Por que muitos contos de fadas são violentos nas versões originais?<br><br><b>✅ Resposta:</b> Porque refletiam doenças, mortes e mutilações reais da época.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
+      "q24": { text: "<b>❓ Pergunta 24</b><br>O que a história da Branca de Neve tem relação com anatomia?<br><br><b>✅ Resposta:</b> Com intoxicações, estados de coma e catalepsia.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
+      "q25": { text: "<b>❓ Pergunta 25</b><br>Por que o 'sono profundo' aparece tanto nos contos?<br><br><b>✅ Resposta:</b> Porque pessoas eram confundidas com mortas por falta de diagnóstico neurológico.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
+      "q26": { text: "<b>❓ Pergunta 26</b><br>Qual condição médica pode ter inspirado a Bela Adormecida?<br><br><b>✅ Resposta:</b> Catalepsia ou distúrbios neurológicos do sono.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
+      "q27": { text: "<b>❓ Pergunta 27</b><br>Por que madrastas e bruxas aparecem associadas a órgãos e poções?<br><br><b>✅ Resposta:</b> Porque mulheres curandeiras dominavam conhecimentos do corpo e ervas.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
+      "q28": { text: "<b>❓ Pergunta 28</b><br>O que simbolizam olhos arrancados ou mãos cortadas nos contos antigos?<br><br><b>✅ Resposta:</b> Medos reais de punições físicas e amputações médicas.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
+      "q29": { text: "<b>❓ Pergunta 29</b><br>Por que espelhos aparecem como símbolos recorrentes?<br><br><b>✅ Resposta:</b> Porque refletiam a obsessão com o corpo, aparência e saúde.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
+      "q30": { text: "<b>❓ Pergunta 30</b><br>O que o 'lobo mau' pode simbolizar biologicamente?<br><br><b>✅ Resposta:</b> Doenças, predadores reais ou a morte.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
+
+      "q31": { text: "<b>❓ Pergunta 31</b><br>Por que anatomistas eram vistos como figuras sombrias?<br><br><b>✅ Resposta:</b> Porque lidavam com cadáveres e desafiavam crenças religiosas.", submenu: { "quiz5": "🔙 Voltar ao Bloco 5" } },
+      "q32": { text: "<b>❓ Pergunta 32</b><br>Por que o cheiro da dissecação era descrito em textos antigos?<br><br><b>✅ Resposta:</b> Porque fazia parte da experiência sensorial do aprendizado médico.", submenu: { "quiz5": "🔙 Voltar ao Bloco 5" } },
+      "q33": { text: "<b>❓ Pergunta 33</b><br>Por que Frankenstein reflete o medo da anatomia?<br><br><b>✅ Resposta:</b> Medo de manipular corpos e 'brincar de Deus'.", submenu: { "quiz5": "🔙 Voltar ao Bloco 5" } },
+      "q34": { text: "<b>❓ Pergunta 34</b><br>Por que costuras aparecem em histórias de monstros?<br><br><b>✅ Resposta:</b> Inspiradas em suturas reais feitas em cadáveres dissecados.", submenu: { "quiz5": "🔙 Voltar ao Bloco 5" } },
+      "q35": { text: "<b>❓ Pergunta 35</b><br>O que inspirou a ideia de corpos 'remontados'?<br><br><b>✅ Resposta:</b> Estudos anatômicos fragmentados e transplantes experimentais.", submenu: { "quiz5": "🔙 Voltar ao Bloco 5" } },
+
+      "q36": { text: "<b>❓ Pergunta 36</b><br>Por que pessoas tinham medo de médicos no passado?<br><br><b>✅ Resposta:</b> Porque muitos tratamentos eram dolorosos e experimentais.", submenu: { "quiz6": "🔙 Voltar ao Bloco 6" } },
+      "q37": { text: "<b>❓ Pergunta 37</b><br>O que era a sangria e por que era tão comum?<br><br><b>✅ Resposta:</b> Retirada de sangue para 'equilibrar os humores'.", submenu: { "quiz6": "🔙 Voltar ao Bloco 6" } },
+      "q38": { text: "<b>❓ Pergunta 38</b><br>Por que dentes e ossos eram usados em amuletos?<br><br><b>✅ Resposta:</b> Acreditava-se que continham força vital.", submenu: { "quiz6": "🔙 Voltar ao Bloco 6" } },
+      "q39": { text: "<b>❓ Pergunta 39</b><br>O que mudou radicalmente o estudo da anatomia humana?<br><br><b>✅ Resposta:</b> A legalização das dissecações e o método científico.", submenu: { "quiz6": "🔙 Voltar ao Bloco 6" } },
+      "q40": { text: "<b>❓ Pergunta 40</b><br>Por que a morte era tema cotidiano nos contos infantis antigos?<br><br><b>✅ Resposta:</b> Porque a mortalidade infantil era altíssima.", submenu: { "quiz6": "🔙 Voltar ao Bloco 6" } }
+    };
+
+    function normalizeInput(raw) {
+      return (raw || "")
+        .trim()
+        .replace(/\s+/g, " ")
+        .toUpperCase();
+    }
+
+    function openSiteSection(sectionId) {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function renderGamesLinks() {
+      const html = `
+        <b>🎮 Links dos jogos</b><br><br>
+        <a href="${quickLinks.jogos.cardio}" target="_blank" rel="noopener noreferrer"><b>1)</b> Escape Game Cardiorrespiratório</a><br>
+        <a href="${quickLinks.jogos.digestive}" target="_blank" rel="noopener noreferrer"><b>2)</b> Escape Game Sistema Digestório</a><br>
+        <a href="${quickLinks.jogos.neuro}" target="_blank" rel="noopener noreferrer"><b>3)</b> Escape Game Sistema Nervoso</a><br><br>
+        Quer que eu te sugira qual jogar primeiro? Digite <b>1</b>, <b>2</b> ou <b>3</b>.
+      `;
+      addChatMessage(html, 'bot');
+    }
+
+    function handleGameChoice(choice) {
+      if (choice === "1") {
+        addChatMessage(`Abrindo Cardiorrespiratório: ${quickLinks.jogos.cardio}`, 'bot');
+        window.open(quickLinks.jogos.cardio, "_blank");
+        return true;
+      }
+      if (choice === "2") {
+        addChatMessage(`Abrindo Sistema Digestório: ${quickLinks.jogos.digestive}`, 'bot');
+        window.open(quickLinks.jogos.digestive, "_blank");
+        return true;
+      }
+      if (choice === "3") {
+        addChatMessage(`Abrindo Sistema Nervoso: ${quickLinks.jogos.neuro}`, 'bot');
+        window.open(quickLinks.jogos.neuro, "_blank");
+        return true;
+      }
+      return false;
+    }
+
+    function sendChatbotMessage() {
+      const raw = document.getElementById('chatbot-user-input').value;
+      const text = normalizeInput(raw);
+      if (!text) return;
+
+      addChatMessage(raw.trim(), 'user');
+      document.getElementById('chatbot-user-input').value = '';
+
+      setTimeout(() => {
+        // Atalhos globais
+        if (text === "MENU") {
+          selectedDiscipline = null;
+          showMainDisciplineMenu();
+          return;
+        }
+
+        if (text === "DISC") {
+          selectedDiscipline = null;
+          addChatMessage("<b>Trocar disciplina</b> ✅", "bot");
+          showMainDisciplineMenu();
+          return;
+        }
+
+        if (text === "JOGOS") {
+          renderGamesLinks();
+          return;
+        }
+
+        if (handleGameChoice(text)) return;
+
+        if (text === "SITE") {
+          addChatMessage("<b>Atalhos do site</b> 🔗<br>Escolha onde quer ir:", "bot");
+          addMenuButtons({
+            "GO_DISC": "📚 Ir para Disciplinas",
+            "GO_REC": "🎮 Ir para Recursos Interativos",
+            "GO_AV": "📘 Ir para Estudos Avançados",
+            "GO_SOB": "👩‍🏫 Ir para Sobre",
+            "GO_CONT": "✉️ Ir para Contato"
+          });
+          return;
+        }
+
+        if (text === "GO_DISC") { openSiteSection("disciplinas"); addChatMessage("Pronto! Te levei para <b>Disciplinas</b> ✅", "bot"); return; }
+        if (text === "GO_REC") { openSiteSection("recursos"); addChatMessage("Pronto! Te levei para <b>Recursos Interativos</b> ✅", "bot"); return; }
+        if (text === "GO_AV") { openSiteSection("avancado"); addChatMessage("Pronto! Te levei para <b>Estudos Avançados</b> ✅", "bot"); return; }
+        if (text === "GO_SOB") { openSiteSection("sobre"); addChatMessage("Pronto! Te levei para <b>Sobre</b> ✅", "bot"); return; }
+        if (text === "GO_CONT") { openSiteSection("contato"); addChatMessage("Pronto! Te levei para <b>Contato</b> ✅", "bot"); return; }
+
+        // Seleção de disciplina
+        if (["D1","D2","D3","D0"].includes(text)) {
+          selectedDiscipline = text;
+          showDisciplineTopicsMenu();
+          return;
+        }
+
+        // Se ainda não escolheu disciplina
+        if (!selectedDiscipline) {
+          addChatMessage("Para continuar, escolha primeiro a disciplina: <b>D1</b>, <b>D2</b>, <b>D3</b> ou <b>D0</b>.<br>Ou digite <b>MENU</b>.", "bot");
+          return;
+        }
+
+        // Quiz tree (comando QUIZ, quiz1, q1 etc.)
+        if (quizTree[text]) {
+          addChatMessage(quizTree[text].text, "bot");
+          if (quizTree[text].submenu) addMenuButtons(quizTree[text].submenu);
+          return;
+        }
+
+        // Tópicos principais do menu por disciplina
+        if (["T1","T2","T3","T4"].includes(text)) {
+          const msg = (responses[text] && responses[text][selectedDiscipline]) || "Conteúdo em construção.";
+          addChatMessage(msg, "bot");
+          if (text === "T3") {
+            addMenuButtons({ "QUIZ": "🎯 Abrir o Quiz (40 perguntas)", "MENU": "🔙 Voltar ao início" });
+          } else {
+            addMenuButtons({ "T5": "🎮 Gamificação & Jogos (links)", "SITE": "🔗 Abrir seção do site", "MENU": "🔙 Menu inicial" });
+          }
+          return;
+        }
+
+        // T5 (jogos) com links preservados
+        if (text === "T5") {
+          addChatMessage("<b>Gamificação & Jogos</b><br><br>Você pode usar os jogos em qualquer disciplina/turma. Quer abrir um agora?", "bot");
+          addMenuButtons({
+            "JOGOS": "🎮 Ver links dos jogos",
+            "GO_REC": "📍 Ir para a seção Recursos Interativos no site",
+            "MENU": "🔙 Menu inicial"
+          });
+          return;
+        }
+
+        // Caso não reconheça
+        addChatMessage(
+          "Não entendi 😅<br><br>Digite:<br>• <b>T1</b> (como estudar)<br>• <b>T2</b> (conteúdos & revisões)<br>• <b>T3</b> (curiosidades/quiz)<br>• <b>T4</b> (pesquisa)<br>• <b>T5</b> (jogos)<br><br>Ou use <b>JOGOS</b>, <b>SITE</b>, <b>DISC</b>, <b>MENU</b>.",
+          "bot"
+        );
+      }, 250);
     }
 
     document.getElementById('chatbot-user-input').addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') sendChatbotMessage();
+      if (e.key === 'Enter') sendChatbotMessage();
     });
 
     function scrollToContact() {
-        document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
     }
 
     function toggleEscapeGame() {
-        const container = document.getElementById('escape-game-container');
-        const btn = document.getElementById('toggle-text');
-        
-        if (container.style.display === 'none') {
-            container.style.display = 'block';
-            btn.textContent = 'Ocultar Jogos Educacionais';
-        } else {
-            container.style.display = 'none';
-            btn.textContent = 'Explorar Jogos Educacionais';
-        }
+      const container = document.getElementById('escape-game-container');
+      const btn = document.getElementById('toggle-text');
+      const isHidden = (container.style.display === 'none' || container.style.display === '');
+      if (isHidden) {
+        container.style.display = 'block';
+        btn.textContent = 'Ocultar Jogos Educacionais';
+      } else {
+        container.style.display = 'none';
+        btn.textContent = 'Explorar Jogos Educacionais';
+      }
     }
-</script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cc02e3c54279ca9',t:'MTc3MDc3NDQ3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
- </html>
+  </script>
+
+  <script>
+    (function(){
+      function c(){
+        var b=a.contentDocument||a.contentWindow.document;
+        if(b){
+          var d=b.createElement('script');
+          d.innerHTML="window.__CF$cv$params={r:'9cc02e3c54279ca9',t:'MTc3MDc3NDQ3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+          b.getElementsByTagName('head')[0].appendChild(d)
+        }
+      }
+      if(document.body){
+        var a=document.createElement('iframe');
+        a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';
+        document.body.appendChild(a);
+        if('loading'!==document.readyState)c();
+        else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);
+        else{
+          var e=document.onreadystatechange||function(){};
+          document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

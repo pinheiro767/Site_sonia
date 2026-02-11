@@ -1,12 +1,15 @@
 <!doctype html>
 <html lang="pt-br" class="h-full">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profª Dra. Sônia Trannin de Mello - Anatomia Humana</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&amp;family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
 
+  <!-- Ícones e fontes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&amp;family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet" />
+
+  <!-- Removi Tailwind e scripts /_sdk (eram de Canva e podem quebrar no GitHub Pages) -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { height: 100%; font-family: 'Poppins', sans-serif; }
@@ -232,6 +235,10 @@
       transition: all 0.3s ease;
       margin-top: 10px;
       font-family: 'Poppins', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
     .btn-primary:hover {
       transform: translateY(-2px);
@@ -474,11 +481,6 @@
       #chatbot-window { width: 90vw; height: 70vh; max-width: 350px; max-height: 520px; }
     }
   </style>
-
-  <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
-  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
 </head>
 
 <body>
@@ -493,7 +495,7 @@
           <li><a href="#avancado">Estudos Avançados</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#contato">Contato</a></li>
-          <li><button class="contact-btn" onclick="scrollToContact()">Entre em Contato</button></li>
+          <li><button class="contact-btn" type="button" onclick="scrollToContact()">Entre em Contato</button></li>
         </ul>
       </nav>
     </div>
@@ -515,10 +517,9 @@
   </section>
 
   <!-- ===== CONTEUDO PRINCIPAL ===== -->
-  <div class="main-container">
-
+  <main class="main-container">
     <!-- ===== DISCIPLINAS ===== -->
-    <div class="course-section" id="disciplinas">
+    <section class="course-section" id="disciplinas">
       <h2 class="section-title"><i class="fas fa-book"></i> Disciplinas</h2>
       <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 10px;">
         Selecione a disciplina para ver conteúdos e orientações. Você também pode usar os recursos interativos em qualquer turma.
@@ -528,7 +529,6 @@
       </p>
 
       <div class="course-grid">
-
         <div class="course-card">
           <span class="badge">EAD / Presencial</span>
           <h3>Anatomia Humana</h3>
@@ -538,7 +538,7 @@
             <li>Revisões dirigidas</li>
             <li>Integração com jogos</li>
           </ul>
-          <button class="btn-primary" onclick="document.getElementById('recursos').scrollIntoView({behavior:'smooth'})">Ver recursos</button>
+          <button class="btn-primary" type="button" onclick="document.getElementById('recursos').scrollIntoView({behavior:'smooth'})">Ver recursos</button>
         </div>
 
         <div class="course-card">
@@ -550,7 +550,7 @@
             <li>Quiz e revisão</li>
             <li>Desafios rápidos</li>
           </ul>
-          <button class="btn-primary" onclick="document.getElementById('recursos').scrollIntoView({behavior:'smooth'})">Ver recursos</button>
+          <button class="btn-primary" type="button" onclick="document.getElementById('recursos').scrollIntoView({behavior:'smooth'})">Ver recursos</button>
         </div>
 
         <div class="course-card">
@@ -562,27 +562,24 @@
             <li>Curiosidades e história</li>
             <li>Rotina de estudos</li>
           </ul>
-          <button class="btn-primary" onclick="document.getElementById('avancado').scrollIntoView({behavior:'smooth'})">Explorar</button>
+          <button class="btn-primary" type="button" onclick="document.getElementById('avancado').scrollIntoView({behavior:'smooth'})">Explorar</button>
         </div>
-
       </div>
-    </div>
+    </section>
 
-    <!-- ===== RECURSOS INTERATIVOS (MANTÉM OS LINKS DOS JOGOS) ===== -->
-    <div class="course-section" id="recursos">
+    <!-- ===== RECURSOS INTERATIVOS ===== -->
+    <section class="course-section" id="recursos">
       <h2 class="section-title"><i class="fas fa-gamepad"></i> Recursos Interativos</h2>
       <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">
         Jogos e atividades educacionais que podem ser usados tanto no EAD quanto em aulas presenciais.
       </p>
 
-      <button class="btn-primary" onclick="toggleEscapeGame()" style="margin-bottom: 30px; display: flex; align-items: center; gap: 8px;">
+      <button class="btn-primary" type="button" onclick="toggleEscapeGame()" style="margin-bottom: 30px;">
         <span id="toggle-text">Explorar Jogos Educacionais</span>
       </button>
 
       <div id="escape-game-container" style="display: none; animation: slideDown 0.5s ease;">
         <div class="course-grid">
-
-          <!-- CARD 1: Escape Game Cardiorrespiratório -->
           <div class="course-card">
             <span class="badge">Interativo</span>
             <h3>Escape Game: Cardiorrespiratório</h3>
@@ -592,10 +589,9 @@
               <li>Desafios de anatomia</li>
               <li>Aprendizagem ativa</li>
             </ul>
-            <button class="btn-primary" onclick="window.location.href='https://pinheiro767.github.io/pagina/';">Jogar Agora</button>
+            <button class="btn-primary" type="button" onclick="window.location.href='https://pinheiro767.github.io/pagina/';">Jogar Agora</button>
           </div>
 
-          <!-- CARD 2: Escape Game Sistema Digestório -->
           <div class="course-card">
             <span class="badge">10 Fases Rápidas</span>
             <h3>Escape Game: Sistema Digestório</h3>
@@ -607,12 +603,11 @@
               <li>Decodificação final</li>
             </ul>
             <a href="https://pinheiro767.github.io/Digestive/" target="_blank" rel="noopener noreferrer"
-               class="btn-primary" style="display: inline-block; text-decoration: none; text-align: center;">
+               class="btn-primary" style="text-decoration: none;">
               Jogar Agora
             </a>
           </div>
 
-          <!-- CARD 3: Escape Game Sistema Nervoso -->
           <div class="course-card">
             <span class="badge">11 Perguntas</span>
             <h3>Escape Game: Sistema Nervoso</h3>
@@ -623,30 +618,28 @@
               <li>Aprendizagem ativa</li>
               <li>Revisão rápida</li>
             </ul>
-            <button class="btn-primary" onclick="window.open('https://pinheiro767.github.io/scape_sn/', '_blank');">Jogar Agora</button>
+            <button class="btn-primary" type="button" onclick="window.open('https://pinheiro767.github.io/scape_sn/', '_blank');">Jogar Agora</button>
           </div>
-
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- ===== ESTUDOS AVANÇADOS ===== -->
-    <div class="course-section" id="avancado">
+    <section class="course-section" id="avancado">
       <h2 class="section-title"><i class="fas fa-layer-group"></i> Estudos Avançados</h2>
       <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 0;">
         Aprofundamento e temas avançados para estudantes e profissionais. Conteúdo será ampliado progressivamente (uso em diferentes contextos acadêmicos).
       </p>
-    </div>
+    </section>
 
     <!-- ===== SOBRE ===== -->
-    <div class="course-section" id="sobre">
+    <section class="course-section" id="sobre">
       <h2 class="section-title"><i class="fas fa-user-graduate"></i> Sobre a Docente</h2>
       <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 0;">
         Este site é uma plataforma educacional <b>autoral</b> com recursos reutilizáveis em diferentes disciplinas, turmas e modalidades (EAD e presencial).
       </p>
-    </div>
-
-  </div>
+    </section>
+  </main>
 
   <!-- ===== FOOTER ===== -->
   <footer id="contato">
@@ -654,30 +647,30 @@
       <div class="footer-info">
         <div class="footer-section">
           <h3>Localização</h3>
-          <p>Bloco 6 - Departamento de Ciências Morfológicas<br>
-            Universidade Estadual de Maringá<br>
+          <p>Bloco 6 - Departamento de Ciências Morfológicas<br />
+            Universidade Estadual de Maringá<br />
             Campus Central - Maringá, PR</p>
         </div>
         <div class="footer-section">
           <h3>Contato</h3>
-          <p>Email: stmello@uem.br<br>
+          <p>Email: stmello@uem.br<br />
             Fone: (44) 3011-4708</p>
         </div>
         <div class="footer-section">
           <h3>Áreas de Atuação</h3>
-          <p>Morfologia com ênfase em<br>
+          <p>Morfologia com ênfase em<br />
             Anatomia Humana e Neuroanatomia</p>
         </div>
         <div class="footer-section">
           <h3>Links Úteis</h3>
-          <a href="http://lattes.cnpq.br/" target="_blank" rel="noopener noreferrer">Currículo Lattes</a><br>
-          <a href="#" target="_blank" rel="noopener noreferrer">ResearchGate</a><br>
+          <a href="http://lattes.cnpq.br/" target="_blank" rel="noopener noreferrer">Currículo Lattes</a><br />
+          <a href="#" target="_blank" rel="noopener noreferrer">ResearchGate</a><br />
           <a href="#" target="_blank" rel="noopener noreferrer">YouTube Lab</a>
         </div>
       </div>
 
       <div class="social-links">
-        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:stmello@uem.br" title="Email"><i class="fas fa-envelope"></i></a>
         <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="#" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
@@ -685,7 +678,8 @@
 
       <div class="footer-bottom">
         <p style="max-width: 920px; margin: 0 auto 12px; line-height: 1.6;">
-          Plataforma educacional <b>autoral</b> e de <b>uso complementar</b>. Quando aplicável, o ambiente oficial de conteúdos, comunicados e atividades avaliativas permanece no <b>AVA institucional</b>.
+          Plataforma educacional <b>autoral</b> e de <b>uso complementar</b>. Quando aplicável, o ambiente oficial de conteúdos,
+          comunicados e atividades avaliativas permanece no <b>AVA institucional</b>.
         </p>
         <p>© 2026 Profª Dra. Sônia Trannin de Mello. Todos os direitos reservados.</p>
       </div>
@@ -694,26 +688,26 @@
 
   <!-- ===== FLOATING CHATBOT ===== -->
   <div id="chatbot-widget">
-    <button id="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+    <button id="chatbot-toggle" type="button" onclick="toggleChatbot()">💬</button>
 
-    <div id="chatbot-window">
+    <div id="chatbot-window" aria-live="polite">
       <div id="chatbot-header">
         <div>
           <h3>CurisoChat</h3>
           <p>Assistente acadêmico (multi-disciplinas)</p>
         </div>
-        <button id="close-btn" onclick="toggleChatbot()">✕</button>
+        <button id="close-btn" type="button" onclick="toggleChatbot()">✕</button>
       </div>
 
       <div id="chatbot-box">
         <div class="msg bot">
-          Bem-vindo ao <b>CurisoChat</b>! 👋<br><br>
+          Bem-vindo ao <b>CurisoChat</b>! 👋<br /><br />
           Para eu te ajudar melhor, escolha primeiro sua <b>disciplina/turma</b>:
           <div class="menu-buttons">
-            <button class="menu-btn" onclick="selectTopicChat('D1')">📚 D1 — Anatomia Humana</button>
-            <button class="menu-btn" onclick="selectTopicChat('D2')">🧠 D2 — Neuroanatomia</button>
-            <button class="menu-btn" onclick="selectTopicChat('D3')">🌿 D3 — Biologia/Outros cursos</button>
-            <button class="menu-btn" onclick="selectTopicChat('D0')">🔎 D0 — Quero só recursos gerais</button>
+            <button class="menu-btn" type="button" onclick="selectTopicChat('D1')">📚 D1 — Anatomia Humana</button>
+            <button class="menu-btn" type="button" onclick="selectTopicChat('D2')">🧠 D2 — Neuroanatomia</button>
+            <button class="menu-btn" type="button" onclick="selectTopicChat('D3')">🌿 D3 — Biologia/Outros cursos</button>
+            <button class="menu-btn" type="button" onclick="selectTopicChat('D0')">🔎 D0 — Quero só recursos gerais</button>
           </div>
           <div style="margin-top:10px; font-size:0.85rem; opacity:0.85;">
             Você também pode digitar: <b>D1</b>, <b>D2</b>, <b>D3</b> ou <b>D0</b>. Para voltar ao início, digite <b>MENU</b>.
@@ -722,19 +716,14 @@
       </div>
 
       <div id="chatbot-input">
-        <input type="text" id="chatbot-user-input" placeholder="Digite D1, D2, D3, D0 ou MENU..." autocomplete="off">
-        <button onclick="sendChatbotMessage()">→</button>
+        <input type="text" id="chatbot-user-input" placeholder="Digite D1, D2, D3, D0 ou MENU..." autocomplete="off" />
+        <button type="button" onclick="sendChatbotMessage()">→</button>
       </div>
     </div>
   </div>
 
   <script>
     // ====== CURISOCHAT MULTI-DISCIPLINAS ======
-    // Fluxo:
-    // 1) usuário escolhe disciplina: D1/D2/D3/D0
-    // 2) chatbot mostra menus específicos
-    // 3) em qualquer momento: MENU (volta), DISC (troca disciplina), JOGOS (atalho), SITE (atalhos)
-
     let selectedDiscipline = null; // 'D1' | 'D2' | 'D3' | 'D0'
 
     const DISCIPLINE_LABEL = {
@@ -777,7 +766,7 @@
     function addMenuButtons(menuObj) {
       let menuHtml = '<div class="menu-buttons">';
       for (let key in menuObj) {
-        menuHtml += `<button class="menu-btn" onclick="selectTopicChat('${key}')">${menuObj[key]}</button>`;
+        menuHtml += `<button class="menu-btn" type="button" onclick="selectTopicChat('${key}')">${menuObj[key]}</button>`;
       }
       menuHtml += '</div>';
       const msgDiv = document.createElement('div');
@@ -807,7 +796,6 @@
       const label = DISCIPLINE_LABEL[selectedDiscipline] || "sua disciplina";
       addChatMessage(`<b>${label}</b> selecionada ✅<br><br>Agora escolha o que deseja:`, 'bot');
 
-      // Menus por disciplina
       const menu = {
         "T1": "1️⃣ Como estudar (roteiro rápido)",
         "T2": "2️⃣ Conteúdos & revisões (orientações)",
@@ -817,7 +805,6 @@
         "SITE": "🔗 Abrir seção do site (Disciplinas/Recursos)"
       };
 
-      // Ajustes para D3 (biologia/outros)
       if (selectedDiscipline === "D3") {
         menu["T2"] = "2️⃣ Conteúdos & revisões (biologia/outros)";
         menu["T4"] = "4️⃣ Método científico & estudo";
@@ -826,7 +813,6 @@
       addMenuButtons(menu);
     }
 
-    // Respostas base (curtas e reutilizáveis)
     const responses = {
       T1: {
         D1: "<b>Roteiro rápido — Anatomia Humana</b><br><br>✅ 1) Leia o objetivo do tema<br>✅ 2) Use atlas/imagens para localizar estruturas<br>✅ 3) Faça revisão ativa (pergunte a si mesma/o)<br>✅ 4) Use os jogos para fixação<br><br>Se quiser, digite <b>JOGOS</b> para links.",
@@ -854,143 +840,86 @@
       }
     };
 
-    // Quiz original (mantido, mas agora entra por comando QUIZ)
     const quizTree = {
       "QUIZ": {
         text: "<b>Quiz: História da Anatomia</b> 🎯<br><br>Escolha um bloco:",
         submenu: {
-          "quiz1": "🕯️ Bloco 1: Séculos Passados",
-          "quiz2": "⚰️ Bloco 2: Cadáveres & Roubos",
-          "quiz3": "🧠 Bloco 3: Descobertas",
-          "quiz4": "🧚 Bloco 4: Contos de Fadas",
-          "quiz5": "🧬 Bloco 5: Ciência & Medo",
-          "quiz6": "🧠 Bloco 6: Curiosidades Finais"
+          "QUIZ1": "🕯️ Bloco 1: Séculos Passados",
+          "QUIZ2": "⚰️ Bloco 2: Cadáveres & Roubos",
+          "QUIZ3": "🧠 Bloco 3: Descobertas",
+          "QUIZ4": "🧚 Bloco 4: Contos de Fadas",
+          "QUIZ5": "🧬 Bloco 5: Ciência & Medo",
+          "QUIZ6": "🧠 Bloco 6: Curiosidades Finais"
         }
       },
-      "quiz1": {
-        text: "<b>🕯️ BLOCO 1 — Anatomia nos Séculos Passados</b><br><br>Escolha uma pergunta (1-8):",
-        submenu: {
-          "q1": "1️⃣ Dissecação proibida na Idade Média",
-          "q2": "2️⃣ Corpos usados no século XVII",
-          "q3": "3️⃣ Punição por dissecação ilegal",
-          "q4": "4️⃣ Por que de madrugada?",
-          "q5": "5️⃣ Desafio sem refrigeração",
-          "q6": "6️⃣ O que eram teatros anatômicos?",
-          "q7": "7️⃣ Por que mulheres não aparecem",
-          "q8": "8️⃣ Centro das emoções"
-        }
-      },
-      "quiz2": {
-        text: "<b>⚰️ BLOCO 2 — Cadáveres, Roubos & Século XVIII</b><br><br>Escolha uma pergunta (9-16):",
-        submenu: {
-          "q9": "9️⃣ Falta de cadáveres no séc. XVIII",
-          "q10": "🔟 Quem eram os 'resurrectionists'?",
-          "q11": "1️⃣1️⃣ Por que não era crime grave?",
-          "q12": "1️⃣2️⃣ Como protegiam os túmulos?",
-          "q13": "1️⃣3️⃣ O que eram 'mort safes'?",
-          "q14": "1️⃣4️⃣ Por que crianças eram visadas?",
-          "q15": "1️⃣5️⃣ Maior medo popular",
-          "q16": "1️⃣6️⃣ Corpos de hospitais & asilos"
-        }
-      },
-      "quiz3": {
-        text: "<b>🧠 BLOCO 3 — Curiosidades Reais Descobertas Tardiamente</b><br><br>Escolha uma pergunta (17-22):",
-        submenu: {
-          "q17": "1️⃣7️⃣ Por que cérebro demorou séculos?",
-          "q18": "1️⃣8️⃣ O que acreditavam sobre útero?",
-          "q19": "1️⃣9️⃣ Nervos vs Tendões",
-          "q20": "2️⃣0️⃣ Erro anatômico de 1.000 anos",
-          "q21": "2️⃣1️⃣ Quando descobriu circulação?",
-          "q22": "2️⃣2️⃣ Por que fígado era importante?"
-        }
-      },
-      "quiz4": {
-        text: "<b>🧚 BLOCO 4 — Contos de Fadas & Anatomia</b><br><br>Escolha uma pergunta (23-30):",
-        submenu: {
-          "q23": "2️⃣3️⃣ Contos violentos originais",
-          "q24": "2️⃣4️⃣ Branca de Neve & anatomia",
-          "q25": "2️⃣5️⃣ 'Sono profundo' nos contos",
-          "q26": "2️⃣6️⃣ Inspiração da Bela Adormecida",
-          "q27": "2️⃣7️⃣ Madrastas & bruxas",
-          "q28": "2️⃣8️⃣ Olhos & mãos cortadas",
-          "q29": "2️⃣9️⃣ Espelhos como símbolos",
-          "q30": "3️⃣0️⃣ O que lobo mau simboliza?"
-        }
-      },
-      "quiz5": {
-        text: "<b>🧬 BLOCO 5 — Ciência, Medo & Imaginação Popular</b><br><br>Escolha uma pergunta (31-35):",
-        submenu: {
-          "q31": "3️⃣1️⃣ Anatomistas como figuras sombrias",
-          "q32": "3️⃣2️⃣ Cheiro da dissecação",
-          "q33": "3️⃣3️⃣ Frankenstein & anatomia",
-          "q34": "3️⃣4️⃣ Costuras em monstros",
-          "q35": "3️⃣5️⃣ Corpos 'remontados'"
-        }
-      },
-      "quiz6": {
-        text: "<b>🧠 BLOCO 6 — Curiosidades Finais Impactantes</b><br><br>Escolha uma pergunta (36-40):",
-        submenu: {
-          "q36": "3️⃣6️⃣ Medo de médicos no passado",
-          "q37": "3️⃣7️⃣ O que era sangria?",
-          "q38": "3️⃣8️⃣ Dentes & ossos em amuletos",
-          "q39": "3️⃣9️⃣ O que mudou estudo de anatomia?",
-          "q40": "4️⃣0️⃣ Morte em contos infantis"
-        }
-      },
+      "QUIZ1": { text: "<b>🕯️ BLOCO 1 — Anatomia nos Séculos Passados</b><br><br>Escolha uma pergunta (1-8):", submenu: {
+        "Q1": "1️⃣ Dissecação proibida na Idade Média","Q2":"2️⃣ Corpos usados no século XVII","Q3":"3️⃣ Punição por dissecação ilegal","Q4":"4️⃣ Por que de madrugada?","Q5":"5️⃣ Desafio sem refrigeração","Q6":"6️⃣ O que eram teatros anatômicos?","Q7":"7️⃣ Por que mulheres não aparecem","Q8":"8️⃣ Centro das emoções"
+      }},
+      "QUIZ2": { text: "<b>⚰️ BLOCO 2 — Cadáveres, Roubos & Século XVIII</b><br><br>Escolha uma pergunta (9-16):", submenu: {
+        "Q9":"9️⃣ Falta de cadáveres no séc. XVIII","Q10":"🔟 Quem eram os 'resurrectionists'?","Q11":"1️⃣1️⃣ Por que não era crime grave?","Q12":"1️⃣2️⃣ Como protegiam os túmulos?","Q13":"1️⃣3️⃣ O que eram 'mort safes'?","Q14":"1️⃣4️⃣ Por que crianças eram visadas?","Q15":"1️⃣5️⃣ Maior medo popular","Q16":"1️⃣6️⃣ Corpos de hospitais & asilos"
+      }},
+      "QUIZ3": { text: "<b>🧠 BLOCO 3 — Curiosidades Reais Descobertas Tardiamente</b><br><br>Escolha uma pergunta (17-22):", submenu: {
+        "Q17":"1️⃣7️⃣ Por que cérebro demorou séculos?","Q18":"1️⃣8️⃣ O que acreditavam sobre útero?","Q19":"1️⃣9️⃣ Nervos vs Tendões","Q20":"2️⃣0️⃣ Erro anatômico de 1.000 anos","Q21":"2️⃣1️⃣ Quando descobriu circulação?","Q22":"2️⃣2️⃣ Por que fígado era importante?"
+      }},
+      "QUIZ4": { text: "<b>🧚 BLOCO 4 — Contos de Fadas & Anatomia</b><br><br>Escolha uma pergunta (23-30):", submenu: {
+        "Q23":"2️⃣3️⃣ Contos violentos originais","Q24":"2️⃣4️⃣ Branca de Neve & anatomia","Q25":"2️⃣5️⃣ 'Sono profundo' nos contos","Q26":"2️⃣6️⃣ Inspiração da Bela Adormecida","Q27":"2️⃣7️⃣ Madrastas & bruxas","Q28":"2️⃣8️⃣ Olhos & mãos cortadas","Q29":"2️⃣9️⃣ Espelhos como símbolos","Q30":"3️⃣0️⃣ O que lobo mau simboliza?"
+      }},
+      "QUIZ5": { text: "<b>🧬 BLOCO 5 — Ciência, Medo & Imaginação Popular</b><br><br>Escolha uma pergunta (31-35):", submenu: {
+        "Q31":"3️⃣1️⃣ Anatomistas como figuras sombrias","Q32":"3️⃣2️⃣ Cheiro da dissecação","Q33":"3️⃣3️⃣ Frankenstein & anatomia","Q34":"3️⃣4️⃣ Costuras em monstros","Q35":"3️⃣5️⃣ Corpos 'remontados'"
+      }},
+      "QUIZ6": { text: "<b>🧠 BLOCO 6 — Curiosidades Finais Impactantes</b><br><br>Escolha uma pergunta (36-40):", submenu: {
+        "Q36":"3️⃣6️⃣ Medo de médicos no passado","Q37":"3️⃣7️⃣ O que era sangria?","Q38":"3️⃣8️⃣ Dentes & ossos em amuletos","Q39":"3️⃣9️⃣ O que mudou estudo de anatomia?","Q40":"4️⃣0️⃣ Morte em contos infantis"
+      }},
 
-      // Respostas do quiz (as mesmas que você tinha)
-      "q1": { text: "<b>❓ Pergunta 1</b><br>Por que a dissecação de cadáveres era proibida durante a Idade Média em muitos lugares?<br><br><b>✅ Resposta:</b> Porque acreditava-se que o corpo precisava estar íntegro para a ressurreição da alma.", submenu: { "QUIZ": "🔙 Voltar ao menu do Quiz" } },
-      "q2": { text: "<b>❓ Pergunta 2</b><br>Quem eram, em geral, os corpos usados para estudo anatômico no século XVII?<br><br><b>✅ Resposta:</b> Criminosos executados, pobres sem família ou pessoas não reclamadas.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
-      "q3": { text: "<b>❓ Pergunta 3</b><br>O que acontecia se um médico fosse pego dissecando um corpo ilegalmente?<br><br><b>✅ Resposta:</b> Poderia ser preso, exilado ou até condenado à morte.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
-      "q4": { text: "<b>❓ Pergunta 4</b><br>Por que as dissecações eram feitas de madrugada?<br><br><b>✅ Resposta:</b> Para evitar denúncias da Igreja e da população.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
-      "q5": { text: "<b>❓ Pergunta 5</b><br>Qual era o maior desafio para estudar anatomia antes da refrigeração?<br><br><b>✅ Resposta:</b> A rápida decomposição dos corpos.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
-      "q6": { text: "<b>❓ Pergunta 6</b><br>O que eram os 'teatros anatômicos'?<br><br><b>✅ Resposta:</b> Locais públicos onde dissecações eram realizadas como espetáculos educativos.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
-      "q7": { text: "<b>❓ Pergunta 7</b><br>Por que mulheres quase não apareciam nos estudos anatômicos antigos?<br><br><b>✅ Resposta:</b> Por preconceito moral e religioso contra o corpo feminino.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
-      "q8": { text: "<b>❓ Pergunta 8</b><br>Qual órgão era considerado o centro das emoções na Antiguidade?<br><br><b>✅ Resposta:</b> O coração, não o cérebro.", submenu: { "quiz1": "🔙 Voltar ao Bloco 1" } },
+      "Q1": { text: "<b>❓ Pergunta 1</b><br>Por que a dissecação de cadáveres era proibida durante a Idade Média em muitos lugares?<br><br><b>✅ Resposta:</b> Porque acreditava-se que o corpo precisava estar íntegro para a ressurreição da alma.", submenu: { "QUIZ": "🔙 Voltar ao menu do Quiz" } },
+      "Q2": { text: "<b>❓ Pergunta 2</b><br>Quem eram, em geral, os corpos usados para estudo anatômico no século XVII?<br><br><b>✅ Resposta:</b> Criminosos executados, pobres sem família ou pessoas não reclamadas.", submenu: { "QUIZ1": "🔙 Voltar ao Bloco 1" } },
+      "Q3": { text: "<b>❓ Pergunta 3</b><br>O que acontecia se um médico fosse pego dissecando um corpo ilegalmente?<br><br><b>✅ Resposta:</b> Poderia ser preso, exilado ou até condenado à morte.", submenu: { "QUIZ1": "🔙 Voltar ao Bloco 1" } },
+      "Q4": { text: "<b>❓ Pergunta 4</b><br>Por que as dissecações eram feitas de madrugada?<br><br><b>✅ Resposta:</b> Para evitar denúncias da Igreja e da população.", submenu: { "QUIZ1": "🔙 Voltar ao Bloco 1" } },
+      "Q5": { text: "<b>❓ Pergunta 5</b><br>Qual era o maior desafio para estudar anatomia antes da refrigeração?<br><br><b>✅ Resposta:</b> A rápida decomposição dos corpos.", submenu: { "QUIZ1": "🔙 Voltar ao Bloco 1" } },
+      "Q6": { text: "<b>❓ Pergunta 6</b><br>O que eram os 'teatros anatômicos'?<br><br><b>✅ Resposta:</b> Locais públicos onde dissecações eram realizadas como espetáculos educativos.", submenu: { "QUIZ1": "🔙 Voltar ao Bloco 1" } },
+      "Q7": { text: "<b>❓ Pergunta 7</b><br>Por que mulheres quase não apareciam nos estudos anatômicos antigos?<br><br><b>✅ Resposta:</b> Por preconceito moral e religioso contra o corpo feminino.", submenu: { "QUIZ1": "🔙 Voltar ao Bloco 1" } },
+      "Q8": { text: "<b>❓ Pergunta 8</b><br>Qual órgão era considerado o centro das emoções na Antiguidade?<br><br><b>✅ Resposta:</b> O coração, não o cérebro.", submenu: { "QUIZ1": "🔙 Voltar ao Bloco 1" } },
 
-      "q9": { text: "<b>❓ Pergunta 9</b><br>Por que havia falta de cadáveres para estudo no século XVIII?<br><br><b>✅ Resposta:</b> O ensino médico cresceu mais rápido que a oferta legal de corpos.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
-      "q10": { text: "<b>❓ Pergunta 10</b><br>Quem eram os 'resurrectionists'?<br><br><b>✅ Resposta:</b> Ladrões de cadáveres que roubavam corpos recém-enterrados.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
-      "q11": { text: "<b>❓ Pergunta 11</b><br>Por que roubar cadáver não era visto como crime grave?<br><br><b>✅ Resposta:</b> Porque o corpo não era considerado propriedade legal.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
-      "q12": { text: "<b>❓ Pergunta 12</b><br>O que as famílias faziam para proteger túmulos?<br><br><b>✅ Resposta:</b> Usavam grades de ferro, caixões pesados ou vigias noturnos.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
-      "q13": { text: "<b>❓ Pergunta 13</b><br>O que eram os 'mort safes'?<br><br><b>✅ Resposta:</b> Estruturas metálicas para impedir o roubo de cadáveres.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
-      "q14": { text: "<b>❓ Pergunta 14</b><br>Por que cadáveres de crianças eram muito visados?<br><br><b>✅ Resposta:</b> Eram menores, mais fáceis de retirar e raramente investigados.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
-      "q15": { text: "<b>❓ Pergunta 15</b><br>Qual era o maior medo popular ligado à anatomia?<br><br><b>✅ Resposta:</b> Ser enterrado vivo ou ter o corpo roubado após a morte.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
-      "q16": { text: "<b>❓ Pergunta 16</b><br>Por que muitos corpos vinham de hospitais e asilos?<br><br><b>✅ Resposta:</b> Porque os mortos pobres não tinham familiares para reclamar o corpo.", submenu: { "quiz2": "🔙 Voltar ao Bloco 2" } },
+      "Q9":  { text: "<b>❓ Pergunta 9</b><br>Por que havia falta de cadáveres para estudo no século XVIII?<br><br><b>✅ Resposta:</b> O ensino médico cresceu mais rápido que a oferta legal de corpos.", submenu: { "QUIZ2": "🔙 Voltar ao Bloco 2" } },
+      "Q10": { text: "<b>❓ Pergunta 10</b><br>Quem eram os 'resurrectionists'?<br><br><b>✅ Resposta:</b> Ladrões de cadáveres que roubavam corpos recém-enterrados.", submenu: { "QUIZ2": "🔙 Voltar ao Bloco 2" } },
+      "Q11": { text: "<b>❓ Pergunta 11</b><br>Por que roubar cadáver não era visto como crime grave?<br><br><b>✅ Resposta:</b> Porque o corpo não era considerado propriedade legal.", submenu: { "QUIZ2": "🔙 Voltar ao Bloco 2" } },
+      "Q12": { text: "<b>❓ Pergunta 12</b><br>O que as famílias faziam para proteger túmulos?<br><br><b>✅ Resposta:</b> Usavam grades de ferro, caixões pesados ou vigias noturnos.", submenu: { "QUIZ2": "🔙 Voltar ao Bloco 2" } },
+      "Q13": { text: "<b>❓ Pergunta 13</b><br>O que eram os 'mort safes'?<br><br><b>✅ Resposta:</b> Estruturas metálicas para impedir o roubo de cadáveres.", submenu: { "QUIZ2": "🔙 Voltar ao Bloco 2" } },
+      "Q14": { text: "<b>❓ Pergunta 14</b><br>Por que cadáveres de crianças eram muito visados?<br><br><b>✅ Resposta:</b> Eram menores, mais fáceis de retirar e raramente investigados.", submenu: { "QUIZ2": "🔙 Voltar ao Bloco 2" } },
+      "Q15": { text: "<b>❓ Pergunta 15</b><br>Qual era o maior medo popular ligado à anatomia?<br><br><b>✅ Resposta:</b> Ser enterrado vivo ou ter o corpo roubado após a morte.", submenu: { "QUIZ2": "🔙 Voltar ao Bloco 2" } },
+      "Q16": { text: "<b>❓ Pergunta 16</b><br>Por que muitos corpos vinham de hospitais e asilos?<br><br><b>✅ Resposta:</b> Porque os mortos pobres não tinham familiares para reclamar o corpo.", submenu: { "QUIZ2": "🔙 Voltar ao Bloco 2" } },
 
-      "q17": { text: "<b>❓ Pergunta 17</b><br>Por que o cérebro demorou séculos para ser considerado o centro da mente?<br><br><b>✅ Resposta:</b> Porque não se via movimento ou 'vida' nele durante a dissecação.", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
-      "q18": { text: "<b>❓ Pergunta 18</b><br>O que se acreditava sobre o útero na Antiguidade?<br><br><b>✅ Resposta:</b> Que ele 'andava' pelo corpo causando doenças (útero errante).", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
-      "q19": { text: "<b>❓ Pergunta 19</b><br>Por que os nervos eram confundidos com tendões?<br><br><b>✅ Resposta:</b> Porque ambos são estruturas fibrosas e difíceis de diferenciar sem microscópio.", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
-      "q20": { text: "<b>❓ Pergunta 20</b><br>Qual erro anatômico persistiu por mais de 1.000 anos?<br><br><b>✅ Resposta:</b> Os desenhos de Galeno, baseados em animais e não em humanos.", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
-      "q21": { text: "<b>❓ Pergunta 21</b><br>Quando se descobriu que o sangue circula em circuito fechado?<br><br><b>✅ Resposta:</b> Apenas no século XVII, com William Harvey.", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
-      "q22": { text: "<b>❓ Pergunta 22</b><br>Por que o fígado era considerado o órgão mais importante?<br><br><b>✅ Resposta:</b> Acreditava-se que ele produzia o sangue e a 'força vital'.", submenu: { "quiz3": "🔙 Voltar ao Bloco 3" } },
+      "Q17": { text: "<b>❓ Pergunta 17</b><br>Por que o cérebro demorou séculos para ser considerado o centro da mente?<br><br><b>✅ Resposta:</b> Porque não se via movimento ou 'vida' nele durante a dissecação.", submenu: { "QUIZ3": "🔙 Voltar ao Bloco 3" } },
+      "Q18": { text: "<b>❓ Pergunta 18</b><br>O que se acreditava sobre o útero na Antiguidade?<br><br><b>✅ Resposta:</b> Que ele 'andava' pelo corpo causando doenças (útero errante).", submenu: { "QUIZ3": "🔙 Voltar ao Bloco 3" } },
+      "Q19": { text: "<b>❓ Pergunta 19</b><br>Por que os nervos eram confundidos com tendões?<br><br><b>✅ Resposta:</b> Porque ambos são estruturas fibrosas e difíceis de diferenciar sem microscópio.", submenu: { "QUIZ3": "🔙 Voltar ao Bloco 3" } },
+      "Q20": { text: "<b>❓ Pergunta 20</b><br>Qual erro anatômico persistiu por mais de 1.000 anos?<br><br><b>✅ Resposta:</b> Os desenhos de Galeno, baseados em animais e não em humanos.", submenu: { "QUIZ3": "🔙 Voltar ao Bloco 3" } },
+      "Q21": { text: "<b>❓ Pergunta 21</b><br>Quando se descobriu que o sangue circula em circuito fechado?<br><br><b>✅ Resposta:</b> Apenas no século XVII, com William Harvey.", submenu: { "QUIZ3": "🔙 Voltar ao Bloco 3" } },
+      "Q22": { text: "<b>❓ Pergunta 22</b><br>Por que o fígado era considerado o órgão mais importante?<br><br><b>✅ Resposta:</b> Acreditava-se que ele produzia o sangue e a 'força vital'.", submenu: { "QUIZ3": "🔙 Voltar ao Bloco 3" } },
 
-      "q23": { text: "<b>❓ Pergunta 23</b><br>Por que muitos contos de fadas são violentos nas versões originais?<br><br><b>✅ Resposta:</b> Porque refletiam doenças, mortes e mutilações reais da época.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
-      "q24": { text: "<b>❓ Pergunta 24</b><br>O que a história da Branca de Neve tem relação com anatomia?<br><br><b>✅ Resposta:</b> Com intoxicações, estados de coma e catalepsia.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
-      "q25": { text: "<b>❓ Pergunta 25</b><br>Por que o 'sono profundo' aparece tanto nos contos?<br><br><b>✅ Resposta:</b> Porque pessoas eram confundidas com mortas por falta de diagnóstico neurológico.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
-      "q26": { text: "<b>❓ Pergunta 26</b><br>Qual condição médica pode ter inspirado a Bela Adormecida?<br><br><b>✅ Resposta:</b> Catalepsia ou distúrbios neurológicos do sono.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
-      "q27": { text: "<b>❓ Pergunta 27</b><br>Por que madrastas e bruxas aparecem associadas a órgãos e poções?<br><br><b>✅ Resposta:</b> Porque mulheres curandeiras dominavam conhecimentos do corpo e ervas.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
-      "q28": { text: "<b>❓ Pergunta 28</b><br>O que simbolizam olhos arrancados ou mãos cortadas nos contos antigos?<br><br><b>✅ Resposta:</b> Medos reais de punições físicas e amputações médicas.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
-      "q29": { text: "<b>❓ Pergunta 29</b><br>Por que espelhos aparecem como símbolos recorrentes?<br><br><b>✅ Resposta:</b> Porque refletiam a obsessão com o corpo, aparência e saúde.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
-      "q30": { text: "<b>❓ Pergunta 30</b><br>O que o 'lobo mau' pode simbolizar biologicamente?<br><br><b>✅ Resposta:</b> Doenças, predadores reais ou a morte.", submenu: { "quiz4": "🔙 Voltar ao Bloco 4" } },
+      "Q23": { text: "<b>❓ Pergunta 23</b><br>Por que muitos contos de fadas são violentos nas versões originais?<br><br><b>✅ Resposta:</b> Porque refletiam doenças, mortes e mutilações reais da época.", submenu: { "QUIZ4": "🔙 Voltar ao Bloco 4" } },
+      "Q24": { text: "<b>❓ Pergunta 24</b><br>O que a história da Branca de Neve tem relação com anatomia?<br><br><b>✅ Resposta:</b> Com intoxicações, estados de coma e catalepsia.", submenu: { "QUIZ4": "🔙 Voltar ao Bloco 4" } },
+      "Q25": { text: "<b>❓ Pergunta 25</b><br>Por que o 'sono profundo' aparece tanto nos contos?<br><br><b>✅ Resposta:</b> Porque pessoas eram confundidas com mortas por falta de diagnóstico neurológico.", submenu: { "QUIZ4": "🔙 Voltar ao Bloco 4" } },
+      "Q26": { text: "<b>❓ Pergunta 26</b><br>Qual condição médica pode ter inspirado a Bela Adormecida?<br><br><b>✅ Resposta:</b> Catalepsia ou distúrbios neurológicos do sono.", submenu: { "QUIZ4": "🔙 Voltar ao Bloco 4" } },
+      "Q27": { text: "<b>❓ Pergunta 27</b><br>Por que madrastas e bruxas aparecem associadas a órgãos e poções?<br><br><b>✅ Resposta:</b> Porque mulheres curandeiras dominavam conhecimentos do corpo e ervas.", submenu: { "QUIZ4": "🔙 Voltar ao Bloco 4" } },
+      "Q28": { text: "<b>❓ Pergunta 28</b><br>O que simbolizam olhos arrancados ou mãos cortadas nos contos antigos?<br><br><b>✅ Resposta:</b> Medos reais de punições físicas e amputações médicas.", submenu: { "QUIZ4": "🔙 Voltar ao Bloco 4" } },
+      "Q29": { text: "<b>❓ Pergunta 29</b><br>Por que espelhos aparecem como símbolos recorrentes?<br><br><b>✅ Resposta:</b> Porque refletiam a obsessão com o corpo, aparência e saúde.", submenu: { "QUIZ4": "🔙 Voltar ao Bloco 4" } },
+      "Q30": { text: "<b>❓ Pergunta 30</b><br>O que o 'lobo mau' pode simbolizar biologicamente?<br><br><b>✅ Resposta:</b> Doenças, predadores reais ou a morte.", submenu: { "QUIZ4": "🔙 Voltar ao Bloco 4" } },
 
-      "q31": { text: "<b>❓ Pergunta 31</b><br>Por que anatomistas eram vistos como figuras sombrias?<br><br><b>✅ Resposta:</b> Porque lidavam com cadáveres e desafiavam crenças religiosas.", submenu: { "quiz5": "🔙 Voltar ao Bloco 5" } },
-      "q32": { text: "<b>❓ Pergunta 32</b><br>Por que o cheiro da dissecação era descrito em textos antigos?<br><br><b>✅ Resposta:</b> Porque fazia parte da experiência sensorial do aprendizado médico.", submenu: { "quiz5": "🔙 Voltar ao Bloco 5" } },
-      "q33": { text: "<b>❓ Pergunta 33</b><br>Por que Frankenstein reflete o medo da anatomia?<br><br><b>✅ Resposta:</b> Medo de manipular corpos e 'brincar de Deus'.", submenu: { "quiz5": "🔙 Voltar ao Bloco 5" } },
-      "q34": { text: "<b>❓ Pergunta 34</b><br>Por que costuras aparecem em histórias de monstros?<br><br><b>✅ Resposta:</b> Inspiradas em suturas reais feitas em cadáveres dissecados.", submenu: { "quiz5": "🔙 Voltar ao Bloco 5" } },
-      "q35": { text: "<b>❓ Pergunta 35</b><br>O que inspirou a ideia de corpos 'remontados'?<br><br><b>✅ Resposta:</b> Estudos anatômicos fragmentados e transplantes experimentais.", submenu: { "quiz5": "🔙 Voltar ao Bloco 5" } },
+      "Q31": { text: "<b>❓ Pergunta 31</b><br>Por que anatomistas eram vistos como figuras sombrias?<br><br><b>✅ Resposta:</b> Porque lidavam com cadáveres e desafiavam crenças religiosas.", submenu: { "QUIZ5": "🔙 Voltar ao Bloco 5" } },
+      "Q32": { text: "<b>❓ Pergunta 32</b><br>Por que o cheiro da dissecação era descrito em textos antigos?<br><br><b>✅ Resposta:</b> Porque fazia parte da experiência sensorial do aprendizado médico.", submenu: { "QUIZ5": "🔙 Voltar ao Bloco 5" } },
+      "Q33": { text: "<b>❓ Pergunta 33</b><br>Por que Frankenstein reflete o medo da anatomia?<br><br><b>✅ Resposta:</b> Medo de manipular corpos e 'brincar de Deus'.", submenu: { "QUIZ5": "🔙 Voltar ao Bloco 5" } },
+      "Q34": { text: "<b>❓ Pergunta 34</b><br>Por que costuras aparecem em histórias de monstros?<br><br><b>✅ Resposta:</b> Inspiradas em suturas reais feitas em cadáveres dissecados.", submenu: { "QUIZ5": "🔙 Voltar ao Bloco 5" } },
+      "Q35": { text: "<b>❓ Pergunta 35</b><br>O que inspirou a ideia de corpos 'remontados'?<br><br><b>✅ Resposta:</b> Estudos anatômicos fragmentados e transplantes experimentais.", submenu: { "QUIZ5": "🔙 Voltar ao Bloco 5" } },
 
-      "q36": { text: "<b>❓ Pergunta 36</b><br>Por que pessoas tinham medo de médicos no passado?<br><br><b>✅ Resposta:</b> Porque muitos tratamentos eram dolorosos e experimentais.", submenu: { "quiz6": "🔙 Voltar ao Bloco 6" } },
-      "q37": { text: "<b>❓ Pergunta 37</b><br>O que era a sangria e por que era tão comum?<br><br><b>✅ Resposta:</b> Retirada de sangue para 'equilibrar os humores'.", submenu: { "quiz6": "🔙 Voltar ao Bloco 6" } },
-      "q38": { text: "<b>❓ Pergunta 38</b><br>Por que dentes e ossos eram usados em amuletos?<br><br><b>✅ Resposta:</b> Acreditava-se que continham força vital.", submenu: { "quiz6": "🔙 Voltar ao Bloco 6" } },
-      "q39": { text: "<b>❓ Pergunta 39</b><br>O que mudou radicalmente o estudo da anatomia humana?<br><br><b>✅ Resposta:</b> A legalização das dissecações e o método científico.", submenu: { "quiz6": "🔙 Voltar ao Bloco 6" } },
-      "q40": { text: "<b>❓ Pergunta 40</b><br>Por que a morte era tema cotidiano nos contos infantis antigos?<br><br><b>✅ Resposta:</b> Porque a mortalidade infantil era altíssima.", submenu: { "quiz6": "🔙 Voltar ao Bloco 6" } }
+      "Q36": { text: "<b>❓ Pergunta 36</b><br>Por que pessoas tinham medo de médicos no passado?<br><br><b>✅ Resposta:</b> Porque muitos tratamentos eram dolorosos e experimentais.", submenu: { "QUIZ6": "🔙 Voltar ao Bloco 6" } },
+      "Q37": { text: "<b>❓ Pergunta 37</b><br>O que era a sangria e por que era tão comum?<br><br><b>✅ Resposta:</b> Retirada de sangue para 'equilibrar os humores'.", submenu: { "QUIZ6": "🔙 Voltar ao Bloco 6" } },
+      "Q38": { text: "<b>❓ Pergunta 38</b><br>Por que dentes e ossos eram usados em amuletos?<br><br><b>✅ Resposta:</b> Acreditava-se que continham força vital.", submenu: { "QUIZ6": "🔙 Voltar ao Bloco 6" } },
+      "Q39": { text: "<b>❓ Pergunta 39</b><br>O que mudou radicalmente o estudo da anatomia humana?<br><br><b>✅ Resposta:</b> A legalização das dissecações e o método científico.", submenu: { "QUIZ6": "🔙 Voltar ao Bloco 6" } },
+      "Q40": { text: "<b>❓ Pergunta 40</b><br>Por que a morte era tema cotidiano nos contos infantis antigos?<br><br><b>✅ Resposta:</b> Porque a mortalidade infantil era altíssima.", submenu: { "QUIZ6": "🔙 Voltar ao Bloco 6" } }
     };
 
     function normalizeInput(raw) {
-      return (raw || "")
-        .trim()
-        .replace(/\s+/g, " ")
-        .toUpperCase();
+      return (raw || "").trim().replace(/\s+/g, " ").toUpperCase();
     }
 
     function openSiteSection(sectionId) {
@@ -1010,21 +939,9 @@
     }
 
     function handleGameChoice(choice) {
-      if (choice === "1") {
-        addChatMessage(`Abrindo Cardiorrespiratório: ${quickLinks.jogos.cardio}`, 'bot');
-        window.open(quickLinks.jogos.cardio, "_blank");
-        return true;
-      }
-      if (choice === "2") {
-        addChatMessage(`Abrindo Sistema Digestório: ${quickLinks.jogos.digestive}`, 'bot');
-        window.open(quickLinks.jogos.digestive, "_blank");
-        return true;
-      }
-      if (choice === "3") {
-        addChatMessage(`Abrindo Sistema Nervoso: ${quickLinks.jogos.neuro}`, 'bot');
-        window.open(quickLinks.jogos.neuro, "_blank");
-        return true;
-      }
+      if (choice === "1") { addChatMessage(`Abrindo Cardiorrespiratório: ${quickLinks.jogos.cardio}`, 'bot'); window.open(quickLinks.jogos.cardio, "_blank"); return true; }
+      if (choice === "2") { addChatMessage(`Abrindo Sistema Digestório: ${quickLinks.jogos.digestive}`, 'bot'); window.open(quickLinks.jogos.digestive, "_blank"); return true; }
+      if (choice === "3") { addChatMessage(`Abrindo Sistema Nervoso: ${quickLinks.jogos.neuro}`, 'bot'); window.open(quickLinks.jogos.neuro, "_blank"); return true; }
       return false;
     }
 
@@ -1037,25 +954,9 @@
       document.getElementById('chatbot-user-input').value = '';
 
       setTimeout(() => {
-        // Atalhos globais
-        if (text === "MENU") {
-          selectedDiscipline = null;
-          showMainDisciplineMenu();
-          return;
-        }
-
-        if (text === "DISC") {
-          selectedDiscipline = null;
-          addChatMessage("<b>Trocar disciplina</b> ✅", "bot");
-          showMainDisciplineMenu();
-          return;
-        }
-
-        if (text === "JOGOS") {
-          renderGamesLinks();
-          return;
-        }
-
+        if (text === "MENU") { selectedDiscipline = null; showMainDisciplineMenu(); return; }
+        if (text === "DISC") { selectedDiscipline = null; addChatMessage("<b>Trocar disciplina</b> ✅", "bot"); showMainDisciplineMenu(); return; }
+        if (text === "JOGOS") { renderGamesLinks(); return; }
         if (handleGameChoice(text)) return;
 
         if (text === "SITE") {
@@ -1072,54 +973,37 @@
 
         if (text === "GO_DISC") { openSiteSection("disciplinas"); addChatMessage("Pronto! Te levei para <b>Disciplinas</b> ✅", "bot"); return; }
         if (text === "GO_REC") { openSiteSection("recursos"); addChatMessage("Pronto! Te levei para <b>Recursos Interativos</b> ✅", "bot"); return; }
-        if (text === "GO_AV") { openSiteSection("avancado"); addChatMessage("Pronto! Te levei para <b>Estudos Avançados</b> ✅", "bot"); return; }
+        if (text === "GO_AV")  { openSiteSection("avancado"); addChatMessage("Pronto! Te levei para <b>Estudos Avançados</b> ✅", "bot"); return; }
         if (text === "GO_SOB") { openSiteSection("sobre"); addChatMessage("Pronto! Te levei para <b>Sobre</b> ✅", "bot"); return; }
-        if (text === "GO_CONT") { openSiteSection("contato"); addChatMessage("Pronto! Te levei para <b>Contato</b> ✅", "bot"); return; }
+        if (text === "GO_CONT"){ openSiteSection("contato"); addChatMessage("Pronto! Te levei para <b>Contato</b> ✅", "bot"); return; }
 
-        // Seleção de disciplina
-        if (["D1","D2","D3","D0"].includes(text)) {
-          selectedDiscipline = text;
-          showDisciplineTopicsMenu();
-          return;
-        }
+        if (["D1","D2","D3","D0"].includes(text)) { selectedDiscipline = text; showDisciplineTopicsMenu(); return; }
 
-        // Se ainda não escolheu disciplina
         if (!selectedDiscipline) {
           addChatMessage("Para continuar, escolha primeiro a disciplina: <b>D1</b>, <b>D2</b>, <b>D3</b> ou <b>D0</b>.<br>Ou digite <b>MENU</b>.", "bot");
           return;
         }
 
-        // Quiz tree (comando QUIZ, quiz1, q1 etc.)
         if (quizTree[text]) {
           addChatMessage(quizTree[text].text, "bot");
           if (quizTree[text].submenu) addMenuButtons(quizTree[text].submenu);
           return;
         }
 
-        // Tópicos principais do menu por disciplina
         if (["T1","T2","T3","T4"].includes(text)) {
           const msg = (responses[text] && responses[text][selectedDiscipline]) || "Conteúdo em construção.";
           addChatMessage(msg, "bot");
-          if (text === "T3") {
-            addMenuButtons({ "QUIZ": "🎯 Abrir o Quiz (40 perguntas)", "MENU": "🔙 Voltar ao início" });
-          } else {
-            addMenuButtons({ "T5": "🎮 Gamificação & Jogos (links)", "SITE": "🔗 Abrir seção do site", "MENU": "🔙 Menu inicial" });
-          }
+          if (text === "T3") addMenuButtons({ "QUIZ": "🎯 Abrir o Quiz (40 perguntas)", "MENU": "🔙 Voltar ao início" });
+          else addMenuButtons({ "T5": "🎮 Gamificação & Jogos (links)", "SITE": "🔗 Abrir seção do site", "MENU": "🔙 Menu inicial" });
           return;
         }
 
-        // T5 (jogos) com links preservados
         if (text === "T5") {
           addChatMessage("<b>Gamificação & Jogos</b><br><br>Você pode usar os jogos em qualquer disciplina/turma. Quer abrir um agora?", "bot");
-          addMenuButtons({
-            "JOGOS": "🎮 Ver links dos jogos",
-            "GO_REC": "📍 Ir para a seção Recursos Interativos no site",
-            "MENU": "🔙 Menu inicial"
-          });
+          addMenuButtons({ "JOGOS": "🎮 Ver links dos jogos", "GO_REC": "📍 Ir para a seção Recursos Interativos no site", "MENU": "🔙 Menu inicial" });
           return;
         }
 
-        // Caso não reconheça
         addChatMessage(
           "Não entendi 😅<br><br>Digite:<br>• <b>T1</b> (como estudar)<br>• <b>T2</b> (conteúdos & revisões)<br>• <b>T3</b> (curiosidades/quiz)<br>• <b>T4</b> (pesquisa)<br>• <b>T5</b> (jogos)<br><br>Ou use <b>JOGOS</b>, <b>SITE</b>, <b>DISC</b>, <b>MENU</b>.",
           "bot"
@@ -1132,45 +1016,17 @@
     });
 
     function scrollToContact() {
-      document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
+      const el = document.getElementById('contato');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
 
     function toggleEscapeGame() {
       const container = document.getElementById('escape-game-container');
       const btn = document.getElementById('toggle-text');
       const isHidden = (container.style.display === 'none' || container.style.display === '');
-      if (isHidden) {
-        container.style.display = 'block';
-        btn.textContent = 'Ocultar Jogos Educacionais';
-      } else {
-        container.style.display = 'none';
-        btn.textContent = 'Explorar Jogos Educacionais';
-      }
+      if (isHidden) { container.style.display = 'block'; btn.textContent = 'Ocultar Jogos Educacionais'; }
+      else { container.style.display = 'none'; btn.textContent = 'Explorar Jogos Educacionais'; }
     }
   </script>
-
-  <script>
-    (function(){
-      function c(){
-        var b=a.contentDocument||a.contentWindow.document;
-        if(b){
-          var d=b.createElement('script');
-          d.innerHTML="window.__CF$cv$params={r:'9cc02e3c54279ca9',t:'MTc3MDc3NDQ3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-          b.getElementsByTagName('head')[0].appendChild(d)
-        }
-      }
-      if(document.body){
-        var a=document.createElement('iframe');
-        a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';
-        document.body.appendChild(a);
-        if('loading'!==document.readyState)c();
-        else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);
-        else{
-          var e=document.onreadystatechange||function(){};
-          document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}
-        }
-      }
-    })();
-  </script>
 </body>
-</html>
+  </html>

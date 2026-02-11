@@ -642,7 +642,7 @@
       <li><a href="#home">Início</a></li>
       <li><a href="#ead">Educação a Distância</a></li>
       <li><a href="#presencial">Educação Presencial</a></li>
-      <li><a href="#material-pos">Material Pós-Graduação</a></li>
+      <li><a href="#material-pos">Material Pós-Gradua��ão</a></li>
       <li><a href="#contato">Contato</a></li>
       <li><button class="contact-btn" onclick="scrollToContact()">Entre em Contato</button></li>
      </ul>
@@ -653,7 +653,7 @@
    <div class="hero-content">
     <h1>Profª Dra. <span>Sônia Trannin de Mello</span></h1>
     <p>Doutora em Ciências Morfológicas | Pesquisadora em Neuroplasticidade &amp; Saúde Reprodutiva</p>
-    <div class="institution"><i class="fas fa-map-marker-alt"></i> Universidade Estadual de Maringá (UEM) - Departamento de Ciências Morfológicas 
+    <div class="institution"><i class="fas fa-map-marker-alt"></i> Universidade Estadual de Maringá (UEM) - Departamento de Morfologia
     </div>
    </div>
   </section><!-- ===== CONTEUDO PRINCIPAL ===== -->
@@ -682,6 +682,16 @@
         <li>Fragmentos de código secreto</li>
         <li>Decodificação final</li>
        </ul><a href="https://pinheiro767.github.io/Digestive/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-block; text-decoration: none; text-align: center;"> Jogar Agora </a>
+      </div><!-- CARD 3: Escape Game Sistema Nervoso -->
+      <div class="course-card"><span class="badge">11 Perguntas</span>
+       <h3>Escape Game: Sistema Nervoso</h3>
+       <p>Desafio cerebral de 11 perguntas para testar seu conhecimento sobre o sistema nervoso! Responda corretamente às questões sobre anatomia neural, funções cerebrais e estruturas do sistema nervoso. Quanto melhor seu desempenho, mais você domina o tema!</p>
+       <ul class="feature-list">
+        <li>11 perguntas desafiadoras</li>
+        <li>Teste seu conhecimento neural</li>
+        <li>Feedback imediato</li>
+        <li>Análise de desempenho</li>
+       </ul><button class="btn-primary" onclick="window.open('https://pinheiro767.github.io/scape_sn/', '_blank');"> Jogar Agora </button>
       </div>
      </div>
     </div>
@@ -700,7 +710,7 @@
     <div class="footer-info">
      <div class="footer-section">
       <h3>Localização</h3>
-      <p>Bloco 6 - Departamento de Ciências Morfológicas<br>
+      <p>Bloco 6 - Departamento de Morfologia<br>
         Universidade Estadual de Maringá<br>
         Campus Central - Maringá, PR</p>
      </div>
@@ -775,11 +785,12 @@
                 }
             },
             "2": {
-                text: "<b>Histórias e Evolução</b><br><br>Descubra como anatomia evoluiu ao longo dos séculos.",
+                text: "<b>Histórias e Evolução</b><br><br>Escolha um tema:",
                 submenu: {
                     "2.1": "1️⃣ Antiguidade",
                     "2.2": "2️⃣ Renascimento",
-                    "2.3": "3️⃣ Modernidade"
+                    "2.3": "3️⃣ Modernidade",
+                    "2.4": "4️⃣ Quiz: 40 Perguntas!"
                 }
             },
             "2.1": {
@@ -791,13 +802,334 @@
             "2.2": {
                 text: "<b>Renascimento</b><br><br><b>Leonardo da Vinci:</b> 600+ desenhos anatômicos!<br><b>Vesálio:</b> Revolucionou com dissecação.",
                 submenu: {
-                    "2.2.1": "🔙 Voltar",
+                    "2.2.1": "�� Voltar",
                 }
             },
             "2.3": {
                 text: "<b>Modernidade</b><br><br><b>Harvey:</b> Provou circulação sanguínea.<br><b>Hoje:</b> RM, TC, IA transformam diagnóstico.",
                 submenu: {
                     "2.3.1": "🔙 Voltar",
+                }
+            },
+            "2.4": {
+                text: "<b>Bem-vindo ao Quiz!</b> 🎯<br><br>Vamos testar seu conhecimento sobre a história da anatomia humana com 40 perguntas incríveis!<br><br>Escolha um bloco:",
+                submenu: {
+                    "quiz1": "🕯️ Bloco 1: Séculos Passados",
+                    "quiz2": "⚰️ Bloco 2: Cadáveres & Roubos",
+                    "quiz3": "🧠 Bloco 3: Descobertas",
+                    "quiz4": "🧚 Bloco 4: Contos de Fadas",
+                    "quiz5": "🧬 Bloco 5: Ciência & Medo",
+                    "quiz6": "🧠 Bloco 6: Curiosidades Finais"
+                }
+            },
+            "quiz1": {
+                text: "<b>🕯️ BLOCO 1 — Anatomia nos Séculos Passados</b><br><br>Escolha uma pergunta (1-8):",
+                submenu: {
+                    "q1": "1️⃣ Dissecação proibida na Idade Média",
+                    "q2": "2️⃣ Corpos usados no século XVII",
+                    "q3": "3️⃣ Punição por dissecação ilegal",
+                    "q4": "4️⃣ Por que de madrugada?",
+                    "q5": "5️⃣ Desafio sem refrigeração",
+                    "q6": "6️⃣ O que eram teatros anatômicos?",
+                    "q7": "7️⃣ Por que mulheres não aparecem",
+                    "q8": "8️⃣ Centro das emoções"
+                }
+            },
+            "quiz2": {
+                text: "<b>⚰️ BLOCO 2 — Cadáveres, Roubos & Século XVIII</b><br><br>Escolha uma pergunta (9-16):",
+                submenu: {
+                    "q9": "9️⃣ Falta de cadáveres no séc. XVIII",
+                    "q10": "🔟 Quem eram os 'resurrectionists'?",
+                    "q11": "1️⃣1️⃣ Por que não era crime grave?",
+                    "q12": "1️⃣2️⃣ Como protegiam os túmulos?",
+                    "q13": "1️⃣3️⃣ O que eram 'mort safes'?",
+                    "q14": "1️⃣4️⃣ Por que crianças eram visadas?",
+                    "q15": "1️⃣5️⃣ Maior medo popular",
+                    "q16": "1️⃣6️⃣ Corpos de hospitais & asilos"
+                }
+            },
+            "quiz3": {
+                text: "<b>🧠 BLOCO 3 — Curiosidades Reais Descobertas Tardiamente</b><br><br>Escolha uma pergunta (17-22):",
+                submenu: {
+                    "q17": "1️⃣7️⃣ Por que cérebro demorou séculos?",
+                    "q18": "1️⃣8️⃣ O que acreditavam sobre útero?",
+                    "q19": "1️⃣9️⃣ Nervos vs Tendões",
+                    "q20": "2️⃣0️⃣ Erro anatômico de 1.000 anos",
+                    "q21": "2️⃣1️⃣ Quando descobriu circulação?",
+                    "q22": "2️⃣2️⃣ Por que fígado era importante?"
+                }
+            },
+            "quiz4": {
+                text: "<b>🧚 BLOCO 4 — Contos de Fadas & Anatomia</b><br><br>Escolha uma pergunta (23-30):",
+                submenu: {
+                    "q23": "2️⃣3️⃣ Contos violentos originais",
+                    "q24": "2️⃣4️⃣ Branca de Neve & anatomia",
+                    "q25": "2️⃣5️⃣ 'Sono profundo' nos contos",
+                    "q26": "2️⃣6️⃣ Inspiraç��o da Bela Adormecida",
+                    "q27": "2️⃣7️⃣ Madrastas & bruxas",
+                    "q28": "2️⃣8️⃣ Olhos & mãos cortadas",
+                    "q29": "2️⃣9️⃣ Espelhos como símbolos",
+                    "q30": "3️⃣0️⃣ O que lobo mau simboliza?"
+                }
+            },
+            "quiz5": {
+                text: "<b>🧬 BLOCO 5 — Ciência, Medo & Imaginação Popular</b><br><br>Escolha uma pergunta (31-35):",
+                submenu: {
+                    "q31": "3️⃣1️⃣ Anatomistas como figuras sombrias",
+                    "q32": "3️⃣2️⃣ Cheiro da dissecação",
+                    "q33": "3️⃣3️⃣ Frankenstein & anatomia",
+                    "q34": "3️⃣4️⃣ Costuras em monstros",
+                    "q35": "3️⃣5️⃣ Corpos 'remontados'"
+                }
+            },
+            "quiz6": {
+                text: "<b>🧠 BLOCO 6 — Curiosidades Finais Impactantes</b><br><br>Escolha uma pergunta (36-40):",
+                submenu: {
+                    "q36": "3️⃣6️⃣ Medo de médicos no passado",
+                    "q37": "3️⃣7️⃣ O que era sangria?",
+                    "q38": "3️⃣8️⃣ Dentes & ossos em amuletos",
+                    "q39": "3️⃣9️⃣ O que mudou estudo de anatomia?",
+                    "q40": "4️⃣0️⃣ Morte em contos infantis"
+                }
+            },
+            "q1": {
+                text: "<b>❓ Pergunta 1</b><br>Por que a dissecação de cadáveres era proibida durante a Idade Média em muitos lugares?<br><br><b>✅ Resposta:</b> Porque acreditava-se que o corpo precisava estar íntegro para a ressurreição da alma.",
+                submenu: {
+                    "quiz1": "🔙 Voltar ao Bloco 1"
+                }
+            },
+            "q2": {
+                text: "<b>❓ Pergunta 2</b><br>Quem eram, em geral, os corpos usados para estudo anatômico no século XVII?<br><br><b>✅ Resposta:</b> Criminosos executados, pobres sem família ou pessoas não reclamadas.",
+                submenu: {
+                    "quiz1": "🔙 Voltar ao Bloco 1"
+                }
+            },
+            "q3": {
+                text: "<b>❓ Pergunta 3</b><br>O que acontecia se um médico fosse pego dissecando um corpo ilegalmente?<br><br><b>✅ Resposta:</b> Poderia ser preso, exilado ou até condenado à morte.",
+                submenu: {
+                    "quiz1": "🔙 Voltar ao Bloco 1"
+                }
+            },
+            "q4": {
+                text: "<b>❓ Pergunta 4</b><br>Por que as dissecações eram feitas de madrugada?<br><br><b>✅ Resposta:</b> Para evitar denúncias da Igreja e da população.",
+                submenu: {
+                    "quiz1": "🔙 Voltar ao Bloco 1"
+                }
+            },
+            "q5": {
+                text: "<b>❓ Pergunta 5</b><br>Qual era o maior desafio para estudar anatomia antes da refrigeração?<br><br><b>✅ Resposta:</b> A rápida decomposição dos corpos.",
+                submenu: {
+                    "quiz1": "🔙 Voltar ao Bloco 1"
+                }
+            },
+            "q6": {
+                text: "<b>❓ Pergunta 6</b><br>O que eram os 'teatros anatômicos'?<br><br><b>✅ Resposta:</b> Locais públicos onde dissecações eram realizadas como espetáculos educativos.",
+                submenu: {
+                    "quiz1": "🔙 Voltar ao Bloco 1"
+                }
+            },
+            "q7": {
+                text: "<b>❓ Pergunta 7</b><br>Por que mulheres quase não apareciam nos estudos anatômicos antigos?<br><br><b>✅ Resposta:</b> Por preconceito moral e religioso contra o corpo feminino.",
+                submenu: {
+                    "quiz1": "🔙 Voltar ao Bloco 1"
+                }
+            },
+            "q8": {
+                text: "<b>❓ Pergunta 8</b><br>Qual órgão era considerado o centro das emoções na Antiguidade?<br><br><b>✅ Resposta:</b> O coração, não o cérebro.",
+                submenu: {
+                    "quiz1": "🔙 Voltar ao Bloco 1"
+                }
+            },
+            "q9": {
+                text: "<b>❓ Pergunta 9</b><br>Por que havia falta de cadáveres para estudo no século XVIII?<br><br><b>✅ Resposta:</b> O ensino médico cresceu mais rápido que a oferta legal de corpos.",
+                submenu: {
+                    "quiz2": "🔙 Voltar ao Bloco 2"
+                }
+            },
+            "q10": {
+                text: "<b>❓ Pergunta 10</b><br>Quem eram os 'resurrectionists'?<br><br><b>✅ Resposta:</b> Ladrões de cadáveres que roubavam corpos recém-enterrados.",
+                submenu: {
+                    "quiz2": "🔙 Voltar ao Bloco 2"
+                }
+            },
+            "q11": {
+                text: "<b>❓ Pergunta 11</b><br>Por que roubar cadáver não era visto como crime grave?<br><br><b>✅ Resposta:</b> Porque o corpo não era considerado propriedade legal.",
+                submenu: {
+                    "quiz2": "🔙 Voltar ao Bloco 2"
+                }
+            },
+            "q12": {
+                text: "<b>❓ Pergunta 12</b><br>O que as famílias faziam para proteger túmulos?<br><br><b>✅ Resposta:</b> Usavam grades de ferro, caixões pesados ou vigias noturnos.",
+                submenu: {
+                    "quiz2": "🔙 Voltar ao Bloco 2"
+                }
+            },
+            "q13": {
+                text: "<b>❓ Pergunta 13</b><br>O que eram os 'mort safes'?<br><br><b>✅ Resposta:</b> Estruturas metálicas para impedir o roubo de cadáveres.",
+                submenu: {
+                    "quiz2": "🔙 Voltar ao Bloco 2"
+                }
+            },
+            "q14": {
+                text: "<b>❓ Pergunta 14</b><br>Por que cadáveres de crianças eram muito visados?<br><br><b>✅ Resposta:</b> Eram menores, mais fáceis de retirar e raramente investigados.",
+                submenu: {
+                    "quiz2": "🔙 Voltar ao Bloco 2"
+                }
+            },
+            "q15": {
+                text: "<b>❓ Pergunta 15</b><br>Qual era o maior medo popular ligado à anatomia?<br><br><b>✅ Resposta:</b> Ser enterrado vivo ou ter o corpo roubado após a morte.",
+                submenu: {
+                    "quiz2": "🔙 Voltar ao Bloco 2"
+                }
+            },
+            "q16": {
+                text: "<b>❓ Pergunta 16</b><br>Por que muitos corpos vinham de hospitais e asilos?<br><br><b>✅ Resposta:</b> Porque os mortos pobres não tinham familiares para reclamar o corpo.",
+                submenu: {
+                    "quiz2": "🔙 Voltar ao Bloco 2"
+                }
+            },
+            "q17": {
+                text: "<b>❓ Pergunta 17</b><br>Por que o cérebro demorou séculos para ser considerado o centro da mente?<br><br><b>✅ Resposta:</b> Porque não se via movimento ou 'vida' nele durante a dissecação.",
+                submenu: {
+                    "quiz3": "🔙 Voltar ao Bloco 3"
+                }
+            },
+            "q18": {
+                text: "<b>❓ Pergunta 18</b><br>O que se acreditava sobre o útero na Antiguidade?<br><br><b>✅ Resposta:</b> Que ele 'andava' pelo corpo causando doenças (útero errante).",
+                submenu: {
+                    "quiz3": "🔙 Voltar ao Bloco 3"
+                }
+            },
+            "q19": {
+                text: "<b>❓ Pergunta 19</b><br>Por que os nervos eram confundidos com tendões?<br><br><b>✅ Resposta:</b> Porque ambos são estruturas fibrosas e difíceis de diferenciar sem microscópio.",
+                submenu: {
+                    "quiz3": "🔙 Voltar ao Bloco 3"
+                }
+            },
+            "q20": {
+                text: "<b>❓ Pergunta 20</b><br>Qual erro anatômico persistiu por mais de 1.000 anos?<br><br><b>✅ Resposta:</b> Os desenhos de Galeno, baseados em animais e não em humanos.",
+                submenu: {
+                    "quiz3": "🔙 Voltar ao Bloco 3"
+                }
+            },
+            "q21": {
+                text: "<b>❓ Pergunta 21</b><br>Quando se descobriu que o sangue circula em circuito fechado?<br><br><b>✅ Resposta:</b> Apenas no século XVII, com William Harvey.",
+                submenu: {
+                    "quiz3": "🔙 Voltar ao Bloco 3"
+                }
+            },
+            "q22": {
+                text: "<b>❓ Pergunta 22</b><br>Por que o fígado era considerado o órgão mais importante?<br><br><b>✅ Resposta:</b> Acreditava-se que ele produzia o sangue e a 'força vital'.",
+                submenu: {
+                    "quiz3": "🔙 Voltar ao Bloco 3"
+                }
+            },
+            "q23": {
+                text: "<b>❓ Pergunta 23</b><br>Por que muitos contos de fadas são violentos nas versões originais?<br><br><b>✅ Resposta:</b> Porque refletiam doenças, mortes e mutilações reais da época.",
+                submenu: {
+                    "quiz4": "🔙 Voltar ao Bloco 4"
+                }
+            },
+            "q24": {
+                text: "<b>❓ Pergunta 24</b><br>O que a história da Branca de Neve tem relação com anatomia?<br><br><b>✅ Resposta:</b> Com intoxicações, estados de coma e catalepsia.",
+                submenu: {
+                    "quiz4": "🔙 Voltar ao Bloco 4"
+                }
+            },
+            "q25": {
+                text: "<b>❓ Pergunta 25</b><br>Por que o 'sono profundo' aparece tanto nos contos?<br><br><b>✅ Resposta:</b> Porque pessoas eram confundidas com mortas por falta de diagnóstico neurológico.",
+                submenu: {
+                    "quiz4": "🔙 Voltar ao Bloco 4"
+                }
+            },
+            "q26": {
+                text: "<b>❓ Pergunta 26</b><br>Qual condição médica pode ter inspirado a Bela Adormecida?<br><br><b>✅ Resposta:</b> Catalepsia ou distúrbios neurológicos do sono.",
+                submenu: {
+                    "quiz4": "🔙 Voltar ao Bloco 4"
+                }
+            },
+            "q27": {
+                text: "<b>❓ Pergunta 27</b><br>Por que madrastas e bruxas aparecem associadas a órgãos e poções?<br><br><b>✅ Resposta:</b> Porque mulheres curandeiras dominavam conhecimentos do corpo e ervas.",
+                submenu: {
+                    "quiz4": "🔙 Voltar ao Bloco 4"
+                }
+            },
+            "q28": {
+                text: "<b>❓ Pergunta 28</b><br>O que simbolizam olhos arrancados ou mãos cortadas nos contos antigos?<br><br><b>✅ Resposta:</b> Medos reais de punições físicas e amputações médicas.",
+                submenu: {
+                    "quiz4": "🔙 Voltar ao Bloco 4"
+                }
+            },
+            "q29": {
+                text: "<b>❓ Pergunta 29</b><br>Por que espelhos aparecem como símbolos recorrentes?<br><br><b>✅ Resposta:</b> Porque refletiam a obsessão com o corpo, aparência e saúde.",
+                submenu: {
+                    "quiz4": "🔙 Voltar ao Bloco 4"
+                }
+            },
+            "q30": {
+                text: "<b>❓ Pergunta 30</b><br>O que o 'lobo mau' pode simbolizar biologicamente?<br><br><b>✅ Resposta:</b> Doenças, predadores reais ou a morte.",
+                submenu: {
+                    "quiz4": "🔙 Voltar ao Bloco 4"
+                }
+            },
+            "q31": {
+                text: "<b>❓ Pergunta 31</b><br>Por que anatomistas eram vistos como figuras sombrias?<br><br><b>✅ Resposta:</b> Porque lidavam com cadáveres e desafiavam crenças religiosas.",
+                submenu: {
+                    "quiz5": "🔙 Voltar ao Bloco 5"
+                }
+            },
+            "q32": {
+                text: "<b>❓ Pergunta 32</b><br>Por que o cheiro da dissecação era descrito em textos antigos?<br><br><b>✅ Resposta:</b> Porque fazia parte da experiência sensorial do aprendizado médico.",
+                submenu: {
+                    "quiz5": "🔙 Voltar ao Bloco 5"
+                }
+            },
+            "q33": {
+                text: "<b>❓ Pergunta 33</b><br>Por que Frankenstein reflete o medo da anatomia?<br><br><b>✅ Resposta:</b> Medo de manipular corpos e 'brincar de Deus'.",
+                submenu: {
+                    "quiz5": "🔙 Voltar ao Bloco 5"
+                }
+            },
+            "q34": {
+                text: "<b>❓ Pergunta 34</b><br>Por que costuras aparecem em histórias de monstros?<br><br><b>✅ Resposta:</b> Inspiradas em suturas reais feitas em cadáveres dissecados.",
+                submenu: {
+                    "quiz5": "🔙 Voltar ao Bloco 5"
+                }
+            },
+            "q35": {
+                text: "<b>❓ Pergunta 35</b><br>O que inspirou a ideia de corpos 'remontados'?<br><br><b>✅ Resposta:</b> Estudos anatômicos fragmentados e transplantes experimentais.",
+                submenu: {
+                    "quiz5": "🔙 Voltar ao Bloco 5"
+                }
+            },
+            "q36": {
+                text: "<b>❓ Pergunta 36</b><br>Por que pessoas tinham medo de médicos no passado?<br><br><b>✅ Resposta:</b> Porque muitos tratamentos eram dolorosos e experimentais.",
+                submenu: {
+                    "quiz6": "🔙 Voltar ao Bloco 6"
+                }
+            },
+            "q37": {
+                text: "<b>❓ Pergunta 37</b><br>O que era a sangria e por que era tão comum?<br><br><b>✅ Resposta:</b> Retirada de sangue para 'equilibrar os humores'.",
+                submenu: {
+                    "quiz6": "🔙 Voltar ao Bloco 6"
+                }
+            },
+            "q38": {
+                text: "<b>❓ Pergunta 38</b><br>Por que dentes e ossos eram usados em amuletos?<br><br><b>✅ Resposta:</b> Acreditava-se que continham força vital.",
+                submenu: {
+                    "quiz6": "🔙 Voltar ao Bloco 6"
+                }
+            },
+            "q39": {
+                text: "<b>❓ Pergunta 39</b><br>O que mudou radicalmente o estudo da anatomia humana?<br><br><b>✅ Resposta:</b> A legalização das dissecações e o método científico.",
+                submenu: {
+                    "quiz6": "🔙 Voltar ao Bloco 6"
+                }
+            },
+            "q40": {
+                text: "<b>❓ Pergunta 40</b><br>Por que a morte era tema cotidiano nos contos infantis antigos?<br><br><b>✅ Resposta:</b> Porque a mortalidade infantil era altíssima.",
+                submenu: {
+                    "quiz6": "🔙 Voltar ao Bloco 6"
                 }
             },
             "3": {
@@ -839,7 +1171,7 @@
                     "4.1": "1️⃣ Metodologias",
                     "4.2": "2️⃣ Marcos",
                     "4.3": "3️⃣ Profª Sônia",
-                    "4.4": "4️⃣ Desafios"
+                    "4.4": "4️�� Desafios"
                 }
             },
             "4.1": {
@@ -935,7 +1267,7 @@
                 response = "<b>Menu Principal</b><br><br>Escolha um tema:";
                 submenu = {
                     "1": "1️⃣ Por que Estudar?",
-                    "2": "2️⃣ Histórias",
+                    "2": "2��⃣ Histórias",
                     "3": "3️⃣ Curiosidades",
                     "4": "4️⃣ Pesquisa",
                     "5": "5️⃣ Gamificação"
@@ -996,5 +1328,5 @@
         }
     }
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cbc1ece82fe034b',t:'MTc3MDczMTg5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cc02e3c54279ca9',t:'MTc3MDc3NDQ3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
  </html>

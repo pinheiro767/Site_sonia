@@ -281,6 +281,21 @@
       box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
     }
 
+    /* ===== NOTICE SECTION ===== */
+    .notice {
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.08) 0%, rgba(157, 80, 187, 0.08) 100%);
+      border-left: 4px solid #00d2ff;
+      border-radius: 8px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #475569;
+    }
+    .notice p {
+      margin: 0;
+    }
+
     /* ===== FOOTER ===== */
     footer {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -595,7 +610,10 @@
    </section><!-- ===== RECURSOS INTERATIVOS ===== -->
    <section class="course-section" id="recursos">
     <h2 class="section-title"><i class="fas fa-gamepad"></i> Recursos Interativos</h2>
-    <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">Jogos e atividades educacionais que podem ser usados tanto no EAD quanto em aulas presenciais.</p><button class="btn-primary" type="button" onclick="toggleEscapeGame()" style="margin-bottom: 30px;"> <span id="toggle-text">Ocultar Jogos Educacionais</span> </button>
+    <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">Jogos e atividades educacionais que podem ser usados tanto no EAD quanto em aulas presenciais.</p>
+    <section class="notice">
+     <p>Os jogos têm como objetivo reforçar e consolidar o aprendizado de forma lúdica e interativa. As ilustrações utilizadas nos jogos possuem caráter didático e podem apresentar simplificações visuais para facilitar a aprendizagem. A organização visual prioriza estímulos suaves, movimento lento e ausência de contrastes bruscos, contribuindo para conforto sensorial e promovendo um ambiente mais inclusivo para diferentes perfis de estudantes.</p>
+    </section><button class="btn-primary" type="button" onclick="toggleEscapeGame()" style="margin-bottom: 30px;"> <span id="toggle-text">Ocultar Jogos Educacionais</span> </button>
     <div id="escape-game-container" style="display: block; animation: slideDown 0.5s ease;">
      <div class="course-grid">
       <div class="course-card"><span class="badge">11 Perguntas</span>
@@ -762,7 +780,7 @@
         question: "🍎 **BRANCA DE NEVE & DIGESTÃO**: Por que a maçã envenenada causou 'morte aparente'?",
         options: ["Bloqueou o esôfago", "Paralisou o sistema nervoso central", "Parou o coração", "Interrompeu respiração"],
         answer: 2,
-        fact: "❤️ AULA: Venenos cardiotóxicos atuam na MEDULA ESPINAL e no CORAÇÃO! Branca de Neve sofreu PARADA CARDÍACA reversível. Seu coração parou, mas o príncipe reativou via beijo (estímulo vagal). Anatomia: coração tem seu próprio MARCA-PASSO (nó sinoatrial)!"
+        fact: "❤️ AULA: Venenos cardiotóxicos atuam na MEDULA ESPINHAL e no CORAÇÃO! Branca de Neve sofreu PARADA CARDÍACA reversível. Seu coração parou, mas o príncipe reativou via beijo (estímulo vagal). Anatomia: coração tem seu próprio MARCA-PASSO (nó sinoatrial)!"
       },
       {
         question: "⚰️ **BRANCA DE NEVE & APARÊNCIA**: Como cadáver se mantinha 'perfeito' por 7 anos?",
@@ -1118,5 +1136,5 @@
       else { container.style.display = 'none'; btn.textContent = 'Explorar Jogos Educacionais'; }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cd49f3ff3a202d8',t:'MTc3MDk4ODgxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
- </html>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cd4c007b77ca010',t:'MTc3MDk5MDE1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

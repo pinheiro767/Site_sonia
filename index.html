@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="pt-br" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prof.ª Dra. Sônia Trannin de Mello - Anatomia Humana</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&amp;family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
   <style>
     body { box-sizing: border-box; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -281,6 +283,233 @@
       box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
     }
 
+    /* ===== VITRINE DE JOGOS IMERSIVA ===== */
+    .vitrine-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .game-card {
+      position: relative;
+      height: 520px;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      perspective: 1000px;
+    }
+
+    .game-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    }
+
+    .game-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .card-header {
+      height: 0;
+      display: none;
+    }
+
+    .card-content {
+      padding: 25px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.95) 30%, rgba(15, 23, 42, 0.99) 100%);
+      backdrop-filter: blur(10px);
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 3;
+      transition: all 0.4s ease;
+      overflow-y: auto;
+    }
+
+    .card-content::-webkit-scrollbar { width: 4px; }
+    .card-content::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 2px; }
+    .card-content::-webkit-scrollbar-thumb { background: rgba(0, 210, 255, 0.5); border-radius: 2px; }
+
+    .game-card:hover .card-content {
+      background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.98) 20%, rgba(15, 23, 42, 1) 100%);
+      height: 360px;
+    }
+
+    .card-header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      margin: 0;
+    }
+
+    .card-system {
+      font-size: 0.75rem;
+      color: #a0aec0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .card-description {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 0;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .game-card:hover .card-description {
+      max-height: 120px;
+      opacity: 1;
+      margin-bottom: 15px;
+    }
+
+    .card-stats {
+      display: flex;
+      gap: 15px;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.4s ease 0.1s;
+      flex-wrap: wrap;
+    }
+
+    .game-card:hover .card-stats {
+      max-height: 50px;
+      opacity: 1;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    .stat-icon {
+      font-size: 1rem;
+      min-width: 18px;
+    }
+
+    .btn-play {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 12px 0;
+      background: linear-gradient(135deg, #00d2ff, #9d50bb);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 5px 20px rgba(0, 210, 255, 0.3);
+    }
+
+    .btn-play:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 210, 255, 0.5);
+      background: linear-gradient(135deg, #9d50bb, #00d2ff);
+    }
+
+    .btn-play:active {
+      transform: translateY(-1px);
+    }
+
+    /* Cores Temáticas para as Headers */
+    .bg-nervoso { 
+      background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+      position: relative;
+    }
+    .bg-nervoso::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 60% 40%, rgba(168, 85, 247, 0.4), transparent);
+    }
+
+    .bg-cardio { 
+      background: linear-gradient(135deg, #991b1b 0%, #ef4444 100%);
+      position: relative;
+    }
+    .bg-cardio::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 60% 40%, rgba(239, 68, 68, 0.4), transparent);
+    }
+
+    .bg-digestivo { 
+      background: linear-gradient(135deg, #92400e 0%, #d97706 100%);
+      position: relative;
+    }
+    .bg-digestivo::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 60% 40%, rgba(217, 119, 6, 0.4), transparent);
+    }
+
+    .bg-respiratorio { 
+      background: linear-gradient(135deg, #075985 0%, #0ea5e9 100%);
+      position: relative;
+    }
+    .bg-respiratorio::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 60% 40%, rgba(14, 165, 233, 0.4), transparent);
+    }
+
     /* ===== NOTICE SECTION ===== */
     .notice {
       background: linear-gradient(135deg, rgba(0, 210, 255, 0.08) 0%, rgba(157, 80, 187, 0.08) 100%);
@@ -537,6 +766,7 @@
       .course-section { padding: 25px; }
       .course-grid { gap: 20px; }
       .course-card { padding: 20px; }
+      .vitrine-container { gap: 20px; }
     }
 
     @media (max-width: 480px) {
@@ -558,156 +788,273 @@
       #chatbot-widget { bottom: 20px; right: 20px; }
       #chatbot-toggle { width: 50px; height: 50px; font-size: 1.3rem; }
       #chatbot-window { width: 90vw; height: 70vh; max-width: 350px; max-height: 520px; bottom: 80px; }
+      .vitrine-container { grid-template-columns: 1fr; }
+      .card-title { font-size: 1.2rem; }
     }
   </style>
-  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
- </head>
- <body><!-- ===== BUBBLES BACKGROUND ===== -->
-  <div id="bubbles-container"></div><!-- ===== HEADER ===== -->
+</head>
+
+<body>
+  <!-- ===== BUBBLES BACKGROUND ===== -->
+  <div id="bubbles-container"></div>
+
+  <!-- ===== HEADER ===== -->
   <header>
-   <div class="header-content">
-    <nav>
-     <ul class="nav-links">
-      <li><a href="#home">Início</a></li>
-      <li><a href="#disciplinas">Disciplinas</a></li>
-      <li><a href="#recursos">Recursos</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#contato">Contato</a></li>
-      <li><button class="contact-btn" type="button" onclick="scrollToContact()">Entre em Contato</button></li>
-     </ul>
-    </nav>
-   </div>
-  </header><!-- ===== HERO ===== -->
+    <div class="header-content">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#disciplinas">Disciplinas</a></li>
+          <li><a href="#recursos">Recursos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><button class="contact-btn" type="button" onclick="scrollToContact()">Entre em Contato</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
   <section id="home" class="hero">
-   <div class="hero-content">
-    <h1>Prof.ª Dr.ª <span>Sônia Trannin de Mello</span></h1>
-    <p>Doutora em Ciências Morfológicas | Extensionista e Pesquisadora em Saúde Reprodutiva</p>
-    <div class="institution"><i class="fas fa-map-marker-alt"></i> Docente vinculada à Universidade Estadual de Maringá (UEM) — Departamento de Ciências Morfológicas
-    </div>
-    <div class="institution" style="margin-top: 10px; opacity: 0.85;">
-     Site educacional autoral de uso complementar ao estudo (EAD e presencial). O Moodle institucional permanece como ambiente oficial quando aplicável.
-    </div>
-   </div>
-  </section><!-- ===== CONTEUDO PRINCIPAL ===== -->
-  <main class="main-container"><!-- ===== DISCIPLINAS ===== -->
-   <section class="course-section" id="disciplinas">
-    <h2 class="section-title"><i class="fas fa-book"></i> Disciplinas</h2>
-    <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 10px;">Acesse os conteúdos e orientações de Anatomia Humana com recursos interativos para apoiar seu aprendizado.</p>
-    <p style="color: #64748b; font-size: 0.98rem; line-height: 1.8; margin-bottom: 20px;"><b>Dica:</b> No AnatoChatbot, escolha sua turma para receber menus e sugestões personalizadas.</p>
-    <div class="course-grid">
-     <div class="course-card"><span class="badge">EAD</span>
-      <h3>Anatomia Humana</h3>
-      <p>Materiais complementares, roteiros de estudo e recursos interativos para apoiar o aprendizado.</p>
-      <ul class="feature-list">
-       <li>Organização por temas</li>
-       <li>Revisões dirigidas</li>
-       <li>Integração com jogos</li>
-      </ul><button class="btn-primary" type="button" onclick="document.getElementById('recursos').scrollIntoView({behavior:'smooth'})">Ver recursos</button>
-     </div>
-    </div>
-   </section><!-- ===== RECURSOS INTERATIVOS ===== -->
-   <section class="course-section" id="recursos">
-    <h2 class="section-title"><i class="fas fa-gamepad"></i> Recursos Interativos</h2>
-    <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">Jogos e atividades educacionais que podem ser usados tanto no EAD quanto em aulas presenciais.</p>
-    <section class="notice">
-     <p>Os jogos têm como objetivo reforçar e consolidar o aprendizado de forma lúdica e interativa. As ilustrações utilizadas nos jogos possuem caráter didático e podem apresentar simplificações visuais para facilitar a aprendizagem. A organização visual prioriza estímulos suaves, movimento lento e ausência de contrastes bruscos, contribuindo para conforto sensorial e promovendo um ambiente mais inclusivo para diferentes perfis de estudantes.</p>
-    </section><button class="btn-primary" type="button" onclick="toggleEscapeGame()" style="margin-bottom: 30px;"> <span id="toggle-text">Ocultar Jogos Educacionais</span> </button>
-    <div id="escape-game-container" style="display: block; animation: slideDown 0.5s ease;">
-     <div class="course-grid">
-      <div class="course-card"><span class="badge">11 Perguntas</span>
-       <h3>Escape Game: Sistema Nervoso</h3>
-       <p>Desafio de 11 perguntas para revisar estruturas, funções e conceitos do sistema nervoso.</p>
-       <ul class="feature-list">
-        <li>11 perguntas desafiadoras</li>
-        <li>Feedback imediato</li>
-        <li>Aprendizagem ativa</li>
-        <li>Revisão rápida</li>
-       </ul><button class="btn-primary" type="button" onclick="window.open('https://pinheiro767.github.io/scape_sn/', '_blank');">Jogar Agora</button>
+    <div class="hero-content">
+      <h1>Prof.ª Dr.ª <span>Sônia Trannin de Mello</span></h1>
+      <p>Doutora em Ciências Morfológicas | Extensionista e Pesquisadora em Saúde Reprodutiva</p>
+      <div class="institution">
+        <i class="fas fa-map-marker-alt"></i>
+        Docente vinculada à Universidade Estadual de Maringá (UEM) — Departamento de Ciências Morfológicas
       </div>
-      <div class="course-card"><span class="badge">Interativo</span>
-       <h3>Escape Game: Cardiorrespiratório</h3>
-       <p>Desafio com enigmas e pistas para revisar estruturas e funções do sistema cardiorrespiratório.</p>
-       <ul class="feature-list">
-        <li>Escape room educacional</li>
-        <li>Desafios de anatomia</li>
-        <li>Aprendizagem ativa</li>
-       </ul><button class="btn-primary" type="button" onclick="window.open('https://pinheiro767.github.io/pagina/', '_blank');">Jogar Agora</button>
+      <div class="institution" style="margin-top: 10px; opacity: 0.85;">
+        Site educacional autoral de uso complementar ao estudo (EAD e presencial). O Moodle institucional permanece como ambiente oficial quando aplicável.
       </div>
-      <div class="course-card"><span class="badge">10 Fases Rápidas</span>
-       <h3>Escape Game: Sistema Digestório</h3>
-       <p>Missão com 10 fases: análise de imagens, perguntas e decodificação final.</p>
-       <ul class="feature-list">
-        <li>10 fases progressivas</li>
-        <li>Análise de imagens</li>
-        <li>Fragmentos de código secreto</li>
-        <li>Decodificação final</li>
-       </ul><button class="btn-primary" type="button" onclick="window.open('https://pinheiro767.github.io/Digestive/', '_blank');">Jogar Agora</button>
-      </div>
-     </div>
     </div>
-   </section><!-- ===== SOBRE ===== -->
-   <section class="course-section" id="sobre">
-    <h2 class="section-title"><i class="fas fa-user-graduate"></i> Sobre a Docente</h2>
-    <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 0;">Site educacional autoral de uso complementar <b>autoral</b> com recursos reutilizáveis em diferentes disciplinas, turmas e modalidades (EAD e presencial).</p>
-   </section>
-  </main><!-- ===== FOOTER ===== -->
+  </section>
+
+  <!-- ===== CONTEUDO PRINCIPAL ===== -->
+  <main class="main-container">
+    <!-- ===== DISCIPLINAS ===== -->
+    <section class="course-section" id="disciplinas">
+      <h2 class="section-title"><i class="fas fa-book"></i> Disciplinas</h2>
+      <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 10px;">
+        Acesse os conteúdos e orientações de Anatomia Humana com recursos interativos para apoiar seu aprendizado.
+      </p>
+      <p style="color: #64748b; font-size: 0.98rem; line-height: 1.8; margin-bottom: 20px;">
+        <b>Dica:</b> No AnatoChatbot, escolha sua turma para receber menus e sugestões personalizadas.
+      </p>
+
+      <div class="course-grid">
+        <div class="course-card">
+          <span class="badge">EAD</span>
+          <h3>Anatomia Humana</h3>
+          <p>Materiais complementares, roteiros de estudo e recursos interativos para apoiar o aprendizado.</p>
+          <ul class="feature-list">
+            <li>Organização por temas</li>
+            <li>Revisões dirigidas</li>
+            <li>Integração com jogos</li>
+          </ul>
+          <button class="btn-primary" type="button" onclick="document.getElementById('recursos').scrollIntoView({behavior:'smooth'})">Ver recursos</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RECURSOS INTERATIVOS ===== -->
+    <section class="course-section" id="recursos">
+      <h2 class="section-title"><i class="fas fa-gamepad"></i> Recursos Interativos</h2>
+      <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">
+        Jogos e atividades educacionais que podem ser usados tanto no EAD quanto em aulas presenciais.
+      </p>
+
+      <section class="notice">
+        <p>
+          Os jogos têm como objetivo reforçar e consolidar o aprendizado de forma lúdica e interativa.
+          As ilustrações utilizadas nos jogos possuem caráter didático e podem apresentar simplificações
+          visuais para facilitar a aprendizagem. A organização visual prioriza estímulos suaves, movimento
+          lento e ausência de contrastes bruscos, contribuindo para conforto sensorial e promovendo um
+          ambiente mais inclusivo para diferentes perfis de estudantes.
+        </p>
+      </section>
+
+      <button class="btn-primary" type="button" onclick="toggleEscapeGame()" style="margin-bottom: 30px;">
+        <span id="toggle-text">Explorar Jogos Educacionais</span>
+      </button>
+
+      <div id="escape-game-container" style="display: none; animation: slideDown 0.5s ease;">
+        <div class="vitrine-container">
+          <!-- JOGO 1: SCAPE SN -->
+          <div class="game-card bg-nervoso">
+            <div class="card-header"></div>
+            <div class="card-content">
+              <div class="card-header-text">
+                <div class="card-system">Sistema Nervoso</div>
+                <h3 class="card-title">Scape SN: Mistérios Nervosos</h3>
+              </div>
+              <p class="card-description">
+                <b>Escape Room Virtual de Neuroanatomia</b><br>
+                Percorra o Laboratório do Crime e a Sala dos Hemisférios resolvendo enigmas. Explore tronco encefálico, córtex cerebral, medula espinal e funções cognitivas como memória. Consolidar entendimento sobre divisão do sistema nervoso e localização de centros vitais.
+              </p>
+              <div class="card-stats">
+                <div class="stat"><span class="stat-icon">🎯</span> <span>Salas Temáticas</span></div>
+                <div class="stat"><span class="stat-icon">🧠</span> <span>Neuroanatomia</span></div>
+                <div class="stat"><span class="stat-icon">🔐</span> <span>Enigmas</span></div>
+              </div>
+              <a href="https://pinheiro767.github.io/scape_sn/" class="btn-play" target="_blank" rel="noopener noreferrer">🚀 Entrar no Jogo</a>
+            </div>
+          </div>
+
+          <!-- JOGO 2: DIGESTIVE -->
+          <div class="game-card bg-digestivo">
+            <div class="card-header"></div>
+            <div class="card-content">
+              <div class="card-header-text">
+                <div class="card-system">Sistema Digestório</div>
+                <h3 class="card-title">Digestive: Jornada Nutritiva</h3>
+              </div>
+              <p class="card-description">
+                <b>Simulador de Exploração Anatômica</b><br>
+                Responda questões técnicas sobre esôfago, estômago, duodeno, jejuno, íleo, pâncreas e fígado. Feedback imediato com barra de progresso. Diferencie estruturas de condução e absorção, entenda dutos biliares e pancreáticos.
+              </p>
+              <div class="card-stats">
+                <div class="stat"><span class="stat-icon">📊</span> <span>Progresso Visual</span></div>
+                <div class="stat"><span class="stat-icon">🔬</span> <span>Fisiologia</span></div>
+                <div class="stat"><span class="stat-icon">💡</span> <span>Feedback</span></div>
+              </div>
+              <a href="https://pinheiro767.github.io/Digestive/" class="btn-play" target="_blank" rel="noopener noreferrer">🚀 Entrar no Jogo</a>
+            </div>
+          </div>
+
+          <!-- JOGO 3: CARDIORRESPIRATÓRIO -->
+          <div class="game-card bg-cardio">
+            <div class="card-header"></div>
+            <div class="card-content">
+              <div class="card-header-text">
+                <div class="card-system">Cardiorrespiratório</div>
+                <h3 class="card-title">CardioResp Escape: Integração</h3>
+              </div>
+              <p class="card-description">
+                <b>Jogo Híbrido com Múltipla Escolha</b><br>
+                Colete robôs tecnológicos que fornecem dicas acadêmicas. Explore mediastino médio, valvas cardíacas e brônquio principal direito. Entenda pequena e grande circulação e como falhas em um sistema afetam o outro.
+              </p>
+              <div class="card-stats">
+                <div class="stat"><span class="stat-icon">🤖</span> <span>Coleta Robôs</span></div>
+                <div class="stat"><span class="stat-icon">❤️</span> <span>Circulação</span></div>
+                <div class="stat"><span class="stat-icon">🫁</span> <span>Integração</span></div>
+              </div>
+              <a href="https://pinheiro767.github.io/pagina/" class="btn-play" target="_blank" rel="noopener noreferrer">🚀 Entrar no Jogo</a>
+            </div>
+          </div>
+
+          <!-- JOGO 4: DESAFIO DE BIO-MAPEAMENTO RESPIRATÓRIO -->
+          <div class="game-card bg-respiratorio">
+            <div class="card-header"></div>
+            <div class="card-content">
+              <div class="card-header-text">
+                <div class="card-system">Sistema Respiratório</div>
+                <h3 class="card-title">Desafio de Bio-Mapeamento Respiratório</h3>
+              </div>
+              <p class="card-description">
+                <b>Jogo Avançado com Drag-and-Drop</b><br>
+                Identifique estruturas anatômicas em 5 fases progressivas. Explore filtração nasal, traqueia, árvore brônquica e unidade funcional dos alvéolos. Memorize terminologia oficial e visualize estruturas microscópicas.
+              </p>
+              <div class="card-stats">
+                <div class="stat"><span class="stat-icon">🎮</span> <span>5 Fases</span></div>
+                <div class="stat"><span class="stat-icon">🎯</span> <span>Drag-Drop</span></div>
+                <div class="stat"><span class="stat-icon">🏆</span> <span>Avançado</span></div>
+              </div>
+              <a href="https://pinheiro767.github.io/Respiratory-2026/" class="btn-play" target="_blank" rel="noopener noreferrer">🚀 Entrar no Jogo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SOBRE ===== -->
+    <section class="course-section" id="sobre">
+      <h2 class="section-title"><i class="fas fa-user-graduate"></i> Sobre a Docente</h2>
+      <p style="color: #64748b; font-size: 1.05rem; line-height: 1.8; margin-bottom: 0;">
+        Site educacional <b>autoral</b> com recursos reutilizáveis em diferentes disciplinas, turmas e modalidades (EAD e presencial).
+      </p>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
   <footer id="contato">
-   <div class="footer-content">
-    <div class="footer-info">
-     <div class="footer-section">
-      <h3>Localização</h3>
-      <p>Bloco H79 - Departamento de Ciências Morfológicas<br>
-        Universidade Estadual de Maringá<br>
-        Campus Central - Maringá, PR</p>
-     </div>
-     <div class="footer-section">
-      <h3>Contato</h3>
-      <p>Email: stmello@uem.br<br>
-        Fone: (44) 3011-4708</p>
-     </div>
-     <div class="footer-section">
-      <h3>Áreas de Atuação</h3>
-      <p>Morfologia com ênfase em<br>
-        Anatomia Humana</p>
-     </div>
-     <div class="footer-section">
-      <h3>Links Úteis</h3><a href="http://lattes.cnpq.br/" target="_blank" rel="noopener noreferrer">Currículo Lattes</a><br><a href="#" target="_blank" rel="noopener noreferrer">ResearchGate</a><br><a href="#" target="_blank" rel="noopener noreferrer">YouTube Lab</a>
-     </div>
-    </div>
-    <div class="social-links"><a href="mailto:stmello@uem.br" title="Email"><i class="fas fa-envelope"></i></a> <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a> <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a> <a href="#" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
-    </div>
-    <div class="footer-bottom">
-     <p style="max-width: 920px; margin: 0 auto 12px; line-height: 1.6;">Site educacional <b>autoral</b> e de <b>uso complementar</b>. Quando aplicável, o ambiente oficial de conteúdos, comunicados e atividades avaliativas permanece no <b>Moodle institucional</b>.</p>
-     <p style="font-size: 0.85rem; opacity: 0.8;">Desenvolvimento técnico do site educacional autoral: Cláudia Pinheiro</p>
-     <p>© 2026 Prof.ª Dra. Sônia Trannin de Mello. Todos os direitos reservados.</p>
-    </div>
-   </div>
-  </footer><!-- ===== FLOATING CHATBOT ===== -->
-  <div id="chatbot-widget"><button id="chatbot-toggle" type="button" onclick="toggleChatbot()">💬</button>
-   <div id="chatbot-window" aria-live="polite">
-    <div id="chatbot-header">
-     <div>
-      <h3>AnatoChatbot</h3>
-      <p>Assistente acadêmico de anatomia</p>
-     </div><button id="close-btn" type="button" onclick="toggleChatbot()">✕</button>
-    </div>
-    <div id="chatbot-box">
-     <div class="msg bot">
-      Bem-vindo ao <b>AnatoChatbot</b>! 👋<br><br>
-       Pronto para explorar Anatomia Humana? 
-      <div class="menu-buttons"><button class="menu-btn" type="button" onclick="selectTopicChat('D1')">📚 Anatomia Humana</button>
+    <div class="footer-content">
+      <div class="footer-info">
+        <div class="footer-section">
+          <h3>Localização</h3>
+          <p>Bloco H79 - Departamento de Ciências Morfológicas<br />
+            Universidade Estadual de Maringá<br />
+            Campus Central - Maringá, PR</p>
+        </div>
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <p>Email: stmello@uem.br<br />
+            Fone: (44) 3011-4708</p>
+        </div>
+        <div class="footer-section">
+          <h3>Áreas de Atuação</h3>
+          <p>Morfologia com ênfase em<br />
+            Anatomia Humana</p>
+        </div>
+        <div class="footer-section">
+          <h3>Links Úteis</h3>
+          <a href="http://lattes.cnpq.br/" target="_blank" rel="noopener noreferrer">Currículo Lattes</a><br />
+          <a href="#" target="_blank" rel="noopener noreferrer">ResearchGate</a><br />
+          <a href="#" target="_blank" rel="noopener noreferrer">YouTube Lab</a>
+        </div>
       </div>
-      <div style="margin-top:10px; font-size:0.85rem; opacity:0.85;">
-       Você também pode digitar: <b>D1</b> ou <b>MENU</b>.
+
+      <div class="social-links">
+        <a href="mailto:stmello@uem.br" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
       </div>
-     </div>
+
+      <div class="footer-bottom">
+        <p style="max-width: 920px; margin: 0 auto 12px; line-height: 1.6;">
+          Site educacional <b>autoral</b> e de <b>uso complementar</b>. Quando aplicável, o ambiente oficial de conteúdos, comunicados e atividades avaliativas permanece no <b>Moodle institucional</b>.
+        </p>
+        <p style="font-size: 0.85rem; opacity: 0.8;">
+          Desenvolvimento técnico do site educacional autoral: Cláudia Pinheiro
+        </p>
+        <p>© 2026 Prof.ª Dra. Sônia Trannin de Mello. Todos os direitos reservados.</p>
+      </div>
     </div>
-    <div id="chatbot-input"><input type="text" id="chatbot-user-input" placeholder="Digite D1 ou MENU..." autocomplete="off"> <button type="button" onclick="sendChatbotMessage()">→</button>
+  </footer>
+
+  <!-- ===== FLOATING CHATBOT ===== -->
+  <div id="chatbot-widget">
+    <button id="chatbot-toggle" type="button" onclick="toggleChatbot()">💬</button>
+
+    <div id="chatbot-window" aria-live="polite">
+      <div id="chatbot-header">
+        <div>
+          <h3>AnatoChatbot</h3>
+          <p>Assistente acadêmico de anatomia</p>
+        </div>
+        <button id="close-btn" type="button" onclick="toggleChatbot()">✕</button>
+      </div>
+
+      <div id="chatbot-box">
+        <div class="msg bot">
+          Bem-vindo ao <b>AnatoChatbot</b>! 👋<br /><br />
+          Pronto para explorar Anatomia Humana?
+          <div class="menu-buttons">
+            <button class="menu-btn" type="button" onclick="selectTopicChat('D1')">📚 Anatomia Humana</button>
+          </div>
+          <div style="margin-top:10px; font-size:0.85rem; opacity:0.85;">
+            Você também pode digitar: <b>D1</b> ou <b>MENU</b>.
+          </div>
+        </div>
+      </div>
+
+      <div id="chatbot-input">
+        <input type="text" id="chatbot-user-input" placeholder="Digite D1 ou MENU..." autocomplete="off" />
+        <button type="button" onclick="sendChatbotMessage()">→</button>
+      </div>
     </div>
-   </div>
   </div>
+
   <script>
     // Create floating bubbles
     function createBubbles() {
@@ -770,8 +1117,8 @@
     const quickLinks = {
       jogos: {
         cardio: "https://pinheiro767.github.io/pagina/",
-        digestive: "https://pinheiro767.github.io/Digestive/",
-        neuro: "https://pinheiro767.github.io/scape_sn/"
+        neuro: "https://pinheiro767.github.io/scape_sn/",
+        digestive: "https://pinheiro767.github.io/Digestive/"
       }
     };
 
@@ -789,7 +1136,7 @@
         fact: "❄️ AULA: Cadáveres congelados (como Ötzi, 5.300 anos!) são PERFEITAMENTE preservados. O frio paralisa bactérias. Floresta fria + vidro hermético = múmia natural! Anatomia: decomposição depende de TEMPERATURA e UMIDADE."
       },
       {
-        question: "👑 **A BRUXA DO ESPELHO & VAIDADE**: Qual órgão controla autoimagem obsessiva?",
+        question: "👸 **A BRUXA DO ESPELHO & VAIDADE**: Qual órgão controla autoimagem obsessiva?",
         options: ["Coração", "Cérebro (lobo frontal)", "Pâncreas", "Fígado"],
         answer: 1,
         fact: "🧠 AULA: LOBO FRONTAL (córtex pré-frontal) controla AUTOESTIMA e NARCISISMO. Bruxa tinha dano neuropsicológico! Espelho = realimentação visual para CÓRTEX VISUAL (occipital). Compulsão = TRANSTORNO OBSESSIVO!"
@@ -799,102 +1146,6 @@
         options: ["Nervo óptico", "Nervo mediano", "Nervo tibial", "Nervo ciático"],
         answer: 3,
         fact: "🦶 AULA: NERVO CIÁTICO passa pela panturrilha e pé! Sapatos apertados causam COMPRESSÃO → neuropatia periférica. Sintomas: queimação, formigamento, paralisia parcial. Anatomia: nervo comprimido = isquemia de fibras nervosas."
-      },
-      {
-        question: "💔 **BELA E A FERA & MALDIÇÃO**: Qual órgão se torna 'pedra' na maldição?",
-        options: ["Osso do coração", "Coração (miocárdio)", "Rim", "Fígado"],
-        answer: 1,
-        fact: "❤️ AULA: CARDIOMIOPATIA = coração enrijece com FIBROSE MIOCÁRDICA! Colágeno substitui músculo cardíaco → insuficiência cardíaca. Bela resgatou com AMOR = vasodilatação, fluxo restaurado!"
-      },
-      {
-        question: "🌹 **BELA & ROSA MÁGICA & ÓRGÃOS**: A rosa representa qual sistema?",
-        options: ["Circulatório (pétalas = vasos)", "Esquelético", "Digestório", "Respiratório"],
-        answer: 0,
-        fact: "🌹 AULA: Rosa VERMELHA = sangue/vida! Pétalas caem = leucócitos diminuem. Espinha = colágeno perfurando. Raiz = coração (fonte de vida). Rosa é o SISTEMA CIRCULATÓRIO!"
-      },
-      {
-        question: "💉 **BRIAR ROSE & ESPINHA & NERVO**: Qual nervo foi lesionado?",
-        options: ["Mediano", "Radial", "Ulnar", "Branquial"],
-        answer: 0,
-        fact: "🖐️ AULA: Espinha de fuso → perfuração de NERVO MEDIANO (mão)! Briar Rose caiu em COMA = dano neurológico. Anatomia: nervo mediano controla REFLEXOS e SENSIBILIDADE!"
-      },
-      {
-        question: "🦁 **LEÃO & ANATOMIA FELINA**: Qual é maior diferença muscular felino vs humano?",
-        options: ["Músculos das patas", "Cérebro menor", "Sem diafragma", "Costelas diferentes"],
-        answer: 0,
-        fact: "🦁 AULA: Felinos têm musculatura de MEMBROS ANTERIORES 3x mais forte! Músculos TIPO II (fibras rápidas) predominam. Humanos têm BÍPEDE (glúteos gigantes). Evolução diferencia distribuição muscular!"
-      },
-      {
-        question: "👹 **MONSTRO & TRANSFORMAÇÃO**: Qual hormônio causa transformação corporal?",
-        options: ["Insulina", "Testosterona/Estrogênio", "Adrenalina", "Tiroxina"],
-        answer: 1,
-        fact: "🧬 AULA: Hormônios sexuais determinam MUSCULATURA e ESTRUTURA ÓSSEA! Monstro = hiperprodução de testosterona + hipertrofia muscular. Anatomia: glândulas endócrinas controlam FENÓTIPO!"
-      },
-      {
-        question: "🪞 **MAGIA & REFLEXO**: Como espelho reflete luz no olho humano?",
-        options: ["Retina absorve", "Córnea refrata + cristalino foca", "Humor vítreo espelha", "Mácula brilha"],
-        answer: 1,
-        fact: "👁️ AULA: CÓRNEA (curvada) + CRISTALINO (focagem) = refração de luz. Retina captura imagem invertida. Olho é uma CÂMERA BIOLÓGICA com 37 milhões de cones/bastonetes!"
-      },
-      {
-        question: "🐺 **LOBISOMEM & PELOS**: Qual músculo causa ereção de pelos?",
-        options: ["Esfíncter anal", "Arrector pili (pequeno músculo)", "Mioépitélio", "Sartório"],
-        answer: 1,
-        fact: "🐺 AULA: ARRECTOR PILI = pequeno músculo liso ligado ao folículo. Adrenalina (medo) → contração → ARREPIO! Anatomia: controle SIMPÁTICO dos pelos!"
-      },
-      {
-        question: "🍎 **ENVENENAMENTO & TOXINAS**: Qual órgão desintoxica mais rápido?",
-        options: ["Cérebro", "Fígado (hepatócitos)", "Rim", "Pâncreas"],
-        answer: 1,
-        fact: "🧬 AULA: FÍGADO = fábrica de desintoxicação! Enzimas CYP450 quebram venenos. 80% do fígado pode falhar — ainda assim sobrevive! Hepatócitos = células regeneradoras!"
-      },
-      {
-        question: "💤 **SONO MÁGICO**: Qual estrutura cerebral controla ciclo sono-vigília?",
-        options: ["Amígdala", "Hipocampo", "Hipotálamo (supraquiasmático)", "Cerebelo"],
-        answer: 2,
-        fact: "😴 AULA: HIPOTÁLAMO tem o RELÓGIO BIOLÓGICO! Núcleo supraquiasmático sincroniza circadiano. Magia = inibição dessa estrutura. Melatonina (glândula pineal) controla sono!"
-      },
-      {
-        question: "🦇 **DRÁCULA & SANGUE**: Quantas proteínas o plasma sanguíneo contém?",
-        options: ["2-3", "5-7 principais", "20-30", "100+"],
-        answer: 2,
-        fact: "🩸 AULA: Plasma tem 20+ proteínas! ALBUMINA (transporte), FIBRINOGÊNIO (coagulação), IMUNOGLOBULINAS (defesa). Sangue é 45% hemácias, 1% leucócitos, 54% plasma!"
-      },
-      {
-        question: "👻 **FANTASMA & CORPO ETÉREO**: Qual estrutura permite 'sair do corpo'?",
-        options: ["Tronco encefálico", "Coluna vertebral", "Plexo solar", "Chacra"],
-        answer: 0,
-        fact: "👁️ AULA: Experiência fora do corpo = estímulo elétrico do LOBO PARIETAL! Desconexão entre propriocepção e visão. Cérebro CRIA ilusão de outro corpo!"
-      },
-      {
-        question: "⚡ **FRANKENSTEIN & ELETRICIDADE**: Qual estrutura nervosa é ativada por choque?",
-        options: ["Dendrito passivo", "Axônio (potencial ação)", "Sinapse", "Glia"],
-        answer: 1,
-        fact: "⚡ AULA: AXÔNIO gera POTENCIAL DE AÇÃO! Corrente elétrica despolariza membrana → Na+ entra → K+ sai → impulso propagado. Eletrofisiologia = base da vida neural!"
-      },
-      {
-        question: "🪦 **MÚMIA EGÍPCIA & CONSERVAÇÃO**: Qual órgão é DEIXADO dentro na mumificação?",
-        options: ["Cérebro", "Coração", "Fígado", "Rim"],
-        answer: 1,
-        fact: "❤️ AULA: CORAÇÃO é DEIXADO (sede da alma)! Outros órgãos removidos em cânopes. Cérebro = removido via nariz com gancho! Anatomia antiga sabia do CORAÇÃO como centro!"
-      },
-      {
-        question: "🧟 **ZUMBI & MORTE CEREBRAL**: Qual parte do cérebro zumbis 'perdem'?",
-        options: ["Lobo frontal", "Tronco encefálico", "Córtex visual", "Cerebelo"],
-        answer: 0,
-        fact: "🧠 AULA: Zumbis = LOBO FRONTAL destruído! Perdem razão e planejamento. Mantêm reflexos primitivos (tronco encefálico). Razão = privilégio do lobo frontal!"
-      },
-      {
-        question: "🌙 **LICANTROPIA & OSSOS**: Durante transformação, qual densidade óssea muda?",
-        options: ["Aumenta 10%", "Diminui", "Cálcio substitui magnésio", "Estrutura inverte"],
-        answer: 0,
-        fact: "🦴 AULA: CALCITONINA + testosterona aumentam DENSIDADE ÓSSEA! Lobisomem teria ossos mais DENSOS e FORTES. 206 ossos humanos vs estrutura lobisomem diferente!"
-      },
-      {
-        question: "🧪 **ALQUIMIA MEDIEVAL & CORROSÃO**: Qual tecido resiste mais a ácidos?",
-        options: ["Pele", "Osso (matriz mineral)", "Gordura", "Músculo"],
-        answer: 1,
-        fact: "💀 AULA: OSSO = matriz mineral (fosfato de cálcio) resiste a ácidos! Alquimistas corpos em ácidos → ossos sobrevivem! Osso = 65% mineral, 35% colágeno = estrutura resistente!"
       }
     ];
 
@@ -953,7 +1204,7 @@
       T2: "<b>Conteúdos & revisões — Anatomia Humana</b><br><br>• Organização por sistemas<br>• Revise por imagens + perguntas<br>• Use o site como apoio",
       T3: "<b>Curiosidades & História MACABRA — Anatomia</b><br><br>📜 Histórias de CADÁVERES, contos de fadas + anatomia, e curiosidades bizarras!<br><br>Digite: <b>QUIZ</b> para começar!",
       T4: "<b>Pesquisa & Metodologia</b><br><br>• Método científico e ética<br>• Anatomia: dissecação, imagem, 3D, IA<br>• Aprendizagem ativa",
-      T5: "<b>Gamificação & Jogos</b><br><br>3 Escape Games disponíveis:<br>• Sistema Nervoso<br>• Sistema Cardiorrespiratório<br>• Sistema Digestório<br><br>Quer jogar?"
+      T5: "<b>Gamificação & Jogos</b><br><br>4 Escape Games disponíveis:<br>• Scape SN: Mistérios Nervosos<br>• Digestive: Jornada Nutritiva<br>• CardioResp Escape: Integração<br>• Desafio de Bio-Mapeamento Respiratório<br><br>Quer jogar?"
     };
 
     function normalizeInput(raw) {
@@ -968,17 +1219,17 @@
     function renderGamesLinks() {
       const html = `
         <b>🎮 Links dos jogos</b><br><br>
-        <a href="${quickLinks.jogos.neuro}" target="_blank" rel="noopener noreferrer"><b>1)</b> Escape Game Sistema Nervoso</a><br>
-        <a href="${quickLinks.jogos.cardio}" target="_blank" rel="noopener noreferrer"><b>2)</b> Escape Game Cardiorrespiratório</a><br>
-        <a href="${quickLinks.jogos.digestive}" target="_blank" rel="noopener noreferrer"><b>3)</b> Escape Game Sistema Digestório</a>
+        <a href="${quickLinks.jogos.neuro}" target="_blank" rel="noopener noreferrer"><b>1)</b> Scape SN: Mistérios Nervosos</a><br>
+        <a href="${quickLinks.jogos.digestive}" target="_blank" rel="noopener noreferrer"><b>2)</b> Digestive: Jornada Nutritiva</a><br>
+        <a href="${quickLinks.jogos.cardio}" target="_blank" rel="noopener noreferrer"><b>3)</b> CardioResp Escape: Integração</a><br>
       `;
       addChatMessage(html, 'bot');
     }
 
     function handleGameChoice(choice) {
-      if (choice === "1") { window.open(quickLinks.jogos.neuro, "_blank"); addChatMessage("Abrindo Sistema Nervoso! 🎮", 'bot'); return true; }
-      if (choice === "2") { window.open(quickLinks.jogos.cardio, "_blank"); addChatMessage("Abrindo Cardiorrespiratório! 🎮", 'bot'); return true; }
-      if (choice === "3") { window.open(quickLinks.jogos.digestive, "_blank"); addChatMessage("Abrindo Sistema Digestório! 🎮", 'bot'); return true; }
+      if (choice === "1") { window.open(quickLinks.jogos.neuro, "_blank"); addChatMessage("Abrindo Scape SN! 🎮", 'bot'); return true; }
+      if (choice === "2") { window.open(quickLinks.jogos.digestive, "_blank"); addChatMessage("Abrindo Digestive! 🎮", 'bot'); return true; }
+      if (choice === "3") { window.open(quickLinks.jogos.cardio, "_blank"); addChatMessage("Abrindo CardioResp! 🎮", 'bot'); return true; }
       return false;
     }
 
@@ -1109,7 +1360,7 @@
         if (["T1","T2","T3","T4","T5"].includes(text)) {
           const msg = responses[text] || "Conteúdo em construção.";
           addChatMessage(msg, "bot");
-          if (text === "T3") addMenuButtons({ "QUIZ": "🎯 Começar Quiz", "T1": "◀️ Voltar aos tópicos" });
+          if (text === "T3") addMenuButtons({ "QUIZ": "🎯 Começar Quiz", "T1": "🔙 Voltar aos tópicos" });
           else if (text === "T5") addMenuButtons({ "JOGOS": "🎮 Ver links dos jogos", "GO_REC": "📍 Ir para Recursos", "MENU": "🔙 Menu inicial" });
           else addMenuButtons({ "T5": "🎮 Gamificação & Jogos", "SITE": "🔗 Abrir seção do site", "MENU": "🔙 Menu inicial" });
           return;
@@ -1136,5 +1387,5 @@
       else { container.style.display = 'none'; btn.textContent = 'Explorar Jogos Educacionais'; }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cd4c007b77ca010',t:'MTc3MDk5MDE1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cf65e8e857b0b1b',t:'MTc3MTM0MjY4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+                 </html>

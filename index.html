@@ -292,7 +292,7 @@
 
     .game-card {
       position: relative;
-      height: 520px;
+      height: 680px;
       border-radius: 20px;
       overflow: hidden;
       cursor: pointer;
@@ -329,24 +329,28 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.95) 30%, rgba(15, 23, 42, 0.99) 100%);
+      background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.95) 15%, #0f172a 100%);
       backdrop-filter: blur(10px);
       height: 280px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       z-index: 3;
-      transition: all 0.4s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
-    .card-content::-webkit-scrollbar { width: 4px; }
-    .card-content::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 2px; }
-    .card-content::-webkit-scrollbar-thumb { background: rgba(0, 210, 255, 0.5); border-radius: 2px; }
+    .card-content::-webkit-scrollbar { width: 5px; }
+    .card-content::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
+    .card-content::-webkit-scrollbar-thumb { background: #00d2ff; border-radius: 10px; }
 
     .game-card:hover .card-content {
-      background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.98) 20%, rgba(15, 23, 42, 1) 100%);
-      height: 360px;
+      height: 100%;
+      background: #0f172a;
+    }
+
+    .card-header-text, .card-description, .card-stats {
+      margin-bottom: 15px;
     }
 
     .card-header-text {
@@ -373,18 +377,17 @@
     }
 
     .card-description {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #cbd5e1;
-      line-height: 1.6;
-      margin-bottom: 0;
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: all 0.4s ease;
+      line-height: 1.5;
+      opacity: 1;
+      max-height: none;
+      overflow: visible;
+      margin-bottom: 20px;
     }
 
     .game-card:hover .card-description {
-      max-height: 120px;
+      max-height: none;
       opacity: 1;
       margin-bottom: 15px;
     }
@@ -394,15 +397,11 @@
       gap: 15px;
       justify-content: space-between;
       margin-bottom: 15px;
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: all 0.4s ease 0.1s;
       flex-wrap: wrap;
     }
 
     .game-card:hover .card-stats {
-      max-height: 50px;
+      max-height: none;
       opacity: 1;
     }
 
@@ -439,6 +438,8 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       box-shadow: 0 5px 20px rgba(0, 210, 255, 0.3);
+      margin-top: auto;
+      flex-shrink: 0;
     }
 
     .btn-play:hover {
@@ -861,7 +862,7 @@
          <h3 class="card-title">Scape SN: Mistérios Nervosos</h3>
         </div>
         <p class="card-description"><b>Escape Room Virtual de Neuroanatomia</b><br>
-          Percorra o Laboratório do Crime e a Sala dos Hemisférios resolvendo enigmas. Explore os constituintes do sistema nervoso.</p>
+          Percorra o Laboratório do Crime e a Sala dos Hemisférios resolvendo enigmas. Explore tronco encefálico, córtex cerebral, medula espinal e funções cognitivas como memória. Consolidar entendimento sobre divisão do sistema nervoso e localização de centros vitais.</p>
         <div class="card-stats">
          <div class="stat"><span class="stat-icon">🎯</span> <span>Salas Temáticas</span>
          </div>
@@ -882,7 +883,7 @@
          <h3 class="card-title">Digestive: Jornada Nutritiva</h3>
         </div>
         <p class="card-description"><b>Simulador de Exploração Anatômica</b><br>
-          Responda questões técnicas sobre os componentes do sistema digestório. Feedback imediato com barra de progresso.</p>
+          Responda questões técnicas sobre esôfago, estômago, duodeno, jejuno, íleo, pâncreas e fígado. Feedback imediato com barra de progresso. Diferencie estruturas de condução e absorção, entenda dutos biliares e pancreáticos.</p>
         <div class="card-stats">
          <div class="stat"><span class="stat-icon">📊</span> <span>Progresso Visual</span>
          </div>
@@ -903,8 +904,8 @@
          <h3 class="card-title">CardioResp Escape: Integração</h3>
         </div>
         <p class="card-description"><b>Jogo Híbrido com Múltipla Escolha</b><br>
-          Colete robôs tecnológicos a partir de cada questão acertada. Explore os constituintes do sistema cardiorespiratório.</p>  
-         <div class="card-stats">
+          Colete robôs tecnológicos que fornecem dicas acadêmicas. Explore mediastino médio, valvas cardíacas e brônquio principal direito. Entenda pequena e grande circulação e como falhas em um sistema afetam o outro.</p>
+        <div class="card-stats">
          <div class="stat"><span class="stat-icon">🤖</span> <span>Coleta Robôs</span>
          </div>
          <div class="stat"><span class="stat-icon">❤️</span> <span>Circulação</span>
@@ -924,13 +925,13 @@
          <h3 class="card-title">Jogo Fluxo Respiratório</h3>
         </div>
         <p class="card-description"><b>Jogo Avançado com Drag-and-Drop</b><br>
-          Identifique estruturas anatômicas em 5 fases progressivas. Explore as vias aéreas com instruções de como jogar através do chatboot no rodapé do jogo .</p>
+          Desafio de fase única focado na diferenciação entre <b>vias aéreas superiores e inferiores</b>. Identifique e organize as estruturas anatômicas essenciais do trato respiratório. Dentro do ambiente de jogo, consulte o <b>chatbot integrado</b> para receber todas as instruções e guias necessários para completar o desafio.</p>
         <div class="card-stats">
-         <div class="stat"><span class="stat-icon">🎮</span> <span>5 Fases</span>
+         <div class="stat"><span class="stat-icon">🎮</span> <span>Fase Única</span>
          </div>
-         <div class="stat"><span class="stat-icon">🎯</span> <span>Drag-Drop</span>
+         <div class="stat"><span class="stat-icon">🎯</span> <span>Via Sup. vs Inf.</span>
          </div>
-         <div class="stat"><span class="stat-icon">🏆</span> <span>Avançado</span>
+         <div class="stat"><span class="stat-icon">🤖</span> <span>Instruções via Chatbot</span>
          </div>
         </div><a href="https://pinheiro767.github.io/Jogofluxorespiratorio2026/" class="btn-play" target="_blank" rel="noopener noreferrer">🚀 Entrar no Jogo</a>
        </div>
@@ -1148,7 +1149,7 @@
 
     const responses = {
       T1: "<b>Roteiro rápido — Anatomia Humana</b><br><br>✅ 1) Leia o objetivo do tema<br>✅ 2) Use atlas/imagens para localizar estruturas<br>✅ 3) Faça revisão ativa<br>✅ 4) Use jogos para fixação",
-      T2: "<b>Conteúdos & revisões — Anatomia Humana</b><br><br>• Organização por sistemas<br>• Revise por imagens + perguntas<br>• Use o site como apoio",
+      T2: "<b>Conteúdos & revisões — Anatomia Humana</b><br><br>�� Organização por sistemas<br>• Revise por imagens + perguntas<br>• Use o site como apoio",
       T3: "<b>Curiosidades & História MACABRA — Anatomia</b><br><br>📜 Histórias de CADÁVERES, contos de fadas + anatomia, e curiosidades bizarras!<br><br>Digite: <b>QUIZ</b> para começar!",
       T4: "<b>Pesquisa & Metodologia</b><br><br>• Método científico e ética<br>• Anatomia: dissecação, imagem, 3D, IA<br>• Aprendizagem ativa",
       T5: "<b>Gamificação & Jogos</b><br><br>4 Escape Games disponíveis:<br>• Scape SN: Mistérios Nervosos<br>• Digestive: Jornada Nutritiva<br>• CardioResp Escape: Integração<br>• Jogo Fluxo Respiratório<br><br>Quer jogar?"
@@ -1176,7 +1177,7 @@
     function handleGameChoice(choice) {
       if (choice === "1") { window.open(quickLinks.jogos.neuro, "_blank"); addChatMessage("Abrindo Scape SN! 🎮", 'bot'); return true; }
       if (choice === "2") { window.open(quickLinks.jogos.digestive, "_blank"); addChatMessage("Abrindo Digestive! 🎮", 'bot'); return true; }
-      if (choice === "3") { window.open(quickLinks.jogos.cardio, "_blank"); addChatMessage("Abrindo CardioResp! 🎮", 'bot'); return true; }
+      if (choice === "3") { window.open(quickLinks.jogos.cardio, "_blank"); addChatMessage("Abrindo CardioResp! ����", 'bot'); return true; }
       return false;
     }
 
@@ -1197,7 +1198,7 @@
 
       const q = quizQuestions[quizState.currentQuestion];
       const questionNum = quizState.currentQuestion + 1;
-      let msgHtml = `<b>❓ Pergunta ${questionNum}/${quizQuestions.length}</b><br><br>${q.question}<br><br>`;
+      let msgHtml = `<b>��� Pergunta ${questionNum}/${quizQuestions.length}</b><br><br>${q.question}<br><br>`;
       
       const msgDiv = document.createElement('div');
       msgDiv.className = 'msg bot';
@@ -1281,7 +1282,7 @@
           addMenuButtons({
             "GO_DISC": "📚 Ir para Disciplinas",
             "GO_REC": "🎮 Ir para Recursos Interativos",
-            "GO_SOB": "👩‍🏫 Ir para Sobre",
+            "GO_SOB": "👩������ Ir para Sobre",
             "GO_CONT": "✉️ Ir para Contato"
           });
           return;
@@ -1307,13 +1308,13 @@
         if (["T1","T2","T3","T4","T5"].includes(text)) {
           const msg = responses[text] || "Conteúdo em construção.";
           addChatMessage(msg, "bot");
-          if (text === "T3") addMenuButtons({ "QUIZ": "🎯 Começar Quiz", "T1": "🔙 Voltar aos tópicos" });
+          if (text === "T3") addMenuButtons({ "QUIZ": "�� Começar Quiz", "T1": "🔙 Voltar aos tópicos" });
           else if (text === "T5") addMenuButtons({ "JOGOS": "🎮 Ver links dos jogos", "GO_REC": "📍 Ir para Recursos", "MENU": "🔙 Menu inicial" });
           else addMenuButtons({ "T5": "🎮 Gamificação & Jogos", "SITE": "🔗 Abrir seção do site", "MENU": "🔙 Menu inicial" });
           return;
         }
 
-        addChatMessage("Não entendi 😅<br><br>Digite:<br>• <b>T1</b>, <b>T2</b>, <b>T3</b>, <b>T4</b>, <b>T5</b><br>• <b>JOGOS</b>, <b>SITE</b>, <b>MENU</b>", "bot");
+        addChatMessage("Não entendi ����<br><br>Digite:<br>• <b>T1</b>, <b>T2</b>, <b>T3</b>, <b>T4</b>, <b>T5</b><br>• <b>JOGOS</b>, <b>SITE</b>, <b>MENU</b>", "bot");
       }, 250);
     }
 
@@ -1335,5 +1336,5 @@
     }
   </script>
   <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cf65e8e857b0b1b',t:'MTc3MTM0MjY4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cfffcced50b02df',t:'MTc3MTQ0MzUzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-           </html>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d015f78e0c66ead',t:'MTc3MTQ1ODA2Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
